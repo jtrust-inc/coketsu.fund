@@ -9,10 +9,10 @@
   "scripts": {
     "capture": "powershell -ExecutionPolicy Bypass -File scripts/capture-site.ps1",
     "prepare:mirror": "node scripts/prepare-mirror.mjs",
-    "dev": "npm run build && wrangler dev",
+    "dev": "npm run build && wrangler dev --config wrangler.jsonc",
     "build": "node scripts/build.mjs",
-    "preview": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
+    "preview": "wrangler dev --config wrangler.jsonc",
+    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc",
     "test": "node scripts/verify-mirror.mjs"
   },
   "devDependencies": {
