@@ -18,7 +18,7 @@ $pageRecords = [System.Collections.Generic.List[object]]::new()
 $assetRecords = [System.Collections.Generic.List[object]]::new()
 $assetQueue = [System.Collections.Generic.Queue[Uri]]::new()
 $skipPrefixes = @('/wp-admin','/wp-login.php','/wp-json','/feed','/comments/feed')
-$guard = '<style id="backup-mirror-style">#backup-mirror-notice{position:fixed;z-index:2147483647;left:0;right:0;bottom:0;padding:10px 16px;background:#132f27;color:#fff;text-align:center;font:600 13px/1.4 system-ui,sans-serif;box-shadow:0 -2px 12px #0003}</style><div id="backup-mirror-notice" role="status">バックアップ・複製環境です。フォーム送信、会員登録、投資申込は無効です。</div><script id="backup-mirror-guard">document.addEventListener("submit",function(e){e.preventDefault();e.stopImmediatePropagation();alert("バックアップ環境のため送信できません。");},true);</script>'
+$guard = '<style id="backup-mirror-style">#backup-mirror-notice{position:fixed;z-index:2147483647;left:0;right:0;bottom:0;padding:10px 16px;background:#132f27;color:#fff;text-align:center;font:600 13px/1.4 system-ui,sans-serif;box-shadow:0 -2px 12px #0003}</style><div id="backup-mirror-notice" role="status">&#12496;&#12483;&#12463;&#12450;&#12483;&#12503;&#12539;&#35079;&#35069;&#29872;&#22659;&#12391;&#12377;&#12290;&#12501;&#12457;&#12540;&#12512;&#36865;&#20449;&#12289;&#20250;&#21729;&#30331;&#37682;&#12289;&#25237;&#36039;&#30003;&#36796;&#12399;&#28961;&#21177;&#12391;&#12377;&#12290;</div><script id="backup-mirror-guard">document.addEventListener("submit",function(e){e.preventDefault();e.stopImmediatePropagation();alert(document.getElementById("backup-mirror-notice").textContent);},true);</script>'
 
 function LocalPath([Uri]$uri, [bool]$html) {
   $path = [Uri]::UnescapeDataString($uri.AbsolutePath).TrimStart('/')

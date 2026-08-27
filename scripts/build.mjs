@@ -1,10 +1,12 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { normalizeBackupGuards } from "./guard.mjs";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const source = join(root, "migration-source", "site");
 const dist = join(root, "dist");
+await normalizeBackupGuards(source);
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
 await cp(source, dist, { recursive: true });
