@@ -1,0 +1,348 @@
+{
+    "source":  "https://coketsu.fund/",
+    "capturedAt":  "2026-08-27T06:17:42.0084096Z",
+    "pages":  [
+                  {
+                      "url":  "https://coketsu.fund/",
+                      "file":  "index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/news/",
+                      "file":  "news/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/contact/",
+                      "file":  "contact/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/institutional-step1/",
+                      "file":  "institutional-step1/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/request/",
+                      "file":  "request/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/cooling-off/",
+                      "file":  "cooling-off/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/electronic-document/",
+                      "file":  "electronic-document/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/information-system-policy/",
+                      "file":  "information-system-policy/index.html"
+                  },
+                  {
+                      "url":  "https://coketsu.fund/privacy-policy/",
+                      "file":  "privacy-policy/index.html"
+                  }
+              ],
+    "assets":  [
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_style.css",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7/includes/css/styles.css",
+                       "file":  "wp-content/plugins/contact-form-7/includes/css/styles.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7-multi-step-module/resources/cf7msm.css",
+                       "file":  "wp-content/plugins/contact-form-7-multi-step-module/resources/cf7msm.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/vendor/vektor-inc/vk-swiper/src/assets/css/swiper-bundle.min.css",
+                       "file":  "wp-content/plugins/vk-blocks/vendor/vektor-inc/vk-swiper/src/assets/css/swiper-bundle.min.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/assets/css/style.css",
+                       "file":  "wp-content/themes/lightning/_g3/assets/css/style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/design-skin/plain/css/style.css",
+                       "file":  "wp-content/themes/lightning/_g3/design-skin/plain/css/style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/coketsu-fund/assets/css/style.css",
+                       "file":  "wp-content/themes/coketsu-fund/assets/css/style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-wp-oembed-blog-card/package/css/blog-card.css",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-wp-oembed-blog-card/package/css/blog-card.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/call-to-action/package/assets/css/style.css",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/call-to-action/package/assets/css/style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/build/block-build.css",
+                       "file":  "wp-content/plugins/vk-blocks/build/block-build.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/coketsu-fund/style.css",
+                       "file":  "wp-content/themes/coketsu-fund/style.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/css/all.min.css",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/css/all.min.css"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/jquery/jquery.min.js",
+                       "file":  "wp-includes/js/jquery/jquery.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/jquery/jquery-migrate.min.js",
+                       "file":  "wp-includes/js/jquery/jquery-migrate.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/coketsu-fund/assets/faq-accordion.js",
+                       "file":  "wp-content/themes/coketsu-fund/assets/faq-accordion.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/04/cropped-favicon_coketsu-32x32.png",
+                       "file":  "wp-content/uploads/2025/04/cropped-favicon_coketsu-32x32.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/04/cropped-favicon_coketsu-192x192.png",
+                       "file":  "wp-content/uploads/2025/04/cropped-favicon_coketsu-192x192.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/04/cropped-favicon_coketsu-180x180.png",
+                       "file":  "wp-content/uploads/2025/04/cropped-favicon_coketsu-180x180.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/coketsu-fund/assets/loading.js",
+                       "file":  "wp-content/themes/coketsu-fund/assets/loading.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/04/coketsu2.png",
+                       "file":  "wp-content/uploads/2025/04/coketsu2.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/feature-1.jpg",
+                       "file":  "wp-content/uploads/2024/10/feature-1.jpg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/feature-2.jpg",
+                       "file":  "wp-content/uploads/2024/10/feature-2.jpg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/feature3ver2.png",
+                       "file":  "wp-content/uploads/2024/10/feature3ver2.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/09/no-image.png",
+                       "file":  "wp-content/uploads/2024/09/no-image.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/flow1ver2.svg",
+                       "file":  "wp-content/uploads/2024/10/flow1ver2.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/flow2ver2.svg",
+                       "file":  "wp-content/uploads/2024/10/flow2ver2.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/flow3ver2.svg",
+                       "file":  "wp-content/uploads/2024/10/flow3ver2.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/11/operation-managers.pdf",
+                       "file":  "wp-content/uploads/2024/11/operation-managers.pdf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/04/coketsu2w.png",
+                       "file":  "wp-content/uploads/2025/04/coketsu2w.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/dist/hooks.min.js",
+                       "file":  "wp-includes/js/dist/hooks.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/dist/i18n.min.js",
+                       "file":  "wp-includes/js/dist/i18n.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7/includes/swv/js/index.js",
+                       "file":  "wp-content/plugins/contact-form-7/includes/swv/js/index.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7/includes/js/index.js",
+                       "file":  "wp-content/plugins/contact-form-7/includes/js/index.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7-multi-step-module/resources/cf7msm.min.js",
+                       "file":  "wp-content/plugins/contact-form-7-multi-step-module/resources/cf7msm.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/js/all.min.js",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/js/all.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js",
+                       "file":  "wp-content/plugins/vk-blocks/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/build/vk-slider.min.js",
+                       "file":  "wp-content/plugins/vk-blocks/build/vk-slider.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/build/vk-group-scrollable.min.js",
+                       "file":  "wp-content/plugins/vk-blocks/build/vk-group-scrollable.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/assets/js/main.js",
+                       "file":  "wp-content/themes/lightning/_g3/assets/js/main.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/clipboard.min.js",
+                       "file":  "wp-includes/js/clipboard.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/assets/js/copy-button.js",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/assets/js/copy-button.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/smooth-scroll/js/smooth-scroll.min.js",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/smooth-scroll/js/smooth-scroll.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-includes/js/dist/vendor/wp-polyfill.min.js",
+                       "file":  "wp-includes/js/dist/vendor/wp-polyfill.min.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7/modules/recaptcha/index.js",
+                       "file":  "wp-content/plugins/contact-form-7/modules/recaptcha/index.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/to-top-btn-icon.svg",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/to-top-btn-icon.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.eot",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.eot"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.woff",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.woff"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.ttf",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.ttf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.svg",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/inc/sns/icons/fonts/vk_sns.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-black.svg",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-black.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-black.svg",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-black.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-white.svg",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-acc-icon-open-white.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-white.svg",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-close-white.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-btn-black.svg",
+                       "file":  "wp-content/themes/lightning/_g3/inc/vk-mobile-nav/package/images/vk-menu-btn-black.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/circle.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/circle.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave01.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave01.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave02.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave02.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave03.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave03.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave04.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/wave04.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-blocks/inc/vk-blocks/images/arrow_bottom.svg",
+                       "file":  "wp-content/plugins/vk-blocks/inc/vk-blocks/images/arrow_bottom.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/coketsu-fund/assets/faq-link.js",
+                       "file":  "wp-content/themes/coketsu-fund/assets/faq-link.js"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/12/%E3%82%AF%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%BB%E3%82%AA%E3%83%95%E9%80%9A%E7%9F%A5%E6%9B%B8-1.pdf",
+                       "file":  "wp-content/uploads/2024/12/クーリング・オフ通知書-1.pdf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/arrow_bottom.svg",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/arrow_bottom.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/ex-unit-icon.svg",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/ex-unit-icon.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/ex-unit-icon-hover.svg",
+                       "file":  "wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/ex-unit-icon-hover.svg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/kv-bg-pc_ver2-scaled.jpg",
+                       "file":  "wp-content/uploads/2024/10/kv-bg-pc_ver2-scaled.jpg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2024/10/kv-bg-sp_ver2-scaled.jpg",
+                       "file":  "wp-content/uploads/2024/10/kv-bg-sp_ver2-scaled.jpg"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/uploads/2025/05/coketsu2w_s2.png",
+                       "file":  "wp-content/uploads/2025/05/coketsu2w_s2.png"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-brands-400.woff2",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-brands-400.woff2"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-brands-400.ttf",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-brands-400.ttf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-regular-400.woff2",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-regular-400.woff2"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-regular-400.ttf",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-regular-400.ttf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-solid-900.woff2",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-solid-900.woff2"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-solid-900.ttf",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-solid-900.ttf"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-v4compatibility.woff2",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-v4compatibility.woff2"
+                   },
+                   {
+                       "url":  "https://coketsu.fund/wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-v4compatibility.ttf",
+                       "file":  "wp-content/themes/lightning/vendor/vektor-inc/font-awesome-versions/src/versions/6/webfonts/fa-v4compatibility.ttf"
+                   }
+               ]
+}
