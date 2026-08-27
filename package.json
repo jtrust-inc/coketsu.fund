@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.13.0" },
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "capture": "powershell -ExecutionPolicy Bypass -File scripts/capture-site.ps1",
     "prepare:mirror": "node scripts/prepare-mirror.mjs",
-    "dev": "wrangler pages dev dist",
+    "dev": "npm run build && wrangler dev",
     "build": "node scripts/build.mjs",
-    "preview": "wrangler pages dev dist",
+    "preview": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
     "test": "node scripts/verify-mirror.mjs"
   },
   "devDependencies": {
-    "wrangler": "4.92.0"
+    "wrangler": "^4.126.0"
   }
 }

@@ -8,4 +8,4 @@ Static, non-production backup mirror of <https://coketsu.fund/>.
 
 Forms are disabled in the captured copy. Production DNS and the live investment/login service are out of scope.
 
-Cloudflare Pages project: `coketsu-fund` (`https://coketsu-fund.pages.dev`).
+Cloudflare Worker: `coketsu-fund`. Static files are served through the Worker's asset binding; the production URL is assigned by Cloudflare on deploy.
