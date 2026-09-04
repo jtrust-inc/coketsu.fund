@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jtrust-inc/site-control-center/main/site-control.schema.json",
+  "type": "website",
+  "id": "coketsu-fund",
+  "name": "coketsu.fund",
+  "companyName": "株式会社COKETSU",
+  "productionUrl": "https://coketsu.fund/",
+  "aiValidationUrl": "https://coketsu-fund.system-f78.workers.dev/",
+  "deployProvider": "Cloudflare Workers",
+  "workerName": "coketsu-fund",
+  "framework": "Static mirror",
+  "auditEnabled": true
+}
