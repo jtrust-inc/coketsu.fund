@@ -12,7 +12,12 @@ export async function normalizeBackupGuards(root) {
       await normalizeBackupGuards(path);
     } else if (entry.name.endsWith(".html")) {
       const html = await readFile(path, "utf8");
-      const normalized = html.replace(/<style id="backup-mirror-style">[\s\S]*?<\/script>/, backupGuard);
+      const normalized = html
+        .replace(
+          /<script\b[^>]*\bid=["'](?:google-recaptcha-js|wpcf7-recaptcha-js-before|wpcf7-recaptcha-js)["'][^>]*>[\s\S]*?<\/script>\s*/gi,
+          "",
+        )
+        .replace(/<style id="backup-mirror-style">[\s\S]*?<\/script>/, backupGuard);
       if (normalized !== html) await writeFile(path, normalized, "utf8");
     }
   }

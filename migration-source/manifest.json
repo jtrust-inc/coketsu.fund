@@ -1,6 +1,6 @@
 {
     "source":  "https://coketsu.fund/",
-    "capturedAt":  "2026-08-27T06:17:42.0084096Z",
+    "capturedAt":  "2026-09-22T08:55:19.9528035Z",
     "pages":  [
                   {
                       "url":  "https://coketsu.fund/",
@@ -211,10 +211,6 @@
                    {
                        "url":  "https://coketsu.fund/wp-includes/js/dist/vendor/wp-polyfill.min.js",
                        "file":  "wp-includes/js/dist/vendor/wp-polyfill.min.js"
-                   },
-                   {
-                       "url":  "https://coketsu.fund/wp-content/plugins/contact-form-7/modules/recaptcha/index.js",
-                       "file":  "wp-content/plugins/contact-form-7/modules/recaptcha/index.js"
                    },
                    {
                        "url":  "https://coketsu.fund/wp-content/plugins/vk-all-in-one-expansion-unit/assets/images/to-top-btn-icon.svg",

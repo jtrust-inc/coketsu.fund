@@ -72,6 +72,10 @@ while ($pages.Count -gt 0 -and $seenPages.Count -lt $MaxPages) {
     $type = $response.Content.Headers.ContentType.MediaType
     if ($type -notmatch 'text/html') { QueueAsset $uri; continue }
     $html = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+    # The production reCAPTCHA site key is not valid on the Worker hostname.
+    # Forms are disabled in the mirror, so omit the integration instead of
+    # displaying a misleading domain error to visitors.
+    $html = [regex]::Replace($html, '(?is)<script\b[^>]*\bid=["''](?:google-recaptcha-js|wpcf7-recaptcha-js-before|wpcf7-recaptcha-js)["''][^>]*>.*?</script>\s*', '')
     ExtractUrls $html $uri $true
     $html = $html.Replace('https://coketsu.fund','').Replace('http://coketsu.fund','')
     $html = [regex]::Replace($html, '(?is)<form\b([^>]*)>', '<form$1 data-backup-disabled="true">')
