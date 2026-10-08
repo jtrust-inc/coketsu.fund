@@ -1,5 +1,5 @@
 {
-  "name": "coketsu-fund-backup-mirror",
+  "name": "coketsu-fund-astro",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,14 +8,20 @@
   },
   "scripts": {
     "capture": "powershell -ExecutionPolicy Bypass -File scripts/capture-site.ps1",
-    "prepare:mirror": "node scripts/prepare-mirror.mjs",
-    "dev": "npm run build && wrangler dev --config wrangler.jsonc",
-    "build": "node scripts/build.mjs",
+    "prepare:assets": "node scripts/prepare-mirror.mjs",
+    "dev": "node scripts/prepare-mirror.mjs && astro build && wrangler dev --config wrangler.jsonc",
+    "build": "node scripts/prepare-mirror.mjs && astro build",
+    "check": "astro check",
     "preview": "wrangler dev --config wrangler.jsonc",
-    "deploy": "npm run build && wrangler deploy --config wrangler.jsonc",
-    "test": "node scripts/verify-mirror.mjs"
+    "deploy": "node scripts/prepare-mirror.mjs && astro build && wrangler deploy --config wrangler.jsonc",
+    "test": "node scripts/verify-mirror.mjs",
+    "audit": "node scripts/audit-site.mjs"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/node": "^24.7.2",
+    "astro": "^5.13.5",
+    "typescript": "^5.9.2",
     "wrangler": "^4.126.0"
   }
 }

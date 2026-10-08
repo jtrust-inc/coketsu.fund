@@ -1,0 +1,42 @@
+# Coketsu fund. Astro移行記録
+
+## 確認済み
+
+- 本番URL: `https://coketsu.fund/`
+- AI検証URL: `https://coketsu-fund.system-f78.workers.dev/`
+- GitHub: `jtrust-inc/coketsu.fund` / `main`
+- Cloudflare Worker: `coketsu-fund`
+- 公開ページ: 9ページ
+- DNS: Cloudflare (`angela.ns.cloudflare.com`, `giancarlo.ns.cloudflare.com`)
+- メール: Microsoft 365 MX、SPF、Microsoftドメイン確認TXTを確認。DNS切り替え時は維持必須。
+- SSL: 2027-01-26まで有効な公開証明書を確認。
+
+## 実装方針
+
+9ページをAstroの静的ルートとして生成し、レイアウト、ヘッダー、フッター、SEOメタデータを共通コンポーネント化した。本文は視覚的整合性を保つため、最新のWordPressキャプチャからマークアップを取り込む。
+
+## 意図的な変更
+
+- AI検証URLは `noindex, nofollow`、将来の本番Astro環境は `index, follow`とする。現本番WordPressの `noindex, nofollow` はSEO上の重大な不備として是正対象。
+- canonical、OGP、Xカード、Organization/WebSite/WebPage JSON-LDをAstro側で明示管理する。
+- `robots.txt` と `sitemap.xml` をAstroから生成する。
+- 投資・会員・問い合わせフォームは、送信先と個人情報取扱いの承認が必要なため検証環境では無効化している。
+
+## ロールバック
+
+Worker `coketsu-fund` に移行前コミット `8a5ef14` を再デプロイする。今回は本番DNSを変更しないため、本番WordPressの公開には影響しない。
+
+## 未確認・残存課題
+
+- GA4プロパティとGoogle Search Console所有権はリポジトリだけでは未確認。
+- WordPress Contact Form 7の代替送信基盤は未選定。
+- microCMSは現時点で未使用。ニュース更新を運用する場合は別途設計が必要。
+
+## 検証結果
+
+- Astroビルド・型検査: 成功
+- 全公開9URL、`robots.txt`、`sitemap.xml`: AI検証URLでHTTP 200
+- 本文・title・リンク数・画像数: 最新本番キャプチャと100%整合
+- デスクトップ・モバイル表示: 実画面で主要レイアウトと画像を確認
+- 文字化け・ローカルリンク切れ・画像欠落: 検出なし
+- Cloudflare Workerバージョン: `b87f1d6e-8af5-475b-a9d8-3f75d5488c0a`

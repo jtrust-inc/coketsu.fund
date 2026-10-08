@@ -1,9 +1,6 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler"
-  },
-  "include": ["scripts/**/*.mjs"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": { "types": ["node"] },
+  "include": [".astro/types.d.ts", "src/**/*", "scripts/**/*"],
+  "exclude": ["dist", "node_modules.pnpm-backup"]
 }

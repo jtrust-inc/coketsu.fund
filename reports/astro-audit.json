@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-10-08T08:07:25.641Z",
+  "source": "latest production capture",
+  "preview": "Astro dist",
+  "pages": [
+    {
+      "url": "https://coketsu.fund/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 43,
+        "astro": 43
+      },
+      "images": {
+        "production": 10,
+        "astro": 10
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/news/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 40,
+        "astro": 40
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/contact/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 42,
+        "astro": 42
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/institutional-step1/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 41,
+        "astro": 41
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/request/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 42,
+        "astro": 42
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/cooling-off/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 41,
+        "astro": 41
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/electronic-document/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 40,
+        "astro": 40
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/information-system-policy/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 40,
+        "astro": 40
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    },
+    {
+      "url": "https://coketsu.fund/privacy-policy/",
+      "contentMatchPercent": 100,
+      "titleMatch": true,
+      "links": {
+        "production": 40,
+        "astro": 40
+      },
+      "images": {
+        "production": 2,
+        "astro": 2
+      },
+      "canonical": true,
+      "jsonLd": true
+    }
+  ],
+  "summary": {
+    "pages": 9,
+    "contentMatchPercent": 100,
+    "titleMatchPercent": 100,
+    "linksMatchPercent": 100,
+    "imagesMatchPercent": 100
+  }
+}

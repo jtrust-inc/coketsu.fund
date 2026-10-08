@@ -8,6 +8,6 @@
   "aiValidationUrl": "https://coketsu-fund.system-f78.workers.dev/",
   "deployProvider": "Cloudflare Workers",
   "workerName": "coketsu-fund",
-  "framework": "Static mirror",
+  "framework": "Astro",
   "auditEnabled": true
 }

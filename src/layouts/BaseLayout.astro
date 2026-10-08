@@ -1,0 +1,25 @@
+---
+import type { CapturedPage } from "../lib/site";
+interface Props { page: CapturedPage }
+const { page } = Astro.props;
+const productionUrl = new URL(page.route, "https://coketsu.fund/").href;
+const preview = Astro.url.hostname.endsWith(".workers.dev") || Astro.url.hostname === "localhost";
+const description = page.description || "Coketsu fund. 専門家とともに価値と未来を創造する不動産投資型クラウドファンディング。";
+const jsonLd = { "@context": "https://schema.org", "@graph": [
+  { "@type": "Organization", "@id": "https://coketsu.fund/#organization", name: "株式会社ジェイトラスト", url: "https://coketsu.fund/", contactPoint: { "@type": "ContactPoint", url: "https://coketsu.fund/contact/", contactType: "customer support" } },
+  { "@type": "WebSite", "@id": "https://coketsu.fund/#website", name: "Coketsu fund.", url: "https://coketsu.fund/", publisher: { "@id": "https://coketsu.fund/#organization" } },
+  { "@type": "WebPage", "@id": `${productionUrl}#webpage`, url: productionUrl, name: page.title, description, isPartOf: { "@id": "https://coketsu.fund/#website" } },
+] };
+---
+<!doctype html>
+<html lang="ja"><head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{page.title}</title><meta name="description" content={description} />
+  <meta name="robots" content={preview ? "noindex, nofollow" : "index, follow"} />
+  <link rel="canonical" href={productionUrl} />
+  <meta property="og:type" content={page.route === "/" ? "website" : "article"} /><meta property="og:site_name" content="Coketsu fund." />
+  <meta property="og:url" content={productionUrl} /><meta property="og:title" content={page.title} /><meta property="og:description" content={description} />
+  <meta property="og:image" content="https://coketsu.fund/wp-content/uploads/2025/04/coketsu2.png" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={page.title} /><meta name="twitter:description" content={description} />
+  <Fragment set:html={page.headAssets} /><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head><body class={page.bodyClass}><slot /></body></html>
