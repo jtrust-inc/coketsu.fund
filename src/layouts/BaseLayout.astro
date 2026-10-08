@@ -5,8 +5,10 @@ const { page } = Astro.props;
 const productionUrl = new URL(page.route, "https://coketsu.fund/").href;
 const preview = Astro.url.hostname.endsWith(".workers.dev") || Astro.url.hostname === "localhost";
 const description = page.description || "Coketsu fund. 専門家とともに価値と未来を創造する不動産投資型クラウドファンディング。";
-const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
-const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+// These identifiers are intentionally public: they are emitted into every page's HTML.
+// Environment variables remain available for controlled overrides in other deployments.
+const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "G-17L9BLTJQT";
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || "LB57brXbo1MTmIKTpQPRq6XWfE3MMLmpsc6upGlDOaM";
 const jsonLd = { "@context": "https://schema.org", "@graph": [
   { "@type": "Organization", "@id": "https://coketsu.fund/#organization", name: "株式会社COKETSU", url: "https://coketsu.fund/", logo: "https://coketsu.fund/wp-content/uploads/2025/04/coketsu2.png", contactPoint: { "@type": "ContactPoint", url: "https://coketsu.fund/contact/", contactType: "customer support", availableLanguage: "Japanese" } },
   { "@type": "WebSite", "@id": "https://coketsu.fund/#website", name: "Coketsu fund.", url: "https://coketsu.fund/", publisher: { "@id": "https://coketsu.fund/#organization" } },
