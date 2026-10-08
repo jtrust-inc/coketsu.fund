@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, rm } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -16,5 +16,14 @@ async function removeCapturedHtml(directory) {
   }
 }
 await removeCapturedHtml(destination);
+await writeFile(join(destination, "_headers"), `/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: SAMEORIGIN
+
+/wp-content/*
+  Cache-Control: public, max-age=31536000, immutable
+`, "utf8");
 const manifest = JSON.parse(await readFile(join(root, "migration-source", "manifest.json"), "utf8"));
 console.log(`Prepared ${manifest.assets.length} captured assets; ${manifest.pages.length} routes are rendered by Astro`);

@@ -14,6 +14,10 @@ for (const page of manifest.pages) {
   if (html.includes("�")) failures.push(`${page.url}: replacement character detected`);
   if (!/<link rel="canonical" href="https:\/\/coketsu\.fund\//.test(html)) failures.push(`${page.url}: canonical missing`);
   if (!/application\/ld\+json/.test(html)) failures.push(`${page.url}: JSON-LD missing`);
+  if ((html.match(/<h1\b/gi) ?? []).length !== 1) failures.push(`${page.url}: expected exactly one H1`);
+  if (/<form\b/i.test(html)) failures.push(`${page.url}: WordPress form remains`);
+  if (/Powered by[\s\S]*WordPress/i.test(html)) failures.push(`${page.url}: WordPress attribution remains`);
+  if (/contact-form-7[^"']*\.js|var\s+wpcf7|cf7msm\.min\.js/i.test(html)) failures.push(`${page.url}: WordPress form runtime remains`);
   const refs = [...html.matchAll(/(?:href|src)=["']([^"'#?]+)["']/gi)].map((item) => item[1]);
   for (const ref of refs.filter((value) => value.startsWith("/") && !value.startsWith("//"))) {
     if (/\.(?:php|xml)$/.test(ref) || ref.startsWith("/wp-json") || ref.startsWith("/feed")) continue;
@@ -24,6 +28,7 @@ for (const page of manifest.pages) {
 for (const required of ["robots.txt", "sitemap.xml"]) {
   try { await access(join(root, "dist", required)); } catch { failures.push(`${required}: missing`); }
 }
+try { await access(join(root, "dist", "_headers")); } catch { failures.push("_headers: missing"); }
 if (manifest.pages.length !== 9) failures.push(`Expected 9 public pages, found ${manifest.pages.length}`);
 if (failures.length) throw new Error(`Verification failed:\n${[...new Set(failures)].join("\n")}`);
 console.log(`Verified Astro migration: ${manifest.pages.length} pages, ${manifest.assets.length} captured assets, no broken local references`);

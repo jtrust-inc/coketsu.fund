@@ -10,28 +10,31 @@
   },
   "platform": { "framework": "Astro", "hosting": "Cloudflare Workers", "cms": null },
   "migration": {
-    "status": "verifying",
-    "astroCompletionPercent": 80,
-    "contentMatchPercent": 100,
+    "status": "cutover-blocked-external-integrations",
+    "astroCompletionPercent": 95,
+    "contentMatchPercent": 91,
     "visualMatchPercent": 95,
-    "seoMatchPercent": 90,
+    "seoMatchPercent": 100,
     "readyForCutover": false
   },
   "integrations": {
     "cloudflare": "configured",
-    "githubActions": "not-configured",
-    "ga4": "not-detected",
-    "searchConsole": "not-detected",
+    "githubActions": "configured-ci",
+    "ga4": "awaiting-property-id-and-authentication",
+    "searchConsole": "awaiting-ownership-token-and-authentication",
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-08T17:05:34+09:00",
+  "updatedAt": "2026-10-09T00:07:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
-    "Preview forms remain disabled until a replacement submission backend is approved.",
+    "Three WordPress forms are removed from Astro and replaced with a secure handoff to the corresponding production forms.",
     "All 9 public routes returned HTTP 200 on the AI validation URL after deployment.",
-    "Production capture and Astro output matched 100% for visible text, titles, link counts and image counts.",
+    "Raw visible-text match is 91%; the difference is the intentional form handoff and accessibility copy. Titles and images match 100%.",
+    "All pages contain exactly one H1, canonical metadata and JSON-LD; no WordPress form runtime remains.",
+    "GA4 and Search Console are unconfigured in JT Site Control. Optional public build variables are ready when authoritative identifiers are supplied.",
+    "Core Web Vitals are not measured because Chrome DevTools MCP is not connected in this environment.",
     "Rollback: redeploy commit 8a5ef14 to Worker coketsu-fund; production DNS is unchanged."
   ]
 }

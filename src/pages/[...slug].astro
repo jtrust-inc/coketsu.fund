@@ -14,5 +14,4 @@ const { page } = Astro.props;
   <Fragment set:html={page.beforeHeader} /><SiteHeader html={page.header} />
   <main id="main" data-astro-migrated="true"><Fragment set:html={page.content} /></main>
   <SiteFooter html={page.footer} /><Fragment set:html={page.afterFooter} />
-  <script is:inline>document.addEventListener("submit",(event)=>{event.preventDefault();event.stopImmediatePropagation();alert("検証環境ではフォーム送信を無効化しています。投資・会員・ログイン操作は本番サービスをご利用ください。");},true);</script>
 </BaseLayout>

@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-10-08T08:07:25.641Z",
+  "generatedAt": "2026-10-08T15:06:07.149Z",
   "source": "latest production capture",
   "preview": "Astro dist",
   "pages": [
     {
       "url": "https://coketsu.fund/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 98,
       "titleMatch": true,
       "links": {
         "production": 43,
-        "astro": 43
+        "astro": 41,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 10,
@@ -20,11 +21,12 @@
     },
     {
       "url": "https://coketsu.fund/news/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 90,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40
+        "astro": 38,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 2,
@@ -35,11 +37,12 @@
     },
     {
       "url": "https://coketsu.fund/contact/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 91,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 42
+        "astro": 41,
+        "preservedLinksPercent": 87
       },
       "images": {
         "production": 2,
@@ -50,11 +53,12 @@
     },
     {
       "url": "https://coketsu.fund/institutional-step1/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 58,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 41
+        "astro": 40,
+        "preservedLinksPercent": 82
       },
       "images": {
         "production": 2,
@@ -65,11 +69,12 @@
     },
     {
       "url": "https://coketsu.fund/request/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 95,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 42
+        "astro": 41,
+        "preservedLinksPercent": 87
       },
       "images": {
         "production": 2,
@@ -80,11 +85,12 @@
     },
     {
       "url": "https://coketsu.fund/cooling-off/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 95,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 41
+        "astro": 39,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 2,
@@ -95,11 +101,12 @@
     },
     {
       "url": "https://coketsu.fund/electronic-document/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 96,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40
+        "astro": 38,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 2,
@@ -110,11 +117,12 @@
     },
     {
       "url": "https://coketsu.fund/information-system-policy/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 94,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40
+        "astro": 38,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 2,
@@ -125,11 +133,12 @@
     },
     {
       "url": "https://coketsu.fund/privacy-policy/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 98,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40
+        "astro": 38,
+        "preservedLinksPercent": 86
       },
       "images": {
         "production": 2,
@@ -141,9 +150,14 @@
   ],
   "summary": {
     "pages": 9,
-    "contentMatchPercent": 100,
+    "rawContentMatchPercent": 91,
     "titleMatchPercent": 100,
-    "linksMatchPercent": 100,
-    "imagesMatchPercent": 100
+    "preservedLinksPercent": 86,
+    "imagesMatchPercent": 100,
+    "intentionalDifferences": [
+      "WordPress forms replaced with production handoff",
+      "skip link added",
+      "SEO metadata corrected"
+    ]
   }
 }

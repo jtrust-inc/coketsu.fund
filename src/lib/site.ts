@@ -10,6 +10,12 @@ export type CapturedPage = {
   headAssets: string; beforeHeader: string; header: string; content: string; footer: string; afterFooter: string;
 };
 
+const FORM_LABELS: Record<string, string> = {
+  "/contact/": "お問い合わせ",
+  "/institutional-step1/": "法人様会員登録",
+  "/request/": "資料請求",
+};
+
 const match = (value: string, pattern: RegExp) => value.match(pattern)?.[1]?.trim() ?? "";
 
 function cleanHead(head: string) {
@@ -26,6 +32,30 @@ function stripPreviewGuard(body: string) {
     .replace(/<style id="backup-mirror-style">[\s\S]*?<\/style>/gi, "")
     .replace(/<div id="backup-mirror-notice"[\s\S]*?<\/div>/gi, "")
     .replace(/<script id="backup-mirror-guard">[\s\S]*?<\/script>/gi, "");
+}
+
+function migrateHeader(header: string) {
+  return header
+    .replace(/<h1\b([^>]*class=["'][^"']*site-header-logo[^"']*["'][^>]*)>/i, "<div$1>")
+    .replace(/<\/h1>/i, "</div>");
+}
+
+function migrateContent(content: string, route: string) {
+  const label = FORM_LABELS[route];
+  if (!label) return content;
+  const target = new URL(route, "https://coketsu.fund/").href;
+  const replacement = `<section class="astro-form-handoff" aria-labelledby="astro-form-handoff-title"><h2 id="astro-form-handoff-title">${label}フォーム</h2><p>個人情報を安全に取り扱うため、現在稼働中の本番フォームで受け付けています。送信前に<a href="https://jtrust-inc.jp/privacy_protection/" target="_blank" rel="noopener noreferrer">個人情報の取り扱い</a>をご確認ください。</p><p><a class="btn btn-primary" href="${target}">本番サイトの${label}フォームを開く</a></p></section>`;
+  return content.replace(/<form\b[\s\S]*?<\/form>/i, replacement);
+}
+
+function migrateFooter(footer: string) {
+  return footer.replace(/<p>Powered by[\s\S]*?<\/p>/i, "");
+}
+
+function cleanRuntime(html: string) {
+  return html
+    .replace(/<script\b[^>]*(?:contact-form-7|wpcf7|cf7msm)[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<script\b[^>]*>\s*(?:var\s+wpcf7|var\s+cf7msm)[\s\S]*?<\/script>/gi, "");
 }
 
 export async function getCapturedPages(): Promise<CapturedPage[]> {
@@ -49,8 +79,8 @@ export async function getCapturedPages(): Promise<CapturedPage[]> {
       route: path, file: entry.file,
       title: match(head, /<title>([\s\S]*?)<\/title>/i),
       description: match(head, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["'][^>]*>/i),
-      bodyClass, headAssets: cleanHead(head), beforeHeader: body.slice(0, headerAt), header,
-      content: body.slice(headerEnd, footerAt), footer, afterFooter: body.slice(footerEnd),
+      bodyClass, headAssets: cleanHead(head), beforeHeader: body.slice(0, headerAt), header: migrateHeader(header),
+      content: migrateContent(body.slice(headerEnd, footerAt), path), footer: migrateFooter(footer), afterFooter: cleanRuntime(body.slice(footerEnd)),
     };
   }));
 }
