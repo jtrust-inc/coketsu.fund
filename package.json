@@ -23,12 +23,5 @@
     "astro": "^5.13.5",
     "typescript": "^5.9.2",
     "wrangler": "^4.126.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp",
-      "workerd"
-    ]
   }
 }
