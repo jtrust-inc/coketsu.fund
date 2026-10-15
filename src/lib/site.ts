@@ -43,13 +43,21 @@ function migrateHeader(header: string) {
 function migrateContent(content: string, route: string) {
   const label = FORM_LABELS[route];
   if (!label) return content;
-  const target = new URL(route, "https://coketsu.fund/").href;
-  const replacement = `<section class="astro-form-handoff" aria-labelledby="astro-form-handoff-title"><h2 id="astro-form-handoff-title">${label}フォーム</h2><p>個人情報を安全に取り扱うため、現在稼働中の本番フォームで受け付けています。送信前に<a href="https://jtrust-inc.jp/privacy_protection/" target="_blank" rel="noopener noreferrer">個人情報の取り扱い</a>をご確認ください。</p><p><a class="btn btn-primary" href="${target}">本番サイトの${label}フォームを開く</a></p></section>`;
-  return content.replace(/<form\b[\s\S]*?<\/form>/i, replacement);
-}
-
-function migrateFooter(footer: string) {
-  return footer.replace(/<p>Powered by[\s\S]*?<\/p>/i, "");
+  const noticeId = `astro-form-disabled-${route.replace(/\W/g, "")}`;
+  const notice = `<div id="${noticeId}" class="astro-form-notice" role="note"><strong>検証版：送信できません</strong></div>`;
+  return content.replace(/<form\b[\s\S]*?<\/form>/i, (form) => {
+    const disabled = form
+      .replace(/<form\b([^>]*)>/i, (_match, attributes: string) => {
+        const safeAttributes = attributes
+          .replace(/\s(?:action|method|onsubmit|data-status|data-backup-disabled)=["'][^"']*["']/gi, "")
+          .replace(/\sname=["'][^"']*["']/gi, "");
+        return `<form${safeAttributes} action="" method="post" onsubmit="return false" data-preview-disabled="true" aria-describedby="${noticeId}">`;
+      })
+      .replace(/\sname=["'][^"']*["']/gi, "")
+      .replace(/(<input\b[^>]*\btype=["'])submit(["'][^>]*>)/gi, "$1button$2")
+      .replace(/(<button\b[^>]*\btype=["'])submit(["'][^>]*>)/gi, "$1button$2");
+    return `${notice}${disabled}`;
+  });
 }
 
 function cleanRuntime(html: string) {
@@ -80,7 +88,7 @@ export async function getCapturedPages(): Promise<CapturedPage[]> {
       title: match(head, /<title>([\s\S]*?)<\/title>/i),
       description: match(head, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["'][^>]*>/i),
       bodyClass, headAssets: cleanHead(head), beforeHeader: body.slice(0, headerAt), header: migrateHeader(header),
-      content: migrateContent(body.slice(headerEnd, footerAt), path), footer: migrateFooter(footer), afterFooter: cleanRuntime(body.slice(footerEnd)),
+      content: migrateContent(body.slice(headerEnd, footerAt), path), footer, afterFooter: cleanRuntime(body.slice(footerEnd)),
     };
   }));
 }

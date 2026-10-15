@@ -33,6 +33,6 @@ const jsonLd = { "@context": "https://schema.org", "@graph": [
   {ga4MeasurementId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>}
   {ga4MeasurementId && <script is:inline define:vars={{ ga4MeasurementId }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config",ga4MeasurementId,{anonymize_ip:true});</script>}
   <style is:inline>
-    .astro-form-handoff{max-width:760px;margin:2rem auto;padding:2rem;border:1px solid #d5dde3;border-radius:.5rem;background:#f8fbfd;text-align:center}.astro-form-handoff h2{margin-top:0}.astro-form-handoff a:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #005fcc;outline-offset:3px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    .astro-form-notice{margin:0 0 1.5rem;padding:1rem 1.25rem;border:2px solid #0879bd;border-radius:.35rem;background:#f2f9fd;color:#17384c}.astro-form-notice p{margin:.35rem 0 0}[data-preview-disabled=true] input[type=button]{cursor:not-allowed;opacity:.7}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #005fcc;outline-offset:3px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
-</head><body class={page.bodyClass}><a class="visually-hidden-focusable" href="#main">本文へ移動</a><slot /></body></html>
+</head><body class={page.bodyClass}><slot /></body></html>

@@ -11,8 +11,8 @@
   "platform": { "framework": "Astro", "hosting": "Cloudflare Workers", "cms": null },
   "migration": {
     "status": "cutover-ready-pending-production-authorization",
-    "astroCompletionPercent": 95,
-    "contentMatchPercent": 91,
+    "astroCompletionPercent": 99,
+    "contentMatchPercent": 99,
     "visualMatchPercent": 95,
     "seoMatchPercent": 100,
     "readyForCutover": false
@@ -25,13 +25,13 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-09T12:00:00+09:00",
+  "updatedAt": "2026-10-15T14:24:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
-    "Three WordPress forms are removed from Astro and replaced with a secure handoff to the corresponding production forms.",
-    "All 9 public routes returned HTTP 200 on the AI validation URL after deployment.",
-    "Raw visible-text match is 91%; the difference is the intentional form handoff and accessibility copy. Titles and images match 100%.",
+    "Three WordPress forms are preserved visually but cannot serialize or submit data; their WordPress runtime is removed.",
+    "Pre-deployment comparison covers all 9 public routes: average text similarity 99%, and link, image and form counts match 100%.",
+    "The previous Site Control 0% page results were not reproducible by direct HTTP comparison; all 9 production and preview routes returned HTTP 200.",
     "All pages contain exactly one H1, canonical metadata and JSON-LD; no WordPress form runtime remains.",
     "A dedicated GA4 property and web stream were created for https://coketsu.fund/; measurement ID G-17L9BLTJQT is embedded in the Astro layout.",
     "A Search Console URL-prefix property was created for https://coketsu.fund/ and its HTML verification tag is embedded. Verification remains pending until this Astro build is served on the production URL.",

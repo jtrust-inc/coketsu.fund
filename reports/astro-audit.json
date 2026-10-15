@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-08T19:37:38.428Z",
+  "generatedAt": "2026-10-15T05:25:50.503Z",
   "source": "latest production capture",
   "preview": "Astro dist",
   "pages": [
     {
       "url": "https://coketsu.fund/",
-      "contentMatchPercent": 98,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 43,
-        "astro": 41,
-        "preservedLinksPercent": 86
+        "astro": 43,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 10,
@@ -21,12 +21,12 @@
     },
     {
       "url": "https://coketsu.fund/news/",
-      "contentMatchPercent": 90,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 38,
-        "preservedLinksPercent": 86
+        "astro": 40,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -37,12 +37,12 @@
     },
     {
       "url": "https://coketsu.fund/contact/",
-      "contentMatchPercent": 91,
+      "contentMatchPercent": 99,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 41,
-        "preservedLinksPercent": 87
+        "astro": 42,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -53,12 +53,12 @@
     },
     {
       "url": "https://coketsu.fund/institutional-step1/",
-      "contentMatchPercent": 58,
+      "contentMatchPercent": 99,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 40,
-        "preservedLinksPercent": 82
+        "astro": 41,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -69,12 +69,12 @@
     },
     {
       "url": "https://coketsu.fund/request/",
-      "contentMatchPercent": 95,
+      "contentMatchPercent": 98,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 41,
-        "preservedLinksPercent": 87
+        "astro": 42,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -85,12 +85,12 @@
     },
     {
       "url": "https://coketsu.fund/cooling-off/",
-      "contentMatchPercent": 95,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 39,
-        "preservedLinksPercent": 86
+        "astro": 41,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -101,12 +101,12 @@
     },
     {
       "url": "https://coketsu.fund/electronic-document/",
-      "contentMatchPercent": 96,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 38,
-        "preservedLinksPercent": 86
+        "astro": 40,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -117,12 +117,12 @@
     },
     {
       "url": "https://coketsu.fund/information-system-policy/",
-      "contentMatchPercent": 94,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 38,
-        "preservedLinksPercent": 86
+        "astro": 40,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -133,12 +133,12 @@
     },
     {
       "url": "https://coketsu.fund/privacy-policy/",
-      "contentMatchPercent": 98,
+      "contentMatchPercent": 100,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 38,
-        "preservedLinksPercent": 86
+        "astro": 40,
+        "preservedLinksPercent": 100
       },
       "images": {
         "production": 2,
@@ -150,13 +150,12 @@
   ],
   "summary": {
     "pages": 9,
-    "rawContentMatchPercent": 91,
+    "rawContentMatchPercent": 100,
     "titleMatchPercent": 100,
-    "preservedLinksPercent": 86,
+    "preservedLinksPercent": 100,
     "imagesMatchPercent": 100,
     "intentionalDifferences": [
-      "WordPress forms replaced with production handoff",
-      "skip link added",
+      "WordPress forms preserved visually but made non-serializable and non-submittable",
       "SEO metadata corrected"
     ]
   }

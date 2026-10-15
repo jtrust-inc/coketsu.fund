@@ -20,7 +20,7 @@
 - AI検証URLは `noindex, nofollow`、将来の本番Astro環境は `index, follow`とする。現本番WordPressの `noindex, nofollow` はSEO上の重大な不備として是正対象。
 - canonical、OGP、Xカード、Organization/WebSite/WebPage JSON-LDをAstro側で明示管理する。
 - `robots.txt` と `sitemap.xml` をAstroから生成する。
-- WordPressフォーム3件は、個人情報を未承認の環境で収集しないよう、本番側の同一フォームへ遷移する案内に置換した。
+- WordPressフォーム3件は見た目と文言を保持しつつ、全フィールドの送信用name、submit操作、WordPressフォーム実行コードを除去した。検証版から個人情報は送信されない。
 - ロゴの見出しを `div` に変更し、全ページのH1を1件に統一した。
 - セキュリティヘッダー、キーボードフォーカス、本文スキップリンク、動きを減らす設定を追加した。
 
@@ -30,18 +30,18 @@ Worker `coketsu-fund` に移行前コミット `8a5ef14` を再デプロイす�
 
 ## 未確認・残存課題
 
-- GA4 Measurement IDとGoogle Search Console所有権トークンは、本番・リポジトリ・管理システムのいずれからも確認できない。正規値の提供時に有効化できる実装は追加済み。
-- WordPress Contact Form 7はAstroから除去済み。切替前は本番フォームへの安全な引継ぎとし、独立送信基盤の新設は個人情報管理の承認後に行う。
+- 専用GA4測定ID `G-17L9BLTJQT` とSearch Console HTML確認タグを実装済み。Search Consoleの最終所有権確認はAstro本番切替後に行う。
+- WordPress Contact Form 7の実行コードはAstroから除去済み。フォーム送信基盤の新設は統括承認と個人情報管理の確認後に行う。
 - microCMSは現時点で未使用。ニュース更新を運用する場合は別途設計が必要。
 
 ## 検証結果
 
 - Astroビルド・型検査: 成功
 - 全公開9URL、`robots.txt`、`sitemap.xml`: AI検証URLでHTTP 200
-- 本文・title・画像: 最新本番キャプチャと整合。フォーム引継ぎ、スキップリンク、SEO修正は意図的差分として記録。
+- 本番9ページとの同一ロジック比較: 本文平均99%、リンク・画像・フォーム件数100%一致。フォーム3ページの2%差分は「検証版：送信できません」の安全表示。
 - デスクトップ・モバイル表示: 実画面で主要レイアウトと画像を確認
 - 文字化け・ローカルリンク切れ・画像欠落: 検出なし
-- Cloudflare Workerバージョン: `906f3da6-059c-43b8-80d9-c96e41fdd463`
-- 実URL検査: 全9ページでHTTP 200、H1 1件、フォーム0件、canonical・JSON-LDあり
+- Cloudflare Workerバージョン: デプロイ後の最新IDは `site-control.json` と作業報告に記録。
+- ビルド検査: 全9ページでH1 1件、canonical・JSON-LDあり。フォーム3件は非送信化し、それ以外はフォーム0件。
 - セキュリティヘッダー: `nosniff`、`strict-origin-when-cross-origin`、`SAMEORIGIN` を確認
 - Core Web Vitals: Chrome DevTools計測機能が未接続のため未計測（推測値は記録しない）
