@@ -25,7 +25,7 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-15T14:31:00+09:00",
+  "updatedAt": "2026-10-15T16:49:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
@@ -37,6 +37,8 @@
     "A Search Console URL-prefix property was created for https://coketsu.fund/ and its HTML verification tag is embedded. Verification remains pending until this Astro build is served on the production URL.",
     "Core Web Vitals are not measured because Chrome DevTools MCP is not connected in this environment.",
     "Cloudflare Worker coketsu-fund deployed successfully as version 96c2f07e-cc63-45db-92a5-f0194f6a2337.",
+    "Footer logo responsive candidates that were absent from the static export are removed from generated HTML so browsers use the verified local base image without stretching the footer.",
+    "Production reCAPTCHA is not copied to the Worker preview: migration requires an allowed-hostname update plus a server-side verification secret and approved form delivery backend.",
     "Site Control re-audit 76509d21-c396-49a9-8dac-5da0a6c37fda completed at 2026-10-15 14:29 JST with clone 55, SEO 100 and LLMO 100; its four remaining 0% results are contradicted by immediate direct HTTP checks returning 200 with 2 images and 40 links for every affected production page.",
     "Rollback: redeploy starting commit bfeadb4 or restore previous Worker version bfab6169-18ec-4fcc-b096-bfe68d8a560a; production DNS is unchanged."
   ]

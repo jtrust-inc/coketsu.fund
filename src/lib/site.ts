@@ -40,6 +40,15 @@ function migrateHeader(header: string) {
     .replace(/<\/h1>/i, "</div>");
 }
 
+function migrateFooter(footer: string) {
+  // The captured WordPress srcset references generated thumbnail files that are
+  // not part of the static export. Browsers otherwise select a missing logo
+  // candidate and expand its broken-image box to the full footer height.
+  return footer
+    .replace(/\s+srcset=["'][^"']*["']/gi, "")
+    .replace(/\s+sizes=["'][^"']*["']/gi, "");
+}
+
 function migrateContent(content: string, route: string) {
   const label = FORM_LABELS[route];
   if (!label) return content;
@@ -88,7 +97,7 @@ export async function getCapturedPages(): Promise<CapturedPage[]> {
       title: match(head, /<title>([\s\S]*?)<\/title>/i),
       description: match(head, /<meta\s+name=["']description["']\s+content=["']([\s\S]*?)["'][^>]*>/i),
       bodyClass, headAssets: cleanHead(head), beforeHeader: body.slice(0, headerAt), header: migrateHeader(header),
-      content: migrateContent(body.slice(headerEnd, footerAt), path), footer, afterFooter: cleanRuntime(body.slice(footerEnd)),
+      content: migrateContent(body.slice(headerEnd, footerAt), path), footer: migrateFooter(footer), afterFooter: cleanRuntime(body.slice(footerEnd)),
     };
   }));
 }
