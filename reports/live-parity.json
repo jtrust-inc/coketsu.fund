@@ -1,7 +1,7 @@
 {
-  "auditedAt": "2026-10-15T05:24:03.895Z",
+  "auditedAt": "2026-10-15T05:27:01.755Z",
   "productionOrigin": "https://coketsu.fund",
-  "previewOrigin": "Astro dist",
+  "previewOrigin": "https://coketsu-fund.system-f78.workers.dev",
   "pages": [
     {
       "path": "/",

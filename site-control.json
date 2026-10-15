@@ -25,17 +25,19 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-15T14:24:00+09:00",
+  "updatedAt": "2026-10-15T14:31:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
     "Three WordPress forms are preserved visually but cannot serialize or submit data; their WordPress runtime is removed.",
-    "Pre-deployment comparison covers all 9 public routes: average text similarity 99%, and link, image and form counts match 100%.",
+    "Post-deployment comparison covers all 9 public routes: average text similarity 99%, and link, image and form counts match 100%.",
     "The previous Site Control 0% page results were not reproducible by direct HTTP comparison; all 9 production and preview routes returned HTTP 200.",
     "All pages contain exactly one H1, canonical metadata and JSON-LD; no WordPress form runtime remains.",
     "A dedicated GA4 property and web stream were created for https://coketsu.fund/; measurement ID G-17L9BLTJQT is embedded in the Astro layout.",
     "A Search Console URL-prefix property was created for https://coketsu.fund/ and its HTML verification tag is embedded. Verification remains pending until this Astro build is served on the production URL.",
     "Core Web Vitals are not measured because Chrome DevTools MCP is not connected in this environment.",
-    "Rollback: redeploy commit 8a5ef14 to Worker coketsu-fund; production DNS is unchanged."
+    "Cloudflare Worker coketsu-fund deployed successfully as version 96c2f07e-cc63-45db-92a5-f0194f6a2337.",
+    "Site Control re-audit 76509d21-c396-49a9-8dac-5da0a6c37fda completed at 2026-10-15 14:29 JST with clone 55, SEO 100 and LLMO 100; its four remaining 0% results are contradicted by immediate direct HTTP checks returning 200 with 2 images and 40 links for every affected production page.",
+    "Rollback: redeploy starting commit bfeadb4 or restore previous Worker version bfab6169-18ec-4fcc-b096-bfe68d8a560a; production DNS is unchanged."
   ]
 }
