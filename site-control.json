@@ -10,7 +10,7 @@
   },
   "platform": { "framework": "Astro", "hosting": "Cloudflare Workers", "cms": null },
   "migration": {
-    "status": "cutover-ready-pending-production-authorization",
+    "status": "form-delivery-configuration",
     "astroCompletionPercent": 99,
     "contentMatchPercent": 99,
     "visualMatchPercent": 95,
@@ -25,20 +25,21 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-15T16:50:00+09:00",
+  "updatedAt": "2026-10-17T01:32:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
-    "Three WordPress forms are preserved visually but cannot serialize or submit data; their WordPress runtime is removed.",
+    "Three WordPress forms are migrated to a Worker API with Cloudflare Turnstile, server-side token verification, hostname/action validation, input limits and a honeypot.",
     "Post-deployment comparison covers all 9 public routes: average text similarity 99%, and link, image and form counts match 100%.",
     "The previous Site Control 0% page results were not reproducible by direct HTTP comparison; all 9 production and preview routes returned HTTP 200.",
     "All pages contain exactly one H1, canonical metadata and JSON-LD; no WordPress form runtime remains.",
     "A dedicated GA4 property and web stream were created for https://coketsu.fund/; measurement ID G-17L9BLTJQT is embedded in the Astro layout.",
     "A Search Console URL-prefix property was created for https://coketsu.fund/ and its HTML verification tag is embedded. Verification remains pending until this Astro build is served on the production URL.",
     "Core Web Vitals are not measured because Chrome DevTools MCP is not connected in this environment.",
-    "Cloudflare Worker coketsu-fund deployed successfully as version de9ba852-4f42-4660-b155-105e114718fb.",
+    "Cloudflare Worker coketsu-fund deployed successfully as version 6fc7e60b-b098-4b74-beec-1658eb155483.",
     "Footer logo responsive candidates that were absent from the static export are removed from generated HTML so browsers use the verified local base image without stretching the footer.",
-    "Production reCAPTCHA is not copied to the Worker preview: migration requires an allowed-hostname update plus a server-side verification secret and approved form delivery backend.",
+    "Cloudflare Turnstile widget coketsu-fund-forms is configured for coketsu.fund and coketsu-fund.system-f78.workers.dev; its secret is stored only as an encrypted Worker secret.",
+    "Form delivery remains disabled until an approved destination email address is supplied. Cloudflare Email Sending cannot be onboarded in the current dashboard because the account is not on Workers Paid; no paid plan was purchased.",
     "Site Control re-audit 76509d21-c396-49a9-8dac-5da0a6c37fda completed at 2026-10-15 14:29 JST with clone 55, SEO 100 and LLMO 100; its four remaining 0% results are contradicted by immediate direct HTTP checks returning 200 with 2 images and 40 links for every affected production page.",
     "Rollback: redeploy starting commit bfeadb4 or restore previous Worker version bfab6169-18ec-4fcc-b096-bfe68d8a560a; production DNS is unchanged."
   ]

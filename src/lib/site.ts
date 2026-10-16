@@ -16,6 +16,8 @@ const FORM_LABELS: Record<string, string> = {
   "/request/": "資料請求",
 };
 
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFYoRD5PnpO-VDnW";
+
 const match = (value: string, pattern: RegExp) => value.match(pattern)?.[1]?.trim() ?? "";
 
 function cleanHead(head: string) {
@@ -52,20 +54,22 @@ function migrateFooter(footer: string) {
 function migrateContent(content: string, route: string) {
   const label = FORM_LABELS[route];
   if (!label) return content;
-  const noticeId = `astro-form-disabled-${route.replace(/\W/g, "")}`;
-  const notice = `<div id="${noticeId}" class="astro-form-notice" role="note"><strong>検証版：送信できません</strong></div>`;
+  const action = route === "/contact/" ? "contact" : route === "/request/" ? "request" : "institutional";
+  const statusId = `astro-form-status-${action}`;
   return content.replace(/<form\b[\s\S]*?<\/form>/i, (form) => {
-    const disabled = form
+    const enabled = form
       .replace(/<form\b([^>]*)>/i, (_match, attributes: string) => {
         const safeAttributes = attributes
           .replace(/\s(?:action|method|onsubmit|data-status|data-backup-disabled)=["'][^"']*["']/gi, "")
-          .replace(/\sname=["'][^"']*["']/gi, "");
-        return `<form${safeAttributes} action="" method="post" onsubmit="return false" data-preview-disabled="true" aria-describedby="${noticeId}">`;
+          .replace(/\snovalidate(?:=["'][^"']*["'])?/gi, "");
+        return `<form${safeAttributes} action="/api/forms/${action}" method="post" data-astro-form="${action}" aria-describedby="${statusId}">`;
       })
-      .replace(/\sname=["'][^"']*["']/gi, "")
-      .replace(/(<input\b[^>]*\btype=["'])submit(["'][^>]*>)/gi, "$1button$2")
-      .replace(/(<button\b[^>]*\btype=["'])submit(["'][^>]*>)/gi, "$1button$2");
-    return `${notice}${disabled}`;
+      .replace(/<fieldset class="hidden-fields-container">[\s\S]*?<\/fieldset>/i, "")
+      .replace(/<input\b[^>]*name=["'](?:_cf7msm_multistep_tag|cf7msm-no-ss)["'][^>]*>/gi, "")
+      .replace(/(<(?:input|select|textarea)\b[^>]*aria-required=["']true["'][^>]*)(>)/gi, "$1 required$2")
+      .replace(/<div class="wpcf7-response-output"[^>]*><\/div>/i, "")
+      .replace(/<\/form>/i, `<div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off"></label></div><div class="cf-turnstile" data-sitekey="${TURNSTILE_SITE_KEY}" data-action="${action}" data-theme="light"></div><div id="${statusId}" class="astro-form-status" role="status" aria-live="polite"></div></form>`);
+    return enabled;
   });
 }
 

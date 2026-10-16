@@ -4,6 +4,7 @@ interface Props { page: CapturedPage }
 const { page } = Astro.props;
 const productionUrl = new URL(page.route, "https://coketsu.fund/").href;
 const preview = Astro.url.hostname.endsWith(".workers.dev") || Astro.url.hostname === "localhost";
+const hasForm = ["/contact/", "/request/", "/institutional-step1/"].includes(page.route);
 const description = page.description || "Coketsu fund. 専門家とともに価値と未来を創造する不動産投資型クラウドファンディング。";
 // These identifiers are intentionally public: they are emitted into every page's HTML.
 // Environment variables remain available for controlled overrides in other deployments.
@@ -32,7 +33,9 @@ const jsonLd = { "@context": "https://schema.org", "@graph": [
   <Fragment set:html={page.headAssets} /><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   {ga4MeasurementId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>}
   {ga4MeasurementId && <script is:inline define:vars={{ ga4MeasurementId }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config",ga4MeasurementId,{anonymize_ip:true});</script>}
+  {hasForm && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  {hasForm && <script src="/form-handler.js" defer></script>}
   <style is:inline>
-    .astro-form-notice{margin:0 0 1.5rem;padding:1rem 1.25rem;border:2px solid #0879bd;border-radius:.35rem;background:#f2f9fd;color:#17384c}.astro-form-notice p{margin:.35rem 0 0}[data-preview-disabled=true] input[type=button]{cursor:not-allowed;opacity:.7}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #005fcc;outline-offset:3px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    .astro-form-status{min-height:1.5em;margin:1rem 0;color:#17384c;font-weight:600}.astro-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.cf-turnstile{margin:1.25rem 0}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #005fcc;outline-offset:3px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
 </head><body class={page.bodyClass}><slot /></body></html>

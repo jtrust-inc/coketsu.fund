@@ -8,6 +8,7 @@ const destination = join(root, "public");
 await rm(destination, { recursive: true, force: true });
 await mkdir(destination, { recursive: true });
 await cp(source, destination, { recursive: true });
+await cp(join(root, "static-assets"), destination, { recursive: true });
 async function removeCapturedHtml(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const path = join(directory, entry.name);
