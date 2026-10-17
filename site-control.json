@@ -10,12 +10,12 @@
   },
   "platform": { "framework": "Astro", "hosting": "Cloudflare Workers", "cms": null },
   "migration": {
-    "status": "ready-for-dns-cutover",
+    "status": "cutover-complete",
     "astroCompletionPercent": 99,
     "contentMatchPercent": 99,
     "visualMatchPercent": 95,
     "seoMatchPercent": 100,
-    "readyForCutover": false
+    "readyForCutover": true
   },
   "integrations": {
     "cloudflare": "configured",
@@ -25,9 +25,9 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-17T18:10:00+09:00",
+  "updatedAt": "2026-10-17T18:14:00+09:00",
   "notes": [
-    "Production DNS cutover is explicitly excluded from this migration run.",
+    "Production apex coketsu.fund was cut over from A 160.251.148.79 to the coketsu-fund Cloudflare Worker custom domain on 2026-10-17; www was intentionally not configured.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
     "Three WordPress forms are migrated to a Worker API with Cloudflare Turnstile, server-side token verification, hostname/action validation, input limits and a honeypot.",
     "Post-deployment comparison covers all 9 public routes: average text similarity 99%, and link, image and form counts match 100%.",
@@ -43,6 +43,7 @@
     "The sender and recipient are the existing Microsoft 365 shared mailbox support@coketsu.fund. A Turnstile-protected request form submission completed successfully and the notification was verified in that mailbox on 2026-10-17.",
     "The temporary Power Automate flow is turned off and the obsolete FORM_WEBHOOK_URL Worker secret is deleted; production form delivery no longer depends on Power Automate.",
     "The Entra client secret expires on 2027-04-15 and must be rotated before expiry.",
+    "Post-cutover verification: https://coketsu.fund/ returned HTTP 200 over HTTPS from Cloudflare, invest.coketsu.fund remained a CNAME to d27e3kw9qu3fud.cloudfront.net and returned HTTP 200, and the Microsoft 365 MX remained coketsu-fund.mail.protection.outlook.com.",
     "Site Control re-audit 76509d21-c396-49a9-8dac-5da0a6c37fda completed at 2026-10-15 14:29 JST with clone 55, SEO 100 and LLMO 100; its four remaining 0% results are contradicted by immediate direct HTTP checks returning 200 with 2 images and 40 links for every affected production page.",
     "Rollback: redeploy starting commit bfeadb4 or restore previous Worker version bfab6169-18ec-4fcc-b096-bfe68d8a560a; production DNS is unchanged."
   ]
