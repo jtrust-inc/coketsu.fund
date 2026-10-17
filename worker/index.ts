@@ -1,13 +1,17 @@
 interface Env {
   ASSETS: Fetcher;
   TURNSTILE_SECRET: string;
-  FORM_WEBHOOK_URL?: string;
-  FORM_WEBHOOK_TOKEN?: string;
+  GRAPH_TENANT_ID?: string;
+  GRAPH_CLIENT_ID?: string;
+  GRAPH_CLIENT_SECRET?: string;
+  GRAPH_SENDER_EMAIL?: string;
+  FORM_RECIPIENT_EMAIL?: string;
 }
 
 const HOSTS = new Set(["coketsu.fund", "coketsu-fund.system-f78.workers.dev"]);
 const ACTIONS = new Set(["contact", "request", "institutional"]);
 const MAX_BODY_BYTES = 64 * 1024;
+let graphToken: { value: string; expiresAt: number } | undefined;
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
   status,
@@ -23,6 +27,59 @@ function safeFields(data: FormData) {
     fields[key] = value.slice(0, 4000);
   }
   return fields;
+}
+
+const escapeHtml = (value: string) => value.replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+}[char] || char));
+
+async function getGraphToken(env: Env) {
+  if (graphToken && graphToken.expiresAt > Date.now() + 60_000) return graphToken.value;
+  if (!env.GRAPH_TENANT_ID || !env.GRAPH_CLIENT_ID || !env.GRAPH_CLIENT_SECRET) throw new Error("Graph configuration is incomplete");
+  const body = new URLSearchParams({
+    client_id: env.GRAPH_CLIENT_ID,
+    client_secret: env.GRAPH_CLIENT_SECRET,
+    scope: "https://graph.microsoft.com/.default",
+    grant_type: "client_credentials",
+  });
+  const response = await fetch(`https://login.microsoftonline.com/${encodeURIComponent(env.GRAPH_TENANT_ID)}/oauth2/v2.0/token`, {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  if (!response.ok) throw new Error(`Graph authentication failed: ${response.status}`);
+  const result = await response.json() as { access_token?: string; expires_in?: number };
+  if (!result.access_token) throw new Error("Graph authentication returned no access token");
+  graphToken = { value: result.access_token, expiresAt: Date.now() + Math.max(300, result.expires_in || 3600) * 1000 };
+  return graphToken.value;
+}
+
+async function sendFormMail(env: Env, action: string, fields: Record<string, string>) {
+  if (!env.GRAPH_SENDER_EMAIL || !env.FORM_RECIPIENT_EMAIL) throw new Error("Mail configuration is incomplete");
+  const token = await getGraphToken(env);
+  const rows = Object.entries(fields).map(([key, value]) =>
+    `<tr><th style="text-align:left;vertical-align:top;padding:6px 12px 6px 0">${escapeHtml(key)}</th><td style="padding:6px 0;white-space:pre-wrap">${escapeHtml(value)}</td></tr>`,
+  ).join("");
+  const replyAddress = fields.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(fields.email) ? fields.email : undefined;
+  const message = {
+    subject: `【Coketsu fund】${action}フォーム送信通知`,
+    body: { contentType: "HTML", content: `<p>Coketsu fund のフォームから送信がありました。</p><table>${rows}</table>` },
+    toRecipients: [{ emailAddress: { address: env.FORM_RECIPIENT_EMAIL } }],
+    ...(replyAddress ? { replyTo: [{ emailAddress: { address: replyAddress } }] } : {}),
+  };
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
+  try {
+    const response = await fetch(`https://graph.microsoft.com/v1.0/users/${encodeURIComponent(env.GRAPH_SENDER_EMAIL)}/sendMail`, {
+      method: "POST",
+      headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
+      body: JSON.stringify({ message, saveToSentItems: true }),
+      signal: controller.signal,
+    });
+    if (!response.ok) throw new Error(`Graph sendMail failed: ${response.status}`);
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 async function verifyTurnstile(request: Request, env: Env, token: string, action: string) {
@@ -58,13 +115,12 @@ async function handleForm(request: Request, env: Env, action: string) {
   const token = String(data.get("cf-turnstile-response") || "");
   if (!await verifyTurnstile(request, env, token, action)) return json({ message: "認証を確認できませんでした。もう一度お試しください。" }, 400);
 
-  if (!env.FORM_WEBHOOK_URL) return json({ message: "メール配送設定が完了していません。" }, 503);
-  const delivery = await fetch(env.FORM_WEBHOOK_URL, {
-    method: "POST",
-    headers: { "content-type": "application/json", ...(env.FORM_WEBHOOK_TOKEN ? { authorization: `Bearer ${env.FORM_WEBHOOK_TOKEN}` } : {}) },
-    body: JSON.stringify({ site: "coketsu.fund", form: action, fields: safeFields(data), receivedAt: new Date().toISOString() }),
-  });
-  if (!delivery.ok) return json({ message: "送信できませんでした。時間をおいて再度お試しください。" }, 502);
+  try {
+    await sendFormMail(env, action, safeFields(data));
+  } catch (error) {
+    console.error("Form delivery failed", error instanceof Error ? error.message : "Unknown error");
+    return json({ message: "送信できませんでした。時間をおいて再度お試しください。" }, 502);
+  }
   return json({ message: "送信しました。担当者からの連絡をお待ちください。" });
 }
 

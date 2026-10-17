@@ -10,7 +10,7 @@
   },
   "platform": { "framework": "Astro", "hosting": "Cloudflare Workers", "cms": null },
   "migration": {
-    "status": "form-delivery-configuration",
+    "status": "ready-for-dns-cutover",
     "astroCompletionPercent": 99,
     "contentMatchPercent": 99,
     "visualMatchPercent": 95,
@@ -25,7 +25,7 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-17T01:32:00+09:00",
+  "updatedAt": "2026-10-17T18:10:00+09:00",
   "notes": [
     "Production DNS cutover is explicitly excluded from this migration run.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",
@@ -36,10 +36,13 @@
     "A dedicated GA4 property and web stream were created for https://coketsu.fund/; measurement ID G-17L9BLTJQT is embedded in the Astro layout.",
     "A Search Console URL-prefix property was created for https://coketsu.fund/ and its HTML verification tag is embedded. Verification remains pending until this Astro build is served on the production URL.",
     "Core Web Vitals are not measured because Chrome DevTools MCP is not connected in this environment.",
-    "Cloudflare Worker coketsu-fund deployed successfully as version 6fc7e60b-b098-4b74-beec-1658eb155483.",
+    "Cloudflare Worker coketsu-fund deployed successfully as version 362a26a2-f38d-4127-9965-bf1d7126e71a.",
     "Footer logo responsive candidates that were absent from the static export are removed from generated HTML so browsers use the verified local base image without stretching the footer.",
     "Cloudflare Turnstile widget coketsu-fund-forms is configured for coketsu.fund and coketsu-fund.system-f78.workers.dev; its secret is stored only as an encrypted Worker secret.",
-    "Form delivery remains disabled until an approved destination email address is supplied. Cloudflare Email Sending cannot be onboarded in the current dashboard because the account is not on Workers Paid; no paid plan was purchased.",
+    "Form delivery uses a dedicated single-tenant Microsoft Entra application and Microsoft Graph Mail.Send application permission. Tenant ID, client ID, client secret, sender and recipient are stored only as encrypted Worker secrets.",
+    "The sender and recipient are the existing Microsoft 365 shared mailbox support@coketsu.fund. A Turnstile-protected request form submission completed successfully and the notification was verified in that mailbox on 2026-10-17.",
+    "The temporary Power Automate flow is turned off and the obsolete FORM_WEBHOOK_URL Worker secret is deleted; production form delivery no longer depends on Power Automate.",
+    "The Entra client secret expires on 2027-04-15 and must be rotated before expiry.",
     "Site Control re-audit 76509d21-c396-49a9-8dac-5da0a6c37fda completed at 2026-10-15 14:29 JST with clone 55, SEO 100 and LLMO 100; its four remaining 0% results are contradicted by immediate direct HTTP checks returning 200 with 2 images and 40 links for every affected production page.",
     "Rollback: redeploy starting commit bfeadb4 or restore previous Worker version bfab6169-18ec-4fcc-b096-bfe68d8a560a; production DNS is unchanged."
   ]
