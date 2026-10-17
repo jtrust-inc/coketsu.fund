@@ -1,5 +1,6 @@
 interface Env {
   ASSETS: Fetcher;
+  FORM_RATE_LIMITER: RateLimit;
   TURNSTILE_SECRET: string;
   GRAPH_TENANT_ID?: string;
   GRAPH_CLIENT_ID?: string;
@@ -11,12 +12,36 @@ interface Env {
 const HOSTS = new Set(["coketsu.fund", "coketsu-fund.system-f78.workers.dev"]);
 const ACTIONS = new Set(["contact", "request", "institutional"]);
 const MAX_BODY_BYTES = 64 * 1024;
+const SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "img-src 'self' data: https:",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com",
+  "connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://region1.google-analytics.com",
+  "frame-src https://challenges.cloudflare.com",
+].join("; ");
 let graphToken: { value: string; expiresAt: number } | undefined;
 
-const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
+function withSecurityHeaders(response: Response) {
+  const headers = new Headers(response.headers);
+  headers.set("strict-transport-security", "max-age=86400");
+  headers.set("content-security-policy-report-only", SECURITY_POLICY);
+  headers.set("referrer-policy", "strict-origin-when-cross-origin");
+  headers.set("permissions-policy", "camera=(), microphone=(), geolocation=()");
+  headers.set("x-content-type-options", "nosniff");
+  headers.set("x-frame-options", "SAMEORIGIN");
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+}
+
+const json = (body: unknown, status = 200) => withSecurityHeaders(new Response(JSON.stringify(body), {
   status,
   headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" },
-});
+}));
 
 function safeFields(data: FormData) {
   const fields: Record<string, string> = {};
@@ -104,7 +129,12 @@ async function verifyTurnstile(request: Request, env: Env, token: string, action
 async function handleForm(request: Request, env: Env, action: string) {
   const url = new URL(request.url);
   if (!HOSTS.has(url.hostname)) return json({ message: "許可されていない送信元です。" }, 403);
-  const length = Number(request.headers.get("content-length") || 0);
+  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+  const rateLimit = await env.FORM_RATE_LIMITER.limit({ key: `${ip}:${action}` });
+  if (!rateLimit.success) return json({ message: "送信回数が多すぎます。時間をおいて再度お試しください。" }, 429);
+  const lengthHeader = request.headers.get("content-length");
+  const length = Number(lengthHeader);
+  if (!lengthHeader || !Number.isFinite(length) || length < 0) return json({ message: "入力サイズを確認できません。" }, 411);
   if (length > MAX_BODY_BYTES) return json({ message: "入力内容が大きすぎます。" }, 413);
   const type = request.headers.get("content-type") || "";
   if (!type.includes("multipart/form-data") && !type.includes("application/x-www-form-urlencoded")) return json({ message: "不正な形式です。" }, 415);
@@ -132,6 +162,6 @@ export default {
       if (request.method !== "POST") return json({ message: "Method Not Allowed" }, 405);
       return handleForm(request, env, match[1]);
     }
-    return env.ASSETS.fetch(request);
+    return withSecurityHeaders(await env.ASSETS.fetch(request));
   },
 } satisfies ExportedHandler<Env>;
