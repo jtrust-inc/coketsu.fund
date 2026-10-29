@@ -40,4 +40,8 @@ const fields = [
   @media(max-width:600px){.request-panel,.compact{padding:20px 16px;border-radius:8px}h2,.compact h2{font-size:21px;margin-bottom:18px}.fields,.compact .fields{grid-template-columns:1fr;gap:12px}.field,.compact .field{grid-template-columns:1fr;gap:5px;font-size:13px}.field input,.compact .field input{height:44px;padding:10px;font-size:16px}.form-actions,.compact .form-actions{display:flex;gap:12px;margin-top:18px}.consent,.compact .consent{font-size:12px;gap:8px;justify-content:flex-start}.consent input{width:20px;height:20px}.privacy,.compact .privacy{font-size:12px;margin-top:10px}.consent-group,.compact .consent-group{text-align:center}button,.compact button{min-height:46px;padding:12px 28px;font-size:15px;border-radius:22px}button span{right:14px}.astro-form-status{font-size:14px;margin-top:10px}}
   .field>span{white-space:nowrap}.field{grid-template-columns:8.5cqw minmax(0,1fr);font-size:1.1cqw}
   @media(max-width:600px){.field{grid-template-columns:1fr;font-size:13px}}
+
+
+  .request-panel:not(.compact){min-height:40cqw;display:flex;flex-direction:column}.request-panel:not(.compact) form{flex:1;display:flex;flex-direction:column}.request-panel:not(.compact) .form-actions{margin-top:auto;padding-top:2cqw}.field{font-size:1.25cqw}
+  @media(max-width:600px){.request-panel:not(.compact){min-height:0}.request-panel:not(.compact) .form-actions{margin-top:18px;padding-top:0}.field{font-size:13px}}
 </style>

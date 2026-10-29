@@ -9,7 +9,7 @@ await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 const report = { base, checkedAt: new Date().toISOString(), delivery: 'Mocked browser responses only; no email sent', viewports: [] };
 try {
-  for (const width of [762, 1200, 390]) {
+  for (const width of [762, 1200, 390, 320]) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
     await page.route('https://www.googletagmanager.com/**', route => route.abort());
     // Local host is not registered with Turnstile. Backend validation is not bypassed.
@@ -27,7 +27,9 @@ try {
     }));
     assert.equal(structure.forms, 2); assert.equal(structure.h1s, 1); assert.equal(structure.fullPageImage, false);
     assert.equal(structure.missingImages.length, 0); assert.ok(structure.pageWidth <= structure.viewportWidth + 1, 'Page horizontally overflows');
-    if(width === 390) {
+    assert.equal(await page.locator('form [name="address"], form [name="your-address"]').count(), 0);
+    assert.equal(await page.locator('img[src$="mechanism-diagram.svg"], img[src$="operation-diagram.svg"], img[src$="priority-diagram.svg"]').count(), 0);
+    if(width <= 390) {
       for(const input of await page.locator('.request-panel input:not([type="checkbox"]):not([tabindex="-1"])').all()) {
         const box = await input.boundingBox(); assert.ok(box && box.height >= 44, 'Mobile input must be usable');
       }
