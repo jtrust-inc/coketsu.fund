@@ -22,6 +22,13 @@ for (const page of manifest.pages) {
     const expectedForms = route === "/" ? 2 : 1;
     if (forms.length !== expectedForms) failures.push(`${page.url}: expected ${expectedForms} migrated form(s)`);
     for (const form of forms) {
+      if (/data-astro-form=["']request["']/i.test(form)) {
+        if (/name=["'](?:address|your-address|your-postal-code)["']|ご住所|郵便番号|>住所</i.test(form)) failures.push(`${page.url}: request form still collects an address`);
+        const requiredNames = route === "/" ? ["name", "name_kana", "email", "phone"] : ["your-name", "your-email", "your-tel"];
+        for (const name of requiredNames) {
+          if (!form.includes(`name="${name}"`)) failures.push(`${page.url}: request form field missing: ${name}`);
+        }
+      }
       if (!/data-astro-form=["'](?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: migrated form marker missing`);
       if (!/action=["']\/api\/forms\/(?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: Worker form endpoint missing`);
       if (!/name=["']cf-turnstile-response["']|class=["'][^"']*cf-turnstile/i.test(form)) failures.push(`${page.url}: Turnstile widget missing`);

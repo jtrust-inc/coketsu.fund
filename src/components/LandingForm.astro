@@ -6,16 +6,15 @@ const fields = [
   { name: 'name_kana', label: 'フリガナ', placeholder: '例）ヤマダ タロウ', autocomplete: 'off', type: 'text' },
   { name: 'email', label: 'メールアドレス', placeholder: '例）taro@example.com', autocomplete: 'email', type: 'email' },
   { name: 'phone', label: '電話番号', placeholder: '例）090-1234-5678', autocomplete: 'tel', type: 'tel' },
-  { name: 'address', label: 'ご住所', placeholder: '例）東京都○○区○○1-2-3', autocomplete: 'street-address', type: 'text' },
 ] as const;
 ---
 <section class:list={['request-panel', { compact }]} aria-labelledby={`${id}-title`}>
   <h2 id={`${id}-title`}>無料資料請求・相談予約</h2>
   <form id={id} action="/api/forms/request" method="post" data-astro-form="request" aria-describedby={`${id}-status`}>
     <div class="fields">
-      {fields.map(field => <label class:list={['field', { address: field.name === 'address' }]} for={`${id}-${field.name}`}>
+      {fields.map(field => <label class="field" for={`${id}-${field.name}`}>
         <span>{field.label}</span>
-        <input id={`${id}-${field.name}`} name={field.name} type={field.type} placeholder={field.placeholder} autocomplete={field.autocomplete} required={field.name !== 'address'} />
+        <input id={`${id}-${field.name}`} name={field.name} type={field.type} placeholder={field.placeholder} autocomplete={field.autocomplete} required />
       </label>)}
     </div>
     <div class="form-actions">

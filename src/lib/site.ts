@@ -57,6 +57,11 @@ function migrateContent(content: string, route: string) {
   const action = route === "/contact/" ? "contact" : route === "/request/" ? "request" : "institutional";
   const statusId = `astro-form-status-${action}`;
   return content.replace(/<form\b[\s\S]*?<\/form>/i, (form) => {
+    // Address collection is no longer required for material requests.
+    // Keep the captured WordPress source and other forms unchanged.
+    if (action === "request") {
+      form = form.replace(/<label\b[^>]*class="form-label"[^>]*><span\b[^>]*>必須<\/span>(?:郵便番号|住所)<\/label>\s*<div class="row mb-3"><div\b[^>]*><span\b[^>]*><input\b[^>]*name="your-(?:postal-code|address)"[^>]*\/><\/span><\/div><\/div>/g, "");
+    }
     const enabled = form
       .replace(/<form\b([^>]*)>/i, (_match, attributes: string) => {
         const safeAttributes = attributes
