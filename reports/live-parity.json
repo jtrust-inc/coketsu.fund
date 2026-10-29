@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-15T05:27:01.755Z",
+  "auditedAt": "2026-10-29T07:35:14.865Z",
   "productionOrigin": "https://coketsu.fund",
   "previewOrigin": "https://coketsu-fund.system-f78.workers.dev",
   "pages": [
@@ -10,12 +10,12 @@
       "productionFinalUrl": "https://coketsu.fund/",
       "previewFinalUrl": "https://coketsu-fund.system-f78.workers.dev/",
       "textSimilarity": 100,
-      "sourceImages": 10,
-      "targetImages": 10,
-      "sourceLinks": 43,
-      "targetLinks": 43,
-      "sourceForms": 0,
-      "targetForms": 0,
+      "sourceImages": 12,
+      "targetImages": 12,
+      "sourceLinks": 24,
+      "targetLinks": 24,
+      "sourceForms": 2,
+      "targetForms": 2,
       "titleMatch": true,
       "descriptionMatch": true,
       "sourceOnlyTokens": [],
@@ -47,7 +47,7 @@
       "previewStatus": 200,
       "productionFinalUrl": "https://coketsu.fund/contact/",
       "previewFinalUrl": "https://coketsu-fund.system-f78.workers.dev/contact/",
-      "textSimilarity": 98,
+      "textSimilarity": 100,
       "sourceImages": 2,
       "targetImages": 2,
       "sourceLinks": 42,
@@ -57,10 +57,7 @@
       "titleMatch": true,
       "descriptionMatch": true,
       "sourceOnlyTokens": [],
-      "targetOnlyTokens": [
-        "検証版",
-        "送信できません"
-      ],
+      "targetOnlyTokens": [],
       "differences": []
     },
     {
@@ -69,7 +66,7 @@
       "previewStatus": 200,
       "productionFinalUrl": "https://coketsu.fund/institutional-step1/",
       "previewFinalUrl": "https://coketsu-fund.system-f78.workers.dev/institutional-step1/",
-      "textSimilarity": 98,
+      "textSimilarity": 100,
       "sourceImages": 2,
       "targetImages": 2,
       "sourceLinks": 41,
@@ -77,12 +74,9 @@
       "sourceForms": 1,
       "targetForms": 1,
       "titleMatch": true,
-      "descriptionMatch": false,
+      "descriptionMatch": true,
       "sourceOnlyTokens": [],
-      "targetOnlyTokens": [
-        "検証版",
-        "送信できません"
-      ],
+      "targetOnlyTokens": [],
       "differences": []
     },
     {
@@ -91,7 +85,7 @@
       "previewStatus": 200,
       "productionFinalUrl": "https://coketsu.fund/request/",
       "previewFinalUrl": "https://coketsu-fund.system-f78.workers.dev/request/",
-      "textSimilarity": 98,
+      "textSimilarity": 100,
       "sourceImages": 2,
       "targetImages": 2,
       "sourceLinks": 42,
@@ -101,10 +95,7 @@
       "titleMatch": true,
       "descriptionMatch": true,
       "sourceOnlyTokens": [],
-      "targetOnlyTokens": [
-        "検証版",
-        "送信できません"
-      ],
+      "targetOnlyTokens": [],
       "differences": []
     },
     {
@@ -140,7 +131,7 @@
       "sourceForms": 0,
       "targetForms": 0,
       "titleMatch": true,
-      "descriptionMatch": false,
+      "descriptionMatch": true,
       "sourceOnlyTokens": [],
       "targetOnlyTokens": [],
       "differences": []
@@ -186,7 +177,7 @@
   ],
   "summary": {
     "pageCount": 9,
-    "averageTextSimilarity": 99,
+    "averageTextSimilarity": 100,
     "allHttp200": true,
     "zeroPercentPages": [],
     "formDifferencePages": []
