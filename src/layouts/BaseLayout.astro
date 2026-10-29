@@ -4,7 +4,7 @@ interface Props { page: CapturedPage }
 const { page } = Astro.props;
 const productionUrl = new URL(page.route, "https://coketsu.fund/").href;
 const preview = Astro.url.hostname.endsWith(".workers.dev") || Astro.url.hostname === "localhost";
-const hasForm = ["/contact/", "/request/", "/institutional-step1/"].includes(page.route);
+const hasForm = ["/", "/contact/", "/request/", "/institutional-step1/"].includes(page.route);
 const description = page.description || "Coketsu fund. 専門家とともに価値と未来を創造する不動産投資型クラウドファンディング。";
 // These identifiers are intentionally public: they are emitted into every page's HTML.
 // Environment variables remain available for controlled overrides in other deployments.

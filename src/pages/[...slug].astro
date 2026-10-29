@@ -5,7 +5,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCapturedPages, type CapturedPage } from "../lib/site";
 export async function getStaticPaths() {
   const pages = await getCapturedPages();
-  return pages.map((page) => ({ params: { slug: page.route === "/" ? undefined : page.route.replace(/^\//, "").replace(/\/$/, "") }, props: { page } }));
+  return pages
+    .filter((page) => page.route !== "/")
+    .map((page) => ({ params: { slug: page.route.replace(/^\//, "").replace(/\/$/, "") }, props: { page } }));
 }
 interface Props { page: CapturedPage }
 const { page } = Astro.props;

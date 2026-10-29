@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const manifest = JSON.parse(await readFile(join(root, "migration-source", "manifest.json"), "utf8"));
-const enabledFormRoutes = new Set(["/contact/", "/institutional-step1/", "/request/"]);
+const enabledFormRoutes = new Set(["/", "/contact/", "/institutional-step1/", "/request/"]);
 const failures = [];
 for (const page of manifest.pages) {
   const output = join(root, "dist", page.file);
