@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 250" role="img" aria-labelledby="t">
+  <title id="t">ご利用の流れ</title>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#1792d1"/></marker></defs>
+  <g fill="#fff" stroke="#1792d1" stroke-width="3">
+    <rect x="25" y="25" width="220" height="150" rx="5"/><rect x="295" y="25" width="220" height="150" rx="5"/><rect x="565" y="25" width="220" height="150" rx="5"/><rect x="835" y="25" width="220" height="150" rx="5"/>
+  </g>
+  <g fill="none" stroke="#1788c9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 66h72l28 28v52H92zM164 66v28h28M112 112h56M112 130h42"/>
+    <circle cx="405" cy="87" r="22"/><path d="M355 148v-14c0-29 22-47 50-47s50 18 50 47v14M369 117h72"/>
+    <path d="M620 67h110v81H620zM637 89h77M637 108h58M637 127h42M704 136l18 18 36-45"/>
+    <circle cx="945" cy="106" r="49"/><path d="M918 82l27 24 27-24M945 106v42M922 122h46"/>
+    <path d="M250 101h31M520 101h31M790 101h31" marker-end="url(#a)"/>
+  </g>
+  <g font-family="Arial,'Noto Sans JP',sans-serif" text-anchor="middle" fill="#175f8d">
+    <text x="54" y="53" font-size="20" font-weight="700">01</text><text x="324" y="53" font-size="20" font-weight="700">02</text><text x="594" y="53" font-size="20" font-weight="700">03</text><text x="864" y="53" font-size="20" font-weight="700">04</text>
+    <text x="135" y="211" font-size="22" font-weight="700">資料請求</text><text x="405" y="211" font-size="22" font-weight="700">ご相談・お申込み</text><text x="675" y="211" font-size="22" font-weight="700">ご契約</text><text x="945" y="211" font-size="22" font-weight="700">払込み・運用開始</text>
+  </g>
+</svg>

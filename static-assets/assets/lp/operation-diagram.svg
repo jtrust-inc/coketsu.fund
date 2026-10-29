@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d">
+  <title id="t">不動産運用の仕組み</title><desc id="d">運営会社が投資家からの出資で不動産を取得運用し、収益を分配する流れ</desc>
+  <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#1788c9"/></marker></defs>
+  <g fill="none" stroke="#1688c9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="105" cy="116" r="31"/><path d="M54 242v-48c0-36 23-59 51-59s51 23 51 59v48M76 242v-64m58 64v-64M42 242h126"/>
+    <rect x="315" y="78" width="214" height="204" rx="4"/><path d="M315 222h214M355 78V45h134v33M371 118h102M371 151h102M371 184h102"/>
+    <path d="M632 104h126" marker-end="url(#a)"/><path d="M758 230H632" marker-end="url(#a)"/>
+    <circle cx="866" cy="82" r="22"/><circle cx="820" cy="100" r="18"/><circle cx="912" cy="100" r="18"/><path d="M821 181v-40c0-29 20-48 45-48s45 19 45 48v40M782 181v-34c0-23 17-39 38-39m130 73v-34c0-23-17-39-38-39"/>
+    <path d="M796 287h140M810 287v-55h26v55m20 0v-86h26v86m20 0v-35h26v35"/>
+  </g>
+  <g font-family="Arial,'Noto Sans JP',sans-serif" text-anchor="middle" fill="#145a88">
+    <text x="105" y="280" font-size="24" font-weight="700">運営会社</text><text x="105" y="310" font-size="18">株式会社ジェイトラスト</text>
+    <text x="422" y="315" font-size="23" font-weight="700">対象不動産</text>
+    <text x="695" y="88" font-size="20" font-weight="700">出資</text><text x="695" y="218" font-size="20" font-weight="700">分配</text>
+    <text x="866" y="214" font-size="23" font-weight="700">投資家</text><text x="866" y="332" font-size="18">賃料収入・売却益</text>
+  </g>
+</svg>

@@ -111,14 +111,14 @@ const steps = [
 
     <section class="section operation" aria-labelledby="operation-title">
       <p class="section-label">OPERATION</p><h2 id="operation-title">運用の仕組み</h2>
-      <img class="generated-diagram" src="/assets/lp/operation-diagram.png" alt="出資金をもとに対象不動産を運用し、賃料収入や売却益を分配する仕組み" />
+      <img class="generated-diagram" src="/assets/lp/operation-diagram.svg" alt="出資金をもとに対象不動産を運用し、賃料収入や売却益を分配する仕組み" />
       <p class="note">賃料収入および売却益を原資として、契約条件に従い投資家へ分配します。</p>
     </section>
 
     <section class="section priority" aria-labelledby="priority-title">
       <p class="section-label">RISK CONTROL</p><h2 id="priority-title">優先劣後システムの仕組み</h2>
       <p class="section-intro">一定範囲の価格下落リスクを、事業者の劣後出資が先に負担します。</p>
-      <img class="generated-diagram" src="/assets/lp/priority-diagram.png" alt="優先出資と劣後出資による価格下落リスク低減の仕組み" />
+      <img class="generated-diagram" src="/assets/lp/priority-diagram.svg" alt="優先出資と劣後出資による価格下落リスク低減の仕組み" />
       <div class="priority-diagram">
         <div class="money"><span>投資家の優先出資</span><strong>4,000万円</strong><small>例：80%</small></div>
         <div class="property"><span>不動産価格</span><strong>5,000万円</strong></div>
@@ -129,7 +129,7 @@ const steps = [
 
     <section class="flow" id="flow" aria-labelledby="flow-title">
       <p class="section-label">FLOW</p><h2 id="flow-title">ご相談から運用開始までの4ステップ</h2>
-      <img class="generated-diagram flow-art" src="/assets/lp/flow-icons.png" alt="資料請求、相談、契約、払込み・運用開始の4ステップ" />
+      <img class="generated-diagram flow-art" src="/assets/lp/flow-icons.svg" alt="資料請求、相談、契約、払込み・運用開始の4ステップ" />
       <ol>{steps.map(([number, title, text], index) => <li><span>{number}</span><svg class="step-icon" viewBox="0 0 64 64" aria-hidden="true">{index === 0 ? <><path d="M17 10h25l8 8v36H17zM42 10v10h8M24 29h19M24 37h19M24 45h13"/><path d="M11 17v38h31"/></> : index === 1 ? <><path d="M15 8h34v48H15zM22 17h20M22 25h20M22 33h13"/><circle cx="42" cy="43" r="8"/><path d="m48 49 7 7"/></> : index === 2 ? <><path d="m9 32 13-12 12 11 9-8 13 12M18 37l14 14c3 3 7 3 10 0l12-12M10 32l-4 4 11 12 5-5M55 35l4 4-10 11-5-5"/><path d="m27 46 5-5 9 8"/></> : <><circle cx="32" cy="32" r="24"/><path d="M32 18v28M23 24h14c5 0 8 2 8 6s-3 6-8 6H23M23 42h18"/></>}</svg><h3>{title}</h3><p>{text}</p></li>)}</ol>
     </section>
 
