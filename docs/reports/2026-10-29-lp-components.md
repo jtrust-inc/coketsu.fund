@@ -1,5 +1,7 @@
 # Coketsu fund LP修正報告
 
+> 履歴資料：このレポートの部品構成は現在の本番ではありません。後続のユーザー指示により、一枚画像化直前のHTML版 647eedd / Worker 9d498c55-f439-48a9-a6fc-316752f0888b へロールバックしました。
+
 対象サイト：coketsu.fund
 作業日時：2026-10-29 16:16 JST
 GitHubリポジトリ：https://github.com/jtrust-inc/coketsu.fund

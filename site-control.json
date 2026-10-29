@@ -25,20 +25,21 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-29T16:15:00+09:00",
+  "updatedAt": "2026-10-29T16:21:00+09:00",
   "design": {
     "reference": "1009_coketsufand＿LP.png",
-    "implementation": "Astro sections with cropped original artwork and native HTML forms, navigation and footer",
+    "implementation": "Restored the HTML landing page immediately before the full-page raster implementation (647eedd), at the user's request",
     "fullPageImage": false,
-    "testedViewportWidths": [390, 762, 1200],
-    "formVerification": "Both forms: browser input, mocked success and error responses; mail delivery not retested in this redesign",
+    "testedViewportWidths": null,
+    "formVerification": "Two native forms present in the restored baseline; mail delivery not retested during rollback",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "62e757d",
-    "workerVersion": "3ff30be7-a618-442e-ae26-0e774ff25989",
+    "deployedSourceCommit": "647eedd",
+    "workerVersion": "9d498c55-f439-48a9-a6fc-316752f0888b",
     "productionHtmlMatchesBuild": true,
     "previewHtmlMatchesBuild": true
   },
   "notes": [
+    "2026-10-29 user-requested rollback: production and workers.dev restored to 647eedd / Worker 9d498c55-f439-48a9-a6fc-316752f0888b, the last HTML version before the full-page image. Later split-layout assets are retained as inactive development material; index.astro is restored exactly. The 62e757d component-layout report is historical, not the current production state.",
     "2026-10-29 correction: removed the full-page raster and transparent input overlays. Native HTML forms now use the existing .astro-form-status handler, normal-flow Turnstile widgets, real labels and buttons. All original artwork is cropped without regeneration. Prior 100% comparison scores are not evidence for this redesign and are cleared pending a fresh audit.",
     "Production apex coketsu.fund was cut over from A 160.251.148.79 to the coketsu-fund Cloudflare Worker custom domain on 2026-10-17; www was intentionally not configured.",
     "Microsoft 365 MX, SPF and domain verification TXT records must be preserved.",

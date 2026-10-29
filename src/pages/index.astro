@@ -1,62 +1,200 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LandingHeader from '../components/LandingHeader.astro';
-import LandingForm from '../components/LandingForm.astro';
-import LandingFooter from '../components/LandingFooter.astro';
-const page = { route:'/', file:'index.html', title:'COKETSU FUND｜少額から始める不動産クラウドファンディング', description:'COKETSU FUNDは、専門家とともに価値と未来を創造する不動産投資型クラウドファンディングです。無料資料請求・相談予約を受け付けています。', bodyClass:'lp-page component-lp', headAssets:'', beforeHeader:'', header:'', content:'', footer:'', afterFooter:'' };
-const artwork = '/assets/lp/reference/';
-const steps = ['資料請求・予約', '資料確認・ご相談', '契約手続き', '払込み・運用開始'];
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const page = {
+  route: "/",
+  file: "index.html",
+  title: "COKETSU FUND｜少額から始める不動産クラウドファンディング",
+  description: "COKETSU FUNDは、専門家とともに価値と未来を創造する不動産投資型クラウドファンディングです。無料資料請求・相談予約を受け付けています。",
+  bodyClass: "lp-page",
+  headAssets: "",
+  beforeHeader: "",
+  header: "",
+  content: "",
+  footer: "",
+  afterFooter: "",
+};
+
+const siteKey = "0x4AAAAAAFYoRD5PnpO-VDnW";
+const steps = [
+  ["01", "資料請求・予約", "まずはフォームから資料をご請求ください。"],
+  ["02", "資料確認・ご相談", "仕組みやリスクを担当者が丁寧にご説明します。"],
+  ["03", "契約手続き", "内容をご確認のうえ、必要な手続きを進めます。"],
+  ["04", "払込み・運用開始", "契約条件に基づき運用と分配を行います。"],
+];
 ---
 <BaseLayout page={page}>
   <a class="skip-link" href="#main">本文へ移動</a>
-  <div class="lp-shell">
-    <LandingHeader />
-    <main id="main" data-astro-migrated="true">
-      <section class="hero" aria-labelledby="hero-heading">
-        <h1 id="hero-heading" class="sr-only">不動産投資に、話せる安心を。仕組みもリスクも、担当者に相談して始める不動産小口投資。</h1>
-        <img class="hero-photo" src={`${artwork}hero.png`} width="410" height="324" alt="不動産投資に、話せる安心を。担当者に相談する二人の投資家。" fetchpriority="high" />
-        <div class="hero-form"><LandingForm id="consultation" /></div>
-      </section>
-      <section class="record" aria-label="運用実績">
-        <img class="record-art" src={`${artwork}record.png`} width="762" height="97" alt="運用実績：配当遅延0件、ファンド延長0件、元本毀損0件。2026年9月10日時点。当該実績は将来の運用成果を保証するものではありません。" />
-      </section>
-      <section class="about pale-section" id="about" aria-labelledby="about-title">
-        <h2 id="about-title">COKETSU FUNDとは</h2>
-        <p class="intro">少額から始める、不動産クラウドファンディング。</p>
-        <p>複数の投資家が共同で出資し、集まった資金で不動産を取得・運用。<br class="desktop-break" />賃料収入や売却益を、出資比率や契約内容に応じて分配する仕組みです。</p>
-        <div class="metrics"><div><span>投資金額</span><p>1口 <strong>10</strong> 万円〜</p></div><div><span>お申込手数料</span><p><strong>0</strong> 円</p></div></div>
-        <p class="explanation">COKETSU FUNDでは、投資家の皆様と株式会社ジェイトラストが<br class="desktop-break" />匿名組合契約に基づき共同出資し、物件の管理・運用は当社が担当します。</p>
-        <p class="risk-note">※元本や分配金は保証されません。</p>
-      </section>
-      <section class="mechanism-section" id="mechanism" aria-labelledby="mechanism-title">
-        <h2 id="mechanism-title" class="sr-only">出資から運用、分配までの仕組み</h2>
-        <div class="diagram-scroll" tabindex="0" role="region" aria-label="出資・運用・分配の図解"><img src={`${artwork}mechanism.png`} width="762" height="152" loading="lazy" alt="投資家がCOKETSU FUNDに出資。COKETSU FUNDが不動産を取得・運用し、賃料収入・売却益を投資家へ分配します。元本や利益の保証はありません。" /></div>
-        <a class="diagram-enlarge" href={`${artwork}mechanism.png`} target="_blank" rel="noopener">仕組みの図を拡大する</a>
-      </section>
-      <section class="funds" aria-labelledby="funds-title"><h2 id="funds-title">不動産プロジェクト</h2><div class="fund-grid">
-        <article><h3 class="sr-only">世田谷区深沢4丁目 土地1号プロジェクト</h3><img src={`${artwork}fund-setagaya.png`} width="318" height="153" loading="lazy" alt="募集終了。世田谷区深沢4丁目 土地1号プロジェクト。想定利回り年利12%、運用期間12か月、募集金額42,900,000円。" /></article>
-        <article><h3 class="sr-only">AZXIA BLD. 西麻布1号プロジェクト</h3><img src={`${artwork}fund-nishiazabu.png`} width="317" height="153" loading="lazy" alt="募集終了。AZXIA BLD. 西麻布1号プロジェクト。想定利回り年利12%、運用期間12か月、募集金額83,600,000円。" /></article>
-      </div><p class="risk-note">※実際の運用内容の詳細は、契約書等の記載事項をご確認ください。</p></section>
-      <section class="operation pale-section" aria-labelledby="operation-title"><h2 id="operation-title">運用の仕組み</h2><div class="diagram-scroll" tabindex="0" role="region" aria-label="運用の仕組みの図解"><img src={`${artwork}operation.png`} width="610" height="195" loading="lazy" alt="投資家の優先出資とジェイトラストの劣後出資で対象不動産を取得。入居者からの賃料、売却による利益を原資に、投資家へ優先的に分配・償還します。" /></div><a class="diagram-enlarge" href={`${artwork}operation.png`} target="_blank" rel="noopener">運用の図を拡大する</a><p class="risk-note">賃料収入は投資家へ優先的に分配。償還時は投資家、事業者の順に出資金を返還します。分配・償還は契約内容に基づきます。</p></section>
-      <section class="priority pale-section" aria-labelledby="priority-title"><h2 id="priority-title">優先劣後出資システムの仕組み</h2><p class="priority-intro">5,000万円の物件が500万円下落した場合の例</p><div class="diagram-scroll" tabindex="0" role="region" aria-label="優先劣後出資の図解"><img src={`${artwork}priority.png`} width="649" height="152" loading="lazy" alt="投資家の優先出資4,000万円（80%）、ジェイトラストの劣後出資1,000万円（20%）。不動産価格が4,500万円に下落した場合、ジェイトラストが500万円を負担し、お客様に4,000万円を償還する例。" /></div><a class="diagram-enlarge" href={`${artwork}priority.png`} target="_blank" rel="noopener">優先劣後出資の図を拡大する</a><p class="explanation">この例では、劣後出資の範囲内で下落幅を吸収します。</p><p class="risk-note">※説明用です。分配金は将来の収益によって変動します。元本や分配金を保証するものではありません。</p></section>
-      <section class="flow-section" id="flow" aria-labelledby="flow-title"><h2 id="flow-title">ご相談から運用開始までの4ステップ</h2><ol>{steps.map((step,index) => <li><img src={`${artwork}flow-${index + 1}.png`} width="144" height="71" loading="lazy" alt={`${index + 1}. ${step}`} /></li>)}</ol></section>
-      <section class="bottom-cta" aria-labelledby="bottom-title"><h2 id="bottom-title">仕組みも、リスクも。<br />まずはご相談ください。</h2><LandingForm id="consultation-bottom" compact /></section>
-    </main>
-    <LandingFooter />
-  </div>
+  <header class="lp-header">
+    <a class="brand" href="/" aria-label="COKETSU FUND ホーム">
+      <img src="/wp-content/uploads/2025/04/coketsu2.png" alt="COKETSU FUND" width="869" height="86" />
+    </a>
+    <nav aria-label="メインナビゲーション">
+      <a href="#about">特徴</a><a href="#mechanism">仕組み</a><a href="#flow">ご利用の流れ</a>
+      <a href="https://invest.coketsu.fund/#/login">ログイン</a>
+      <a class="nav-cta" href="#consultation">無料資料請求・相談予約</a>
+    </nav>
+  </header>
+
+  <main id="main" data-astro-migrated="true">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">不動産のプロと、価値ある未来へ。</p>
+        <h1 id="hero-title">不動産投資に、<br /><strong>話せる安心を。</strong></h1>
+        <p class="lead">仕組みもリスクも、担当者に相談して始める<br />不動産小口投資。</p>
+        <ul class="hero-points" aria-label="COKETSU FUNDの特徴">
+          <li>1口10万円から</li><li>専門家が伴走</li><li>優先劣後方式</li>
+        </ul>
+      </div>
+      <div class="hero-form" id="consultation">
+        <p class="form-kicker">まずはお気軽にご相談ください</p>
+        <h2>無料資料請求・相談予約</h2>
+        <form action="/api/forms/request" method="post" data-astro-form="request" aria-describedby="astro-form-status-request">
+          <div class="form-grid">
+            <label>お名前<span>必須</span><input name="name" autocomplete="name" required /></label>
+            <label>フリガナ<span>必須</span><input name="name_kana" autocomplete="off" required /></label>
+            <label>メールアドレス<span>必須</span><input type="email" name="email" autocomplete="email" required /></label>
+            <label>電話番号<span>必須</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" required /></label>
+            <label class="wide">ご住所<span>任意</span><input name="address" autocomplete="street-address" /></label>
+          </div>
+          <label class="agree"><input type="checkbox" name="privacy_agreed" value="同意" required /> <a href="/privacy-policy/" target="_blank">個人情報の取り扱い</a>に同意します。</label>
+          <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="cf-turnstile" data-sitekey={siteKey} data-action="request" data-theme="light"></div>
+          <button type="submit">無料で資料を請求する <span aria-hidden="true">→</span></button>
+          <div id="astro-form-status-request" class="astro-form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="record" aria-labelledby="record-title">
+      <h2 id="record-title" class="sr-only">運用実績</h2>
+      <div><span>配当遅延</span><strong>0<small>件</small></strong></div>
+      <div><span>ファンド延長</span><strong>0<small>件</small></strong></div>
+      <div><span>元本毀損</span><strong>0<small>件</small></strong></div>
+      <p>2026年9月30日時点の実績です。将来の運用成果を保証するものではありません。</p>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <p class="section-label">ABOUT</p>
+      <h2 id="about-title">COKETSU FUNDとは</h2>
+      <p class="section-intro">少額から始める、不動産クラウドファンディング。</p>
+      <p>COKETSU FUNDは、複数の投資家が共同で出資し、集まった資金で不動産を取得・運用する仕組みです。物件の選定から管理・運用まで、株式会社ジェイトラストの不動産の専門家が担当します。</p>
+      <div class="feature-cards">
+        <article><span>投資金額</span><strong>1口 10<small>万円〜</small></strong><p>まとまった自己資金を用意せず、不動産投資を検討できます。</p></article>
+        <article><span>お申込手数料</span><strong>0<small>円</small></strong><p>相談からお申し込みまでの手数料はかかりません。</p></article>
+      </div>
+      <p class="note">※ファンドごとに最低投資金額・条件が異なる場合があります。必ず各契約書面をご確認ください。</p>
+    </section>
+
+    <section class="blue-section" id="mechanism" aria-labelledby="mechanism-title">
+      <p class="section-label">MECHANISM</p>
+      <h2 id="mechanism-title">出資から運用、分配までの仕組み</h2>
+      <img class="generated-diagram mechanism-art" src="/assets/lp/mechanism-diagram.svg" alt="不動産、COKETSU FUND、投資家間の出資・運用・分配の仕組み" />
+      <div class="scheme" role="img" aria-label="投資家がCOKETSU FUNDへ出資し、COKETSU FUNDが不動産を取得運用、その利益を投資家へ分配する仕組み">
+        <div class="scheme-node"><svg viewBox="0 0 96 96" aria-hidden="true"><path d="M13 82h70M21 82V33l27-16v65M48 82V29l27 12v41M29 42h8m-8 12h8m-8 12h8m20-21h8m-8 12h8m-8 12h8"/></svg><strong>不動産</strong><small>取得・運用</small></div>
+        <div class="arrows"><b>取得・運用</b><span>←</span><b>賃料収入・売却益</b><span>→</span></div>
+        <div class="scheme-center"><img src="/wp-content/uploads/2025/04/coketsu2.png" alt="COKETSU FUND" /><small>株式会社ジェイトラスト</small></div>
+        <div class="arrows"><b>出資</b><span>←</span><b>利益分配</b><span>→</span></div>
+        <div class="scheme-node"><svg viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="29" r="11"/><circle cx="23" cy="38" r="8"/><circle cx="73" cy="38" r="8"/><path d="M29 78c0-18 8-29 19-29s19 11 19 29M8 78c0-14 6-24 15-24 5 0 9 3 12 8M88 78c0-14-6-24-15-24-5 0-9 3-12 8"/></svg><strong>投資家</strong><small>匿名組合出資</small></div>
+      </div>
+      <p class="scheme-note">元本や将来の利益は保証されません。契約成立前書面等でリスクをご確認ください。</p>
+    </section>
+
+    <section class="section funds" aria-labelledby="funds-title">
+      <p class="section-label">FUNDS</p><h2 id="funds-title">不動産プロジェクト</h2>
+      <div class="fund-grid">
+        <article class="fund-card"><div class="fund-visual">COKETSU FUND</div><span class="status">募集終了</span><h3>世田谷区深沢4丁目 土地1号プロジェクト</h3><dl><div><dt>想定運用期間</dt><dd>12ヶ月</dd></div><div><dt>募集金額</dt><dd>42,900,000円</dd></div></dl></article>
+        <article class="fund-card"><div class="fund-visual">COKETSU FUND</div><span class="status">募集終了</span><h3>AZXIA BLD. 西麻布1号プロジェクト</h3><dl><div><dt>想定運用期間</dt><dd>12ヶ月</dd></div><div><dt>募集金額</dt><dd>63,600,000円</dd></div></dl></article>
+      </div>
+      <p class="note">掲載情報は募集時点の内容です。現在募集中の商品ではありません。</p>
+    </section>
+
+    <section class="section operation" aria-labelledby="operation-title">
+      <p class="section-label">OPERATION</p><h2 id="operation-title">運用の仕組み</h2>
+      <img class="generated-diagram" src="/assets/lp/operation-diagram.svg" alt="出資金をもとに対象不動産を運用し、賃料収入や売却益を分配する仕組み" />
+      <p class="note">賃料収入および売却益を原資として、契約条件に従い投資家へ分配します。</p>
+    </section>
+
+    <section class="section priority" aria-labelledby="priority-title">
+      <p class="section-label">RISK CONTROL</p><h2 id="priority-title">優先劣後システムの仕組み</h2>
+      <p class="section-intro">一定範囲の価格下落リスクを、事業者の劣後出資が先に負担します。</p>
+      <img class="generated-diagram" src="/assets/lp/priority-diagram.svg" alt="優先出資と劣後出資による価格下落リスク低減の仕組み" />
+      <div class="priority-diagram">
+        <div class="money"><span>投資家の優先出資</span><strong>4,000万円</strong><small>例：80%</small></div>
+        <div class="property"><span>不動産価格</span><strong>5,000万円</strong></div>
+        <div class="money secondary"><span>事業者の劣後出資</span><strong>1,000万円</strong><small>例：20%</small></div>
+      </div>
+      <p class="risk-copy">不動産価格が劣後出資割合を超えて下落した場合、投資家の元本に損失が生じる可能性があります。優先劣後方式は元本を保証するものではありません。</p>
+    </section>
+
+    <section class="flow" id="flow" aria-labelledby="flow-title">
+      <p class="section-label">FLOW</p><h2 id="flow-title">ご相談から運用開始までの4ステップ</h2>
+      <img class="generated-diagram flow-art" src="/assets/lp/flow-icons.svg" alt="資料請求、相談、契約、払込み・運用開始の4ステップ" />
+      <ol>{steps.map(([number, title, text], index) => <li><span>{number}</span><svg class="step-icon" viewBox="0 0 64 64" aria-hidden="true">{index === 0 ? <><path d="M17 10h25l8 8v36H17zM42 10v10h8M24 29h19M24 37h19M24 45h13"/><path d="M11 17v38h31"/></> : index === 1 ? <><path d="M15 8h34v48H15zM22 17h20M22 25h20M22 33h13"/><circle cx="42" cy="43" r="8"/><path d="m48 49 7 7"/></> : index === 2 ? <><path d="m9 32 13-12 12 11 9-8 13 12M18 37l14 14c3 3 7 3 10 0l12-12M10 32l-4 4 11 12 5-5M55 35l4 4-10 11-5-5"/><path d="m27 46 5-5 9 8"/></> : <><circle cx="32" cy="32" r="24"/><path d="M32 18v28M23 24h14c5 0 8 2 8 6s-3 6-8 6H23M23 42h18"/></>}</svg><h3>{title}</h3><p>{text}</p></li>)}</ol>
+    </section>
+
+    <section class="bottom-cta" aria-labelledby="cta-title">
+      <div><p>仕組みも、リスクも。</p><h2 id="cta-title">まずはご相談ください。</h2></div>
+      <div class="bottom-form">
+        <h3>無料資料請求・相談予約</h3>
+        <form action="/api/forms/request" method="post" data-astro-form="request" aria-describedby="astro-form-status-request-bottom">
+          <div class="bottom-form-grid">
+            <label>お名前<input name="name" autocomplete="name" required /></label>
+            <label>フリガナ<input name="name_kana" required /></label>
+            <label>メールアドレス<input type="email" name="email" autocomplete="email" required /></label>
+            <label>電話番号<input type="tel" name="phone" autocomplete="tel" required /></label>
+            <label>ご住所<input name="address" autocomplete="street-address" /></label>
+          </div>
+          <label class="agree"><input type="checkbox" name="privacy_agreed" value="同意" required /> <a href="/privacy-policy/" target="_blank">個人情報の取り扱い</a>に同意します。</label>
+          <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="cf-turnstile" data-sitekey={siteKey} data-action="request" data-theme="light"></div>
+          <button type="submit">無料で資料を請求する</button>
+          <div id="astro-form-status-request-bottom" class="astro-form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-footer">
+    <div class="footer-brand"><img src="/wp-content/uploads/2025/04/coketsu2w.png" alt="COKETSU FUND" width="869" height="86" /></div>
+    <nav aria-label="フッターナビゲーション"><a href="/news/">NEWS</a><a href="/contact/">お問い合わせ</a><a href="/privacy-policy/">プライバシーポリシー</a><a href="/cooling-off/">クーリング・オフ</a></nav>
+    <p>運営会社：株式会社ジェイトラスト<br />宅地建物取引業者免許：国土交通大臣（2）第10041号<br />賃貸住宅管理業者登録番号：国土交通大臣（01）第005921号<br />不動産特定共同事業：東京都知事 第182号<br />〒103-0013 東京都中央区日本橋人形町1-19-5 エムズクロス人形町10F<br />電話番号（代表）：03-6690-6844</p>
+    <p class="footer-risk">投資には元本割れ等のリスクがあります。契約内容・リスクをご確認ください。</p>
+    <small>© COKETSU FUND</small>
+  </footer>
 </BaseLayout>
+
 <style>
-  :global(html){scroll-behavior:smooth}:global(body.component-lp){margin:0;background:#fff;color:#166da4;font-family:'Yu Gothic','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;line-height:1.6}:global(.component-lp *){box-sizing:border-box}:global(.component-lp img){max-width:100%}:global(.component-lp [id]){scroll-margin-top:12px}
-  .lp-shell{width:min(100%,1200px);margin-inline:auto;container-type:inline-size}.skip-link{position:fixed;top:-80px;left:12px;padding:12px;background:#fff;z-index:100}.skip-link:focus{top:12px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}h2{font-family:'Yu Mincho','Hiragino Mincho ProN',serif;font-size:2.7cqw;font-weight:600;line-height:1.35;text-align:center;margin:0}p{margin:0}.hero{display:grid;grid-template-columns:54% 46%;background:#eaf8ff url('/assets/lp/reference/hero-edge.png') right center/4.2% 100% no-repeat;align-items:stretch}.hero-photo{display:block;width:100%;height:auto;align-self:end}.hero-form{padding:.6cqw 4.8cqw 1cqw 0;align-self:center;min-width:0}
-  .record{padding:.8cqw 8.8cqw .85cqw;background:linear-gradient(110deg,#008cff,#005af0 60%,#00b7fb);color:#fff;text-align:center}.record-items{display:grid;grid-template-columns:repeat(3,1fr);gap:4cqw;justify-items:center}.record-items img{display:block;width:21.1cqw;height:auto}.record>p{font-size:1cqw;font-weight:600;line-height:1.5;margin-top:.25cqw}
-  .pale-section{background:linear-gradient(110deg,#eaf9ff,#f8fdff 45%,#ebf9ff);text-align:center}.about{padding:1.1cqw 8cqw .6cqw;background-image:url('/assets/lp/reference/about-edge.png'),linear-gradient(110deg,#eaf9ff,#f8fdff 45%,#e5f7ff);background-position:left center;background-size:15.75% 100%,100% 100%;background-repeat:no-repeat;font-size:1.9cqw;font-weight:600;line-height:1.8}.about h2{font-size:2.9cqw;color:#1b668d;margin-bottom:.8cqw}.intro{font-family:'Yu Mincho',serif;font-size:2.1cqw;margin-bottom:.7cqw}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;width:79%;margin:.8cqw auto}.metrics>div{background:linear-gradient(115deg,#0067d8,#004bac);color:#fff;border-radius:1cqw;padding:.3cqw .8cqw .5cqw;line-height:1.25}.metrics>div+div{background:#2eabea}.metrics span{font-size:1.5cqw}.metrics p{font-size:2cqw;font-weight:400}.metrics strong{font-family:Arial,sans-serif;font-size:4.3cqw;font-weight:300}.explanation{font-size:1.6cqw;line-height:1.8;font-weight:700}.risk-note{font-size:1.05cqw;line-height:1.6;text-align:center}.about .risk-note{margin-top:.3cqw}
-  .mechanism-section{background:#0078ee}.diagram-scroll{overflow-x:auto;overscroll-behavior-x:contain}.diagram-scroll img{display:block;width:100%;height:auto}.funds{padding:.7cqw 7.5cqw .8cqw;background:#fff}.funds h2{margin-bottom:.4cqw}.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw}.fund-grid article{min-width:0}.fund-grid img{display:block;width:100%;height:auto}.funds .risk-note{color:#555;font-size:.95cqw;margin-top:.35cqw}
-  .operation{padding:1.1cqw 9.5cqw 1.2cqw}.operation h2{margin-bottom:.7cqw}.operation .risk-note{margin:1cqw -1.5cqw 0;color:#555;font-size:1.25cqw}.priority{padding:.4cqw 7.6cqw 1cqw;background:linear-gradient(115deg,#e9faff,#f9fdff 45%,#e5f7ff)}.priority h2{font-size:3cqw}.priority-intro{font-size:1.8cqw;font-weight:600;margin:.3cqw 0 .6cqw}.priority .explanation{margin-top:.4cqw}.priority .risk-note{font-size:1cqw;margin-top:.2cqw}
-  .flow-section{padding:.6cqw 5.5cqw .8cqw;background:#fff}.flow-section h2{font-size:2.7cqw;color:#0056ff;margin-bottom:.5cqw}.flow-section ol{display:grid;grid-template-columns:repeat(4,1fr);gap:4cqw;list-style:none;padding:0;margin:0}.flow-section li{position:relative;min-width:0}.flow-section li+li:before{content:'›';position:absolute;left:-2.9cqw;top:25%;font-size:3.8cqw;color:#006aff}.flow-section img{display:block;width:100%;height:auto}
-  .bottom-cta{display:grid;grid-template-columns:34% 62%;gap:2%;align-items:center;background:linear-gradient(115deg,#009ced,#0060ff 55%,#00a8f7);padding:1.1cqw 4.5cqw 1.1cqw 4.5cqw}.bottom-cta h2 img{display:block;width:100%;height:auto}
-  @media(max-width:600px){h2,.about h2,.priority h2,.flow-section h2{font-size:23px}.hero{grid-template-columns:1fr;background:#ecf9ff}.hero-photo{width:100%}.hero-form{padding:16px;align-self:auto}.record{padding:12px 8px}.record-items{gap:6px}.record-items img{width:100%}.record>p{font-size:9px;margin-top:8px}.about{padding:24px 18px 18px;font-size:14px;line-height:1.8;background-size:25% 100%,100% 100%}.intro{font-size:17px;margin:12px 0}.desktop-break{display:none}.metrics{width:100%;gap:10px;margin:16px 0}.metrics>div{border-radius:6px;padding:10px 6px}.metrics span{font-size:12px}.metrics p{font-size:14px}.metrics strong{font-size:34px}.explanation{font-size:13px;line-height:1.9}.risk-note,.about .risk-note{font-size:11px;margin-top:10px}.diagram-scroll{scrollbar-width:thin}.diagram-scroll img{min-width:600px;max-width:none}.mechanism-section .diagram-scroll img{min-width:640px}.funds{padding:20px 18px}.funds h2{margin-bottom:14px}.fund-grid{grid-template-columns:1fr;gap:12px}.funds .risk-note{font-size:10px;margin-top:10px}.operation,.priority{padding:22px 16px}.operation h2{margin-bottom:14px}.operation .risk-note{margin:14px 0 0;font-size:11px}.priority-intro{font-size:13px;margin:10px 0 16px}.priority .explanation{margin-top:14px}.priority .risk-note{font-size:10px;margin-top:8px}.flow-section{padding:22px 16px}.flow-section h2{font-size:20px;margin-bottom:16px}.flow-section ol{grid-template-columns:1fr 1fr;gap:12px 24px}.flow-section li+li:before{display:none}.flow-section li:nth-child(even):before{display:block;left:-18px;top:22%;font-size:28px}.bottom-cta{grid-template-columns:1fr;gap:18px;padding:24px 16px}.bottom-cta h2{max-width:280px;margin-inline:auto}}
-  .record{padding:0;background:#0086ef}.record-art{display:block;width:100%;height:auto}.bottom-cta h2{font-size:2.8cqw;line-height:1.65;font-weight:400;color:#fff;text-align:left;white-space:nowrap}
-  @media(max-width:600px){.bottom-cta h2{font-size:22px}}
-  .diagram-enlarge{display:none}
-  @media(max-width:600px){.diagram-scroll img,.mechanism-section .diagram-scroll img{min-width:0;max-width:100%}.diagram-enlarge{display:block;text-align:right;padding:8px 0;color:#1265a4;font-size:12px}.mechanism-section .diagram-enlarge{color:#fff;padding:8px 16px}}
+  :global(html){scroll-behavior:smooth} :global(body.lp-page){margin:0;color:#153356;background:#fff;font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.75} :global(.lp-page *){box-sizing:border-box} :global(.lp-page a){color:inherit} .skip-link{position:fixed;left:1rem;top:-5rem;z-index:1000;background:#fff;padding:.7rem 1rem}.skip-link:focus{top:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .lp-header{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,4vw,4rem);background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px #0a40700d}.brand img{display:block;width:min(240px,32vw);height:auto}.lp-header nav{display:flex;align-items:center;gap:1.6rem;font-size:.87rem;font-weight:700}.lp-header nav a{text-decoration:none}.nav-cta{background:#1188df;color:#fff!important;padding:.75rem 1.2rem;border-radius:999px}
+  .hero{min-height:610px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.72fr);align-items:center;gap:clamp(2rem,5vw,5rem);padding:clamp(3rem,7vw,6.5rem) max(5vw,calc((100vw - 1180px)/2));background:linear-gradient(90deg,#f8fcffea 0%,#f8fcffb8 35%,#eef9ff24 67%),url('/assets/lp/hero-consultation-desktop.png') center/cover no-repeat;position:relative;overflow:hidden}.hero::after{content:"";position:absolute;right:-8%;bottom:-20%;width:34%;aspect-ratio:1;background:#00a4ff18;transform:rotate(25deg)}.hero-copy,.hero-form{position:relative;z-index:1}.eyebrow{color:#0a8fe2;font-weight:800;letter-spacing:.08em}.hero h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.6rem,5vw,5rem);font-weight:500;line-height:1.18;margin:.5rem 0 1.2rem;color:#0c62b2}.hero h1 strong{color:#153d79;font-weight:700}.lead{font-size:clamp(1rem,1.5vw,1.35rem);font-weight:700}.hero-points{display:flex;list-style:none;padding:0;margin:2rem 0 0;gap:.7rem;flex-wrap:wrap}.hero-points li{border:1px solid #38a8ed;background:#fff;padding:.35rem .9rem;border-radius:999px;color:#087ac4;font-size:.86rem;font-weight:700}.hero-form{background:#fffffff2;border-radius:18px;padding:clamp(1.4rem,3vw,2.25rem);box-shadow:0 24px 70px #07558a26;border:1px solid #d7effe}.form-kicker{margin:0;color:#078bdf;font-size:.78rem;font-weight:800}.hero-form h2{font-size:1.5rem;margin:.2rem 0 1.2rem;color:#0a65b4}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}.form-grid label{font-size:.78rem;font-weight:700}.form-grid label span{font-size:.65rem;color:#078bdc;margin-left:.4rem}.form-grid .wide{grid-column:1/-1}.form-grid input{display:block;width:100%;border:1px solid #c8dce9;background:#fff;border-radius:7px;padding:.72rem;margin-top:.25rem;font:inherit}.agree{display:block;font-size:.75rem;margin:1rem 0}.agree a{color:#087ac4}.cf-turnstile{margin:.7rem 0}.hero-form button{border:0;width:100%;padding:1rem;border-radius:999px;background:linear-gradient(90deg,#0b82dc,#10a9ef);color:#fff;font-weight:800;font-size:1rem;box-shadow:0 10px 24px #078bdc38;cursor:pointer}.hero-form button:disabled{opacity:.55}.astro-form-status{min-height:1.4em;margin:.5rem 0 0;font-size:.8rem}.astro-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+  .record{background:linear-gradient(120deg,#0a78d0,#08a9ec);color:#fff;display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));gap:1px;padding:1.6rem max(5vw,calc((100vw - 1000px)/2));text-align:center}.record>div{border-right:1px solid #ffffff4d}.record>div:nth-of-type(3){border:0}.record span{display:block;font-size:.8rem}.record strong{font-family:Georgia,serif;font-size:2.6rem}.record small{font-family:inherit;font-size:.85rem;margin-left:.25rem}.record p{grid-column:1/-1;margin:.8rem 0 0;font-size:.68rem;opacity:.88}
+  .section{padding:clamp(4rem,8vw,7rem) max(5vw,calc((100vw - 1040px)/2));text-align:center}.section-label{font-size:.72rem;letter-spacing:.2em;color:#0b8bdc;font-weight:900;margin:0}.section h2,.blue-section h2,.flow h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.3;margin:.35rem 0 1.2rem;color:#145798}.section-intro{font-size:clamp(1.05rem,2vw,1.35rem);font-weight:800;color:#0c65b2}.about>p:not(.section-label):not(.section-intro):not(.note){max-width:850px;margin:0 auto 2rem}.feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem}.feature-cards article{padding:2rem;background:linear-gradient(135deg,#f0f9ff,#fff);border:1px solid #d4ebfa;border-radius:14px}.feature-cards span{font-size:.8rem;font-weight:700}.feature-cards strong{display:block;font-family:Georgia,serif;font-size:2.5rem;color:#087fd0}.feature-cards small{font-family:inherit;font-size:1rem}.feature-cards p{font-size:.85rem;margin:.5rem 0 0}.note{font-size:.72rem;color:#536a7b;margin-top:1.4rem}
+  .blue-section{padding:clamp(4rem,8vw,6rem) max(5vw,calc((100vw - 1100px)/2));text-align:center;color:#fff;background:linear-gradient(135deg,#0876cb,#05a6e9);position:relative;overflow:hidden}.blue-section::before{content:"";position:absolute;inset:0;background:linear-gradient(30deg,transparent 46%,#ffffff0d 47%,#ffffff0d 53%,transparent 54%);background-size:120px 120px}.blue-section>*{position:relative}.blue-section .section-label,.blue-section h2{color:#fff}.scheme{display:grid;grid-template-columns:1fr .8fr 1.2fr .8fr 1fr;align-items:center;gap:1rem;margin-top:3rem}.scheme-node,.scheme-center{background:#fff;color:#1267aa;border-radius:14px;padding:1.5rem;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center}.scheme-node>span{font-size:3rem}.scheme-node strong{font-size:1.2rem}.scheme-node small,.scheme-center small{font-size:.75rem}.scheme-center img{width:90%;height:auto}.arrows{display:grid;grid-template-columns:1fr 1fr;font-size:.67rem;gap:.2rem}.arrows span{grid-column:1/-1;font-size:2rem;letter-spacing:1rem}.scheme-note{font-size:.76rem;margin-top:2rem}
+  .funds{background:#f4faff}.fund-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;text-align:left}.fund-card{background:#fff;border-radius:14px;padding:1rem;box-shadow:0 14px 40px #0c518614;position:relative}.fund-visual{height:150px;border-radius:9px;background:linear-gradient(135deg,#dce6ec,#b9c8d2);display:grid;place-items:center;color:#fff;font-weight:800;letter-spacing:.08em}.status{position:absolute;top:.5rem;left:.5rem;background:#0b87d7;color:#fff;padding:.25rem .6rem;font-size:.68rem;border-radius:4px}.fund-card h3{font-size:1rem;color:#23475f}.fund-card dl{display:grid;grid-template-columns:1fr 1fr;margin:0;background:#f6fafc;padding:.7rem}.fund-card dl div+div{border-left:1px solid #dce6ec;padding-left:.7rem}.fund-card dt{font-size:.65rem}.fund-card dd{margin:0;color:#087ecc;font-weight:800}
+  .priority-diagram{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:1rem;align-items:stretch;margin:2.5rem 0}.money,.property{padding:2rem 1rem;display:flex;flex-direction:column;justify-content:center;border-radius:12px}.money{background:#0a80d1;color:#fff}.money.secondary{background:#20a8ea}.property{border:2px solid #168ed9;color:#1267a9}.money span,.property span{font-size:.82rem}.money strong,.property strong{font-size:1.6rem}.money small{opacity:.85}.risk-copy{background:#fff8e8;border-left:4px solid #f1ae22;text-align:left;padding:1rem 1.2rem;font-size:.82rem}
+  .flow{padding:clamp(4rem,8vw,6rem) max(5vw,calc((100vw - 1100px)/2));text-align:center;background:#f5fbff}.flow .section-label{color:#078bda}.flow h2{color:#145798}.flow ol{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.flow li{background:#fff;padding:1.5rem 1rem;border-radius:12px;box-shadow:0 12px 36px #0b5b8f12;position:relative}.flow li:not(:last-child)::after{content:"›";position:absolute;right:-.8rem;top:42%;color:#0a8cdb;font-size:2rem;z-index:2}.flow li>span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#0a8bdc;color:#fff;margin:0 auto .8rem;font-family:Georgia,serif}.flow h3{font-size:1rem;color:#1266aa}.flow li p{font-size:.75rem;margin:0}
+  .bottom-cta{padding:3.5rem max(5vw,calc((100vw - 1040px)/2));background:linear-gradient(120deg,#0a6ec1,#0da9e9);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:2rem}.bottom-cta p{margin:0;font-family:"Yu Mincho",serif}.bottom-cta h2{font-size:2rem;margin:.1rem 0}.bottom-cta a{text-decoration:none;background:#fff;color:#087aca;padding:1rem 2rem;border-radius:999px;font-weight:800;white-space:nowrap}
+  .lp-footer{background:#072f51;color:#fff;padding:3.5rem max(5vw,calc((100vw - 1100px)/2));display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:2rem;font-size:.75rem}.footer-brand img{width:240px;height:auto}.lp-footer nav{display:flex;flex-direction:column;gap:.5rem}.lp-footer nav a{text-decoration:none}.footer-risk{grid-column:1/-1;border-top:1px solid #ffffff33;padding-top:1rem}.lp-footer small{grid-column:1/-1;opacity:.65}
+  /* 参照デザインに合わせたブランド・図版調整 */
+  .lp-header{height:58px;padding:0 max(2vw,calc((100vw - 1180px)/2))}.brand img{width:min(190px,28vw);filter:invert(37%) sepia(94%) saturate(1056%) hue-rotate(169deg) brightness(87%) contrast(97%)}.lp-header nav{gap:1.35rem;font-size:.76rem}.nav-cta{padding:.62rem 1.05rem;border-radius:2px}
+  .record{padding:1.25rem max(5vw,calc((100vw - 920px)/2))}.record>div{position:relative}.record>div::before,.record>div::after{content:"❧";position:absolute;top:18%;font-size:3.5rem;line-height:1;color:#e5df35}.record>div::before{left:7%;transform:rotate(-28deg)}.record>div::after{right:7%;transform:scaleX(-1) rotate(-28deg)}.record span{font-size:.72rem}.record strong{font-size:2.25rem}.record p{margin-top:.55rem;font-size:.6rem}
+  .record>div{background:url('/assets/lp/laurel-frame.png') center 58%/150px auto no-repeat}.record>div::before,.record>div::after{content:none}
+  .blue-section{padding:clamp(2.8rem,6vw,4.5rem) max(5vw,calc((100vw - 1040px)/2))}.scheme{gap:.8rem;margin-top:2rem}.scheme-node,.scheme-center{border-radius:0;padding:1rem;min-height:125px}.scheme-node{background:transparent;color:#fff}.scheme-node svg{display:block;width:70px;height:70px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.scheme-center img{filter:invert(37%) sepia(94%) saturate(1056%) hue-rotate(169deg) brightness(87%) contrast(97%)}
+  .flow li>span{width:32px;height:32px;margin-bottom:.35rem;font-size:.72rem}.step-icon{display:block;width:46px;height:46px;margin:.2rem auto;fill:none;stroke:#078bdc;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.flow h3{font-size:.9rem;margin:.35rem 0}.flow li p{font-size:.68rem}
+  .generated-diagram{display:block;width:min(100%,1040px);height:auto;margin:1.8rem auto 0;object-fit:contain}.blue-section .generated-diagram{filter:none}.scheme{display:none}.operation{background:linear-gradient(180deg,#fff,#f2faff)}.priority .priority-diagram{display:none}.flow-art{margin-bottom:.2rem}.flow .step-icon,.flow li>span{display:none}.flow ol{margin-top:0}.flow li{padding:.75rem .55rem;background:transparent;box-shadow:none;border-radius:0}.flow li:not(:last-child)::after{top:25%}
+  .hero .eyebrow,.hero-points,.about .section-label{display:none}.hero{min-height:535px;padding-top:2.6rem;padding-bottom:2.6rem}.hero h1{font-size:clamp(2.35rem,4.2vw,4.25rem)}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.hero-form{border-radius:8px;padding:1.35rem 1.6rem}.hero-form h2{font-size:1.25rem;margin-bottom:.75rem}.form-grid{gap:.48rem}.form-grid label{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:.5rem}.form-grid label span{grid-column:1}.form-grid input{grid-column:2;grid-row:1;padding:.52rem;margin:0}
+  .bottom-cta{align-items:center;background:linear-gradient(120deg,#0875ca,#08a8ed);padding-top:2.2rem;padding-bottom:2.2rem}.bottom-cta>div:first-child{min-width:270px}.bottom-form{background:#fff;color:#153356;padding:1rem 1.2rem;width:min(640px,65%)}.bottom-form h3{margin:0 0 .55rem;color:#087aca;text-align:center}.bottom-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem .7rem}.bottom-form-grid label{font-size:.68rem;font-weight:700}.bottom-form-grid input{display:block;width:100%;border:1px solid #c8dce9;padding:.42rem;margin-top:.1rem}.bottom-form-grid label:last-child{grid-column:1/-1}.bottom-form .agree{margin:.45rem 0}.bottom-form .cf-turnstile{transform:scale(.82);transform-origin:left center;margin:-.35rem 0}.bottom-form button{border:0;width:100%;padding:.7rem;background:#078bdc;color:#fff;font-weight:800}
+  /* 762×2064の支給デザインを基準にした密度・比率 */
+  .hero{min-height:430px;padding:1.35rem max(3vw,calc((100vw - 1120px)/2));gap:2rem;background-image:linear-gradient(90deg,#f8fcfffa 0%,#f8fcffd9 25%,#eef9ff1c 58%),url('/assets/lp/hero-consultation-reference.png');background-position:center;background-size:cover}.hero h1{font-size:clamp(2rem,3.6vw,3.55rem);margin:.2rem 0 .55rem;line-height:1.08}.lead{font-size:clamp(.82rem,1.1vw,1.02rem);line-height:1.55}.hero-form{padding:.8rem 1rem;border-radius:4px;box-shadow:0 8px 28px #07558a20}.form-kicker{font-size:.66rem}.hero-form h2{font-size:1.05rem;margin:.05rem 0 .4rem}.form-grid{gap:.22rem}.form-grid label{grid-template-columns:88px 1fr;font-size:.66rem}.form-grid input{padding:.3rem .45rem;border-radius:2px;line-height:1.2}.agree{font-size:.64rem;margin:.38rem 0}.hero-form .cf-turnstile{transform:scale(.68);transform-origin:left center;margin:-.55rem 0}.hero-form button{padding:.55rem;border-radius:3px;font-size:.78rem}
+  .record{padding:.55rem max(5vw,calc((100vw - 820px)/2))}.record>div{background-size:110px auto}.record span{font-size:.62rem}.record strong{font-size:1.65rem}.record p{margin:.1rem 0 0;font-size:.5rem}
+  .section{padding:2rem max(5vw,calc((100vw - 900px)/2))}.section-label{display:none}.section h2,.blue-section h2,.flow h2{font-size:clamp(1.45rem,2.4vw,2.15rem);margin:.05rem 0 .45rem}.section-intro{font-size:1rem;margin:.2rem 0 .5rem}.about>p:not(.section-label):not(.section-intro):not(.note){font-size:.78rem;line-height:1.7;margin:0 auto .65rem}.feature-cards{gap:.65rem;margin-top:.8rem}.feature-cards article{padding:.65rem 1rem;border-radius:3px}.feature-cards strong{font-size:1.65rem}.feature-cards p{font-size:.68rem;margin:.1rem 0}.note{font-size:.58rem;margin-top:.5rem}
+  .blue-section{padding:1.8rem max(5vw,calc((100vw - 900px)/2))}.blue-section h2{font-size:1.75rem}.generated-diagram{width:min(100%,850px);max-height:265px;margin:.65rem auto 0}.mechanism-art{max-height:210px}.scheme-note{font-size:.58rem;margin-top:.35rem}
+  .funds{padding-top:1.25rem;padding-bottom:1.4rem}.fund-grid{gap:.8rem;margin-top:.65rem}.fund-card{padding:.55rem;border-radius:3px}.fund-visual{height:92px;border-radius:2px;font-size:.72rem}.status{font-size:.55rem}.fund-card h3{font-size:.72rem;margin:.4rem 0}.fund-card dl{padding:.38rem}.fund-card dt{font-size:.5rem}.fund-card dd{font-size:.68rem}
+  .operation{padding-top:1.4rem;padding-bottom:1.4rem}.operation .generated-diagram{max-height:245px}.priority{padding-top:1.5rem;padding-bottom:1.5rem}.priority .generated-diagram{max-height:300px}.risk-copy{padding:.45rem .7rem;font-size:.58rem;margin:.45rem 0 0}
+  .flow{padding:1.5rem max(5vw,calc((100vw - 950px)/2))}.flow .generated-diagram{max-height:175px;margin-top:.45rem}.flow ol{grid-template-columns:repeat(4,1fr)}.flow li{padding:.25rem}.flow h3{font-size:.68rem;margin:.12rem 0}.flow li p{font-size:.54rem;line-height:1.45}
+  .bottom-cta{padding:1.25rem max(5vw,calc((100vw - 950px)/2));gap:1rem}.bottom-cta>div:first-child{min-width:235px}.bottom-cta h2{font-size:1.55rem}.bottom-form{padding:.6rem .8rem}.bottom-form h3{font-size:.88rem;margin-bottom:.25rem}.bottom-form-grid{gap:.2rem .5rem}.bottom-form-grid input{padding:.22rem}.bottom-form .agree{margin:.2rem 0}.bottom-form .cf-turnstile{transform:scale(.65);margin:-.7rem 0}.bottom-form button{padding:.38rem;font-size:.72rem}
+  .lp-footer{padding:1.4rem max(5vw,calc((100vw - 1000px)/2));gap:.8rem 1.5rem;font-size:.58rem;line-height:1.55}.footer-brand img{width:190px}.lp-footer nav{flex-direction:row;flex-wrap:wrap;align-content:flex-start}.footer-risk{padding-top:.4rem;margin:.2rem 0}.lp-footer small{font-size:.5rem}
+  @media(max-width:900px){.lp-header nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;padding-top:4rem;background-image:linear-gradient(180deg,#f7fcffe6 0%,#f7fcfff5 52%,#f7fcffff 100%),url('/assets/lp/hero-consultation-reference.png');background-position:center top}.hero-form{max-width:620px}.scheme{grid-template-columns:1fr}.arrows{display:flex;justify-content:center;align-items:center}.arrows span{transform:rotate(90deg);letter-spacing:0}.flow ol{grid-template-columns:1fr 1fr}.flow li:nth-child(2)::after{display:none}.lp-footer{grid-template-columns:1fr 1fr}.lp-footer>p{grid-column:1/-1}}
+  @media(max-width:600px){.lp-header{height:64px}.brand img{width:180px}.nav-cta{font-size:.68rem;padding:.6rem .75rem}.hero{padding:3rem 1rem}.hero h1{font-size:2.65rem}.hero-form{padding:1.2rem}.form-grid{grid-template-columns:1fr}.form-grid label{display:block}.form-grid input{display:block;margin-top:.2rem}.form-grid .wide{grid-column:auto}.record{grid-template-columns:repeat(3,1fr);padding:1.2rem .5rem}.record strong{font-size:2rem}.feature-cards,.fund-grid,.priority-diagram,.flow ol{grid-template-columns:1fr}.scheme-node,.scheme-center{min-height:120px}.flow li::after{display:none!important}.bottom-cta{flex-direction:column;text-align:center;padding:3rem 1rem}.bottom-form{width:100%}.bottom-form-grid{grid-template-columns:1fr}.bottom-form-grid label:last-child{grid-column:auto}.lp-footer{grid-template-columns:1fr;padding:3rem 1.2rem}.footer-brand,.lp-footer nav{grid-column:1/-1}}
 </style>
