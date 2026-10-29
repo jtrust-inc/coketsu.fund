@@ -25,7 +25,7 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-29T16:36:00+09:00",
+  "updatedAt": "2026-10-29T16:41:00+09:00",
   "design": {
     "reference": "1009_coketsufand＿LP.png",
     "implementation": "Hybrid Astro landing page: original LP crops for photography, diagram artwork, laurels and step icons; native HTML forms, navigation, explanatory copy, fund data and footer. No full-page raster or transparent form overlay.",
@@ -33,12 +33,13 @@
     "testedViewportWidths": [320, 390, 762, 1200],
     "formVerification": "Two native address-free request forms: mocked success/error browser tests pass, with input reset/preservation and button re-enablement. Graph backend unchanged. Actual mailbox delivery not retested in this design update.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "54aaaeb",
-    "workerVersion": "cd09fefa-738a-46e2-8025-0f98dd63acab",
+    "deployedSourceCommit": "9eabb71",
+    "workerVersion": "c30ff154-7ba7-4a12-9153-de2078751e63",
     "productionHtmlMatchesBuild": true,
     "previewHtmlMatchesBuild": true
   },
   "notes": [
+    "2026-10-29: Corrected the supplied artwork typo 配送遅延 to 配当遅延 with a responsive native text label covering only the incorrect heading. Four viewport browser checks and nine-page checks passed; production and preview HTML match the build. Form security and Worker API unchanged.",
     "2026-10-29: Reused exact crops of the supplied LP for the hero, three diagrams, record artwork and four step cards; corrected layout proportions while keeping native forms and links. Production and preview: all nine public routes HTTP 200, text parity 100% between deployed environments (not a visual-match score). Screenshot and interaction checks cover 320/390/762/1200 px. Full-page visual match remains unscored.",
     "Intentional differences: address omitted per user request; published fund name/amount and record date preserved rather than changed from artwork alone. The reference has 83,600,000 yen while the pre-change LP has 63,600,000 yen; the WordPress capture also has 83,600,000 yen but a different project name. Confirm the correct project data before changing those values. Mobile layout stacks forms and provides diagram enlargement links; legal links remain available.",
     "2026-10-29: Removed address collection from all material request forms at user request, including the standalone request page postal code. Other forms, footer company address, Worker mail API and DNS remain unchanged. Deployed 0a41c26 and verified production and preview HTML against the build.",
