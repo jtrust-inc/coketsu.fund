@@ -26,6 +26,8 @@ try {
       sections: [...document.querySelectorAll('main>section')].map(el => ({id: el.id, height: Math.round(el.getBoundingClientRect().height)})),
     }));
     assert.equal(structure.forms, 2); assert.equal(structure.h1s, 1); assert.equal(structure.fullPageImage, false);
+    assert.equal(await page.locator('.record-corrected-label').innerText(), '配当遅延');
+    assert.ok(await page.locator('.record-corrected-label').isVisible());
     assert.equal(structure.missingImages.length, 0); assert.ok(structure.pageWidth <= structure.viewportWidth + 1, 'Page horizontally overflows');
     assert.equal(await page.locator('form [name="address"], form [name="your-address"]').count(), 0);
     assert.equal(await page.locator('img[src$="mechanism-diagram.svg"], img[src$="operation-diagram.svg"], img[src$="priority-diagram.svg"]').count(), 0);

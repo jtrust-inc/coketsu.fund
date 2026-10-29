@@ -18,7 +18,10 @@ const steps = ['資料請求・予約', '資料確認・ご相談', '契約手�
         <div class="hero-form"><LandingForm id="consultation" /></div>
       </section>
       <section class="record" aria-label="運用実績">
-        <img class="record-band" src={`${artwork}record-band.png`} width="762" height="78" alt="配当遅延0件、ファンド延長0件、元本毀損0件" />
+        <div class="record-artwork">
+          <img class="record-band" src={`${artwork}record-band.png`} width="762" height="78" alt="配当遅延0件、ファンド延長0件、元本毀損0件" />
+          <span class="record-corrected-label" aria-hidden="true">配当遅延</span>
+        </div>
         <p>※2026年9月30日時点の実績です。将来の運用成果を保証するものではありません。</p>
       </section>
       <section class="about pale-section" id="about" aria-labelledby="about-title">
@@ -74,4 +77,5 @@ const steps = ['資料請求・予約', '資料確認・ご相談', '契約手�
   .record{padding:0 0 .8cqw;background:#0088ee}.record-band{display:block;width:100%;height:auto}.record>p{margin:.2cqw 2cqw 0}
   .about{background-image:url('/assets/lp/reference/about-edge.png'),url('/assets/lp/reference/about-right-edge.png'),linear-gradient(110deg,#eaf9ff,#f8fdff 45%,#e5f7ff);background-position:left center,right center,center;background-size:15.75% 100%,8.14% 100%,100% 100%;background-repeat:no-repeat}.hero-form{align-self:start;padding-top:.8cqw}
   @media(max-width:600px){.record{padding-bottom:10px}.record>p{margin:6px 12px 0}.hero-form{padding:16px}}
+  .record-artwork{position:relative}.record-corrected-label{position:absolute;left:19.55%;top:16.67%;width:8.66%;height:25.64%;display:grid;place-items:center;background:#007bfa;color:#fff;font-size:1.7cqw;font-weight:700;line-height:1;white-space:nowrap}
 </style>
