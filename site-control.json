@@ -25,20 +25,21 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-10-29T16:21:00+09:00",
+  "updatedAt": "2026-10-29T16:26:00+09:00",
   "design": {
     "reference": "1009_coketsufand＿LP.png",
     "implementation": "Restored the HTML landing page immediately before the full-page raster implementation (647eedd), at the user's request",
     "fullPageImage": false,
     "testedViewportWidths": null,
-    "formVerification": "Two native forms present in the restored baseline; mail delivery not retested during rollback",
+    "formVerification": "Address removed from both landing-page request forms; address and postal code removed from /request/. Build, checks and nine-route tests pass. Production and preview HTML match the build. Mail delivery not retested for this field-only change.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "647eedd",
-    "workerVersion": "9d498c55-f439-48a9-a6fc-316752f0888b",
+    "deployedSourceCommit": "0a41c26",
+    "workerVersion": "09072a9e-7472-44fc-9940-22054345ea7d",
     "productionHtmlMatchesBuild": true,
     "previewHtmlMatchesBuild": true
   },
   "notes": [
+    "2026-10-29: Removed address collection from all material request forms at user request, including the standalone request page postal code. Other forms, footer company address, Worker mail API and DNS remain unchanged. Deployed 0a41c26 and verified production and preview HTML against the build.",
     "2026-10-29 user-requested rollback: production and workers.dev restored to 647eedd / Worker 9d498c55-f439-48a9-a6fc-316752f0888b, the last HTML version before the full-page image. Later split-layout assets are retained as inactive development material; index.astro is restored exactly. The 62e757d component-layout report is historical, not the current production state.",
     "2026-10-29 correction: removed the full-page raster and transparent input overlays. Native HTML forms now use the existing .astro-form-status handler, normal-flow Turnstile widgets, real labels and buttons. All original artwork is cropped without regeneration. Prior 100% comparison scores are not evidence for this redesign and are cleared pending a fresh audit.",
     "Production apex coketsu.fund was cut over from A 160.251.148.79 to the coketsu-fund Cloudflare Worker custom domain on 2026-10-17; www was intentionally not configured.",
