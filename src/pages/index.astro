@@ -100,12 +100,6 @@ const steps = [
       <p class="scheme-note">元本や将来の利益は保証されません。契約成立前書面等でリスクをご確認ください。</p>
     </section>
 
-    <section class="section operation" aria-labelledby="operation-title">
-      <p class="section-label">OPERATION</p><h2 id="operation-title">運用の仕組み</h2>
-      <img class="generated-diagram" src="/assets/lp/operation-diagram.png" alt="出資金をもとに対象不動産を運用し、賃料収入や売却益を分配する仕組み" />
-      <p class="note">賃料収入および売却益を原資として、契約条件に従い投資家へ分配します。</p>
-    </section>
-
     <section class="section funds" aria-labelledby="funds-title">
       <p class="section-label">FUNDS</p><h2 id="funds-title">不動産プロジェクト</h2>
       <div class="fund-grid">
@@ -113,6 +107,12 @@ const steps = [
         <article class="fund-card"><div class="fund-visual">COKETSU FUND</div><span class="status">募集終了</span><h3>AZXIA BLD. 西麻布1号プロジェクト</h3><dl><div><dt>想定運用期間</dt><dd>12ヶ月</dd></div><div><dt>募集金額</dt><dd>63,600,000円</dd></div></dl></article>
       </div>
       <p class="note">掲載情報は募集時点の内容です。現在募集中の商品ではありません。</p>
+    </section>
+
+    <section class="section operation" aria-labelledby="operation-title">
+      <p class="section-label">OPERATION</p><h2 id="operation-title">運用の仕組み</h2>
+      <img class="generated-diagram" src="/assets/lp/operation-diagram.png" alt="出資金をもとに対象不動産を運用し、賃料収入や売却益を分配する仕組み" />
+      <p class="note">賃料収入および売却益を原資として、契約条件に従い投資家へ分配します。</p>
     </section>
 
     <section class="section priority" aria-labelledby="priority-title">
@@ -135,7 +135,23 @@ const steps = [
 
     <section class="bottom-cta" aria-labelledby="cta-title">
       <div><p>仕組みも、リスクも。</p><h2 id="cta-title">まずはご相談ください。</h2></div>
-      <a href="#consultation">無料資料請求・相談予約 <span aria-hidden="true">→</span></a>
+      <div class="bottom-form">
+        <h3>無料資料請求・相談予約</h3>
+        <form action="/api/forms/request" method="post" data-astro-form="request" aria-describedby="astro-form-status-request-bottom">
+          <div class="bottom-form-grid">
+            <label>お名前<input name="name" autocomplete="name" required /></label>
+            <label>フリガナ<input name="name_kana" required /></label>
+            <label>メールアドレス<input type="email" name="email" autocomplete="email" required /></label>
+            <label>電話番号<input type="tel" name="phone" autocomplete="tel" required /></label>
+            <label>ご住所<input name="address" autocomplete="street-address" /></label>
+          </div>
+          <label class="agree"><input type="checkbox" name="privacy_agreed" value="同意" required /> <a href="/privacy-policy/" target="_blank">個人情報の取り扱い</a>に同意します。</label>
+          <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="cf-turnstile" data-sitekey={siteKey} data-action="request" data-theme="light"></div>
+          <button type="submit">無料で資料を請求する</button>
+          <div id="astro-form-status-request-bottom" class="astro-form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -167,6 +183,8 @@ const steps = [
   .blue-section{padding:clamp(2.8rem,6vw,4.5rem) max(5vw,calc((100vw - 1040px)/2))}.scheme{gap:.8rem;margin-top:2rem}.scheme-node,.scheme-center{border-radius:0;padding:1rem;min-height:125px}.scheme-node{background:transparent;color:#fff}.scheme-node svg{display:block;width:70px;height:70px;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.scheme-center img{filter:invert(37%) sepia(94%) saturate(1056%) hue-rotate(169deg) brightness(87%) contrast(97%)}
   .flow li>span{width:32px;height:32px;margin-bottom:.35rem;font-size:.72rem}.step-icon{display:block;width:46px;height:46px;margin:.2rem auto;fill:none;stroke:#078bdc;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.flow h3{font-size:.9rem;margin:.35rem 0}.flow li p{font-size:.68rem}
   .generated-diagram{display:block;width:min(100%,1040px);height:auto;margin:1.8rem auto 0;object-fit:contain}.blue-section .generated-diagram{filter:none}.scheme{display:none}.operation{background:linear-gradient(180deg,#fff,#f2faff)}.priority .priority-diagram{display:none}.flow-art{margin-bottom:.2rem}.flow .step-icon,.flow li>span{display:none}.flow ol{margin-top:0}.flow li{padding:.75rem .55rem;background:transparent;box-shadow:none;border-radius:0}.flow li:not(:last-child)::after{top:25%}
+  .hero .eyebrow,.hero-points,.about .section-label{display:none}.hero{min-height:535px;padding-top:2.6rem;padding-bottom:2.6rem}.hero h1{font-size:clamp(2.35rem,4.2vw,4.25rem)}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.hero-form{border-radius:8px;padding:1.35rem 1.6rem}.hero-form h2{font-size:1.25rem;margin-bottom:.75rem}.form-grid{gap:.48rem}.form-grid label{display:grid;grid-template-columns:110px 1fr;align-items:center;gap:.5rem}.form-grid label span{grid-column:1}.form-grid input{grid-column:2;grid-row:1;padding:.52rem;margin:0}
+  .bottom-cta{align-items:center;background:linear-gradient(120deg,#0875ca,#08a8ed);padding-top:2.2rem;padding-bottom:2.2rem}.bottom-cta>div:first-child{min-width:270px}.bottom-form{background:#fff;color:#153356;padding:1rem 1.2rem;width:min(640px,65%)}.bottom-form h3{margin:0 0 .55rem;color:#087aca;text-align:center}.bottom-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem .7rem}.bottom-form-grid label{font-size:.68rem;font-weight:700}.bottom-form-grid input{display:block;width:100%;border:1px solid #c8dce9;padding:.42rem;margin-top:.1rem}.bottom-form-grid label:last-child{grid-column:1/-1}.bottom-form .agree{margin:.45rem 0}.bottom-form .cf-turnstile{transform:scale(.82);transform-origin:left center;margin:-.35rem 0}.bottom-form button{border:0;width:100%;padding:.7rem;background:#078bdc;color:#fff;font-weight:800}
   @media(max-width:900px){.lp-header nav a:not(.nav-cta){display:none}.hero{grid-template-columns:1fr;padding-top:4rem;background-image:linear-gradient(180deg,#f7fcffe6 0%,#f7fcfff5 52%,#f7fcffff 100%),url('/assets/lp/hero-consultation-mobile.png');background-position:center top}.hero-form{max-width:620px}.scheme{grid-template-columns:1fr}.arrows{display:flex;justify-content:center;align-items:center}.arrows span{transform:rotate(90deg);letter-spacing:0}.flow ol{grid-template-columns:1fr 1fr}.flow li:nth-child(2)::after{display:none}.lp-footer{grid-template-columns:1fr 1fr}.lp-footer>p{grid-column:1/-1}}
-  @media(max-width:600px){.lp-header{height:64px}.brand img{width:180px}.nav-cta{font-size:.68rem;padding:.6rem .75rem}.hero{padding:3rem 1rem}.hero h1{font-size:2.65rem}.hero-form{padding:1.2rem}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}.record{grid-template-columns:repeat(3,1fr);padding:1.2rem .5rem}.record strong{font-size:2rem}.feature-cards,.fund-grid,.priority-diagram,.flow ol{grid-template-columns:1fr}.scheme-node,.scheme-center{min-height:120px}.flow li::after{display:none!important}.bottom-cta{flex-direction:column;text-align:center;padding:3rem 1rem}.bottom-cta a{width:100%}.lp-footer{grid-template-columns:1fr;padding:3rem 1.2rem}.footer-brand,.lp-footer nav{grid-column:1/-1}}
+  @media(max-width:600px){.lp-header{height:64px}.brand img{width:180px}.nav-cta{font-size:.68rem;padding:.6rem .75rem}.hero{padding:3rem 1rem}.hero h1{font-size:2.65rem}.hero-form{padding:1.2rem}.form-grid{grid-template-columns:1fr}.form-grid label{display:block}.form-grid input{display:block;margin-top:.2rem}.form-grid .wide{grid-column:auto}.record{grid-template-columns:repeat(3,1fr);padding:1.2rem .5rem}.record strong{font-size:2rem}.feature-cards,.fund-grid,.priority-diagram,.flow ol{grid-template-columns:1fr}.scheme-node,.scheme-center{min-height:120px}.flow li::after{display:none!important}.bottom-cta{flex-direction:column;text-align:center;padding:3rem 1rem}.bottom-form{width:100%}.bottom-form-grid{grid-template-columns:1fr}.bottom-form-grid label:last-child{grid-column:auto}.lp-footer{grid-template-columns:1fr;padding:3rem 1.2rem}.footer-brand,.lp-footer nav{grid-column:1/-1}}
 </style>

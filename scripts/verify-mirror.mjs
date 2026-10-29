@@ -19,12 +19,14 @@ for (const page of manifest.pages) {
   const route = new URL(page.url).pathname;
   const forms = html.match(/<form\b[\s\S]*?<\/form>/gi) ?? [];
   if (enabledFormRoutes.has(route)) {
-    if (forms.length !== 1) failures.push(`${page.url}: expected one migrated form`);
-    const form = forms[0] ?? "";
-    if (!/data-astro-form=["'](?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: migrated form marker missing`);
-    if (!/action=["']\/api\/forms\/(?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: Worker form endpoint missing`);
-    if (!/name=["']cf-turnstile-response["']|class=["'][^"']*cf-turnstile/i.test(form)) failures.push(`${page.url}: Turnstile widget missing`);
-    if (!/\btype=["']submit["']/i.test(form)) failures.push(`${page.url}: submit control missing`);
+    const expectedForms = route === "/" ? 2 : 1;
+    if (forms.length !== expectedForms) failures.push(`${page.url}: expected ${expectedForms} migrated form(s)`);
+    for (const form of forms) {
+      if (!/data-astro-form=["'](?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: migrated form marker missing`);
+      if (!/action=["']\/api\/forms\/(?:contact|request|institutional)["']/i.test(form)) failures.push(`${page.url}: Worker form endpoint missing`);
+      if (!/name=["']cf-turnstile-response["']|class=["'][^"']*cf-turnstile/i.test(form)) failures.push(`${page.url}: Turnstile widget missing`);
+      if (!/\btype=["']submit["']/i.test(form)) failures.push(`${page.url}: submit control missing`);
+    }
   } else if (forms.length) failures.push(`${page.url}: unexpected form remains`);
   if (/contact-form-7[^"']*\.js|var\s+wpcf7|cf7msm\.min\.js/i.test(html)) failures.push(`${page.url}: WordPress form runtime remains`);
   const refs = [...html.matchAll(/(?:href|src)=["']([^"'#?]+)["']/gi)].map((item) => item[1]);
