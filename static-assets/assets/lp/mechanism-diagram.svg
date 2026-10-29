@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
+  <title id="title">出資から運用、分配までの仕組み</title>
+  <desc id="desc">不動産、COKETSU FUND、投資家を双方向の矢印で結んだ図</desc>
+  <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 220h220M75 220V88l78-45 78 45v132M106 107h22m-22 34h22m-22 34h22m50-68h22m-22 34h22m-22 34h22M142 220v-48h30v48"/>
+    <path d="M300 101h170m-20-18 20 18-20 18M470 159H300m20-18-20 18 20 18"/>
+    <rect x="485" y="63" width="230" height="132" rx="3" fill="#fff"/>
+    <path d="M730 101h170m-20-18 20 18-20 18M900 159H730m20-18-20 18 20 18"/>
+    <circle cx="1010" cy="93" r="27"/><circle cx="954" cy="113" r="21"/><circle cx="1066" cy="113" r="21"/>
+    <path d="M965 215c0-57 18-91 45-91s45 34 45 91M908 215c0-44 17-73 46-73 14 0 25 8 34 23M1112 215c0-44-17-73-46-73-14 0-25 8-34 23"/>
+  </g>
+  <text x="600" y="125" fill="#078bdc" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700" text-anchor="middle" letter-spacing="1">COKETSU FUND</text>
+  <text x="600" y="155" fill="#145798" font-family="'Noto Sans JP','Yu Gothic',sans-serif" font-size="14" text-anchor="middle">株式会社ジェイトラスト</text>
+  <g fill="#fff" font-family="'Noto Sans JP','Yu Gothic',sans-serif" font-size="16" font-weight="700" text-anchor="middle">
+    <text x="153" y="252">不動産</text><text x="385" y="75">取得・運用</text><text x="385" y="195">賃料収入・売却益</text>
+    <text x="815" y="75">出資</text><text x="815" y="195">分配</text><text x="1010" y="252">投資家</text>
+  </g>
+</svg>
