@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-10-15T05:25:50.503Z",
+  "generatedAt": "2026-10-29T05:46:14.175Z",
   "source": "latest production capture",
   "preview": "Astro dist",
   "pages": [
     {
       "url": "https://coketsu.fund/",
-      "contentMatchPercent": 100,
-      "titleMatch": true,
+      "contentMatchPercent": 43,
+      "titleMatch": false,
       "links": {
         "production": 43,
-        "astro": 43,
-        "preservedLinksPercent": 100
+        "astro": 13,
+        "preservedLinksPercent": 27
       },
       "images": {
         "production": 10,
-        "astro": 10
+        "astro": 3
       },
       "canonical": true,
       "jsonLd": true
@@ -69,7 +69,7 @@
     },
     {
       "url": "https://coketsu.fund/request/",
-      "contentMatchPercent": 98,
+      "contentMatchPercent": 99,
       "titleMatch": true,
       "links": {
         "production": 42,
@@ -150,13 +150,14 @@
   ],
   "summary": {
     "pages": 9,
-    "rawContentMatchPercent": 100,
-    "titleMatchPercent": 100,
-    "preservedLinksPercent": 100,
-    "imagesMatchPercent": 100,
+    "rawContentMatchPercent": 93,
+    "titleMatchPercent": 89,
+    "preservedLinksPercent": 92,
+    "imagesMatchPercent": 89,
     "intentionalDifferences": [
-      "WordPress forms preserved visually but made non-serializable and non-submittable",
-      "SEO metadata corrected"
+      "The production top page was intentionally redesigned from the captured WordPress page using the approved 1009_coketsufand_LP reference",
+      "The redesigned top page adds a Turnstile-protected request form while the other eight routes remain structurally unchanged",
+      "SEO metadata was updated for the new landing-page purpose"
     ]
   }
 }
