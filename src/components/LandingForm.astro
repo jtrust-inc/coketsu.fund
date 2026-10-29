@@ -1,0 +1,44 @@
+---
+interface Props { id: string; compact?: boolean }
+const { id, compact = false } = Astro.props;
+const fields = [
+  { name: 'name', label: 'お名前', placeholder: '例）山田 太郎', autocomplete: 'name', type: 'text' },
+  { name: 'name_kana', label: 'フリガナ', placeholder: '例）ヤマダ タロウ', autocomplete: 'off', type: 'text' },
+  { name: 'email', label: 'メールアドレス', placeholder: '例）taro@example.com', autocomplete: 'email', type: 'email' },
+  { name: 'phone', label: '電話番号', placeholder: '例）090-1234-5678', autocomplete: 'tel', type: 'tel' },
+  { name: 'address', label: 'ご住所', placeholder: '例）東京都○○区○○1-2-3', autocomplete: 'street-address', type: 'text' },
+] as const;
+---
+<section class:list={['request-panel', { compact }]} aria-labelledby={`${id}-title`}>
+  <h2 id={`${id}-title`}>無料資料請求・相談予約</h2>
+  <form id={id} action="/api/forms/request" method="post" data-astro-form="request" aria-describedby={`${id}-status`}>
+    <div class="fields">
+      {fields.map(field => <label class:list={['field', { address: field.name === 'address' }]} for={`${id}-${field.name}`}>
+        <span>{field.label}</span>
+        <input id={`${id}-${field.name}`} name={field.name} type={field.type} placeholder={field.placeholder} autocomplete={field.autocomplete} required={field.name !== 'address'} />
+      </label>)}
+    </div>
+    <div class="form-actions">
+      <div class="consent-group">
+        <label class="consent"><input type="checkbox" name="privacy_agreed" value="同意" required />個人情報の取り扱いに同意します。</label>
+        <a class="privacy" href="/privacy-policy/" target="_blank" rel="noopener">個人情報保護方針はこちら</a>
+      </div>
+      <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAFYoRD5PnpO-VDnW" data-action="request" data-appearance="interaction-only" data-size="flexible" data-theme="light"></div>
+      <button type="submit">無料で資料を請求する<span aria-hidden="true">→</span></button>
+    </div>
+    <p id={`${id}-status`} class="astro-form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+<style>
+  .request-panel{min-width:0;border:2px solid #cbeaff;border-radius:7px;background:linear-gradient(120deg,#fff 55%,#e6f8ff);padding:1cqw 1.8cqw;color:#333;box-shadow:0 0 5px #71b8df33}
+  h2{margin:0 0 1.3cqw;text-align:center;color:#0064ff;font-family:'Yu Mincho','Hiragino Mincho ProN',serif;font-size:2.25cqw;line-height:1.3}
+  .fields{display:grid;gap:.55cqw}.field{display:grid;grid-template-columns:7.8cqw minmax(0,1fr);align-items:center;gap:.6cqw;font-size:1.2cqw;font-weight:700}.field input{display:block;width:100%;min-width:0;height:3.6cqw;background:#fff;border:1px solid #ddd;border-radius:4px;padding:.35cqw .75cqw;font:400 1.4cqw/1.3 Arial,'Yu Gothic',sans-serif;color:#273a47;box-shadow:inset 0 1px 2px #00000008}.field input::placeholder{color:#a3a3a3}
+  .form-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1cqw;margin-top:2.5cqw}.consent-group{width:100%;text-align:center}.consent{display:flex;justify-content:center;align-items:center;gap:.6cqw;font-size:1.25cqw;font-weight:700;cursor:pointer;line-height:1.4}.consent input{width:1.7cqw;height:1.7cqw;margin:0;accent-color:#0068ff;flex-shrink:0}.privacy{display:inline-block;font-size:1.1cqw;color:#126cff;margin-top:.7cqw;text-decoration:underline}
+  button{position:relative;width:100%;border:0;border-radius:1.6cqw;padding:1.05cqw 2.2cqw;background:linear-gradient(100deg,#0055ff,#0087ff);font:700 1.65cqw/1.4 'Yu Gothic',sans-serif;color:#fff;cursor:pointer}button span{position:absolute;right:1.5cqw;color:#8dd1ff}button:hover{filter:brightness(1.07)}button:disabled{opacity:.65;cursor:wait}
+  .cf-turnstile{width:100%;margin:0;pointer-events:auto}.cf-turnstile:empty{display:none}.astro-form-status{font-size:1.2cqw;line-height:1.5;color:#17456c;min-height:0;margin:.5cqw 0 0}.astro-form-status:empty{display:none}
+  .compact{padding:.7cqw 1.2cqw}.compact h2{font-size:1.9cqw;margin-bottom:.6cqw}.compact .fields{grid-template-columns:1fr 1fr;gap:.5cqw 1cqw}.compact .field{grid-template-columns:6.5cqw minmax(0,1fr);font-size:.95cqw}.compact .field input{height:2.7cqw;font-size:1.15cqw}.compact .address{grid-column:1/-1}.compact .form-actions{display:grid;grid-template-columns:.85fr 1fr;align-items:center;gap:.6cqw;margin-top:1cqw}.compact .consent{font-size:.9cqw;justify-content:flex-start}.compact .privacy{font-size:.85cqw}.compact .consent-group{text-align:left}.compact button{font-size:1.35cqw;padding:.85cqw 1.8cqw}.compact .cf-turnstile{grid-column:1/-1;grid-row:2}.compact button{grid-column:2;grid-row:1}
+  @media(max-width:600px){.request-panel,.compact{padding:20px 16px;border-radius:8px}h2,.compact h2{font-size:21px;margin-bottom:18px}.fields,.compact .fields{grid-template-columns:1fr;gap:12px}.field,.compact .field{grid-template-columns:1fr;gap:5px;font-size:13px}.field input,.compact .field input{height:44px;padding:10px;font-size:16px}.form-actions,.compact .form-actions{display:flex;gap:12px;margin-top:18px}.consent,.compact .consent{font-size:12px;gap:8px;justify-content:flex-start}.consent input{width:20px;height:20px}.privacy,.compact .privacy{font-size:12px;margin-top:10px}.consent-group,.compact .consent-group{text-align:center}button,.compact button{min-height:46px;padding:12px 28px;font-size:15px;border-radius:22px}button span{right:14px}.astro-form-status{font-size:14px;margin-top:10px}}
+  .field>span{white-space:nowrap}.field{grid-template-columns:8.5cqw minmax(0,1fr);font-size:1.1cqw}
+  @media(max-width:600px){.field{grid-template-columns:1fr;font-size:13px}}
+</style>
