@@ -32,7 +32,11 @@
     "fullPageImage": false,
     "testedViewportWidths": [390, 762, 1200],
     "formVerification": "Both forms: browser input, mocked success and error responses; mail delivery not retested in this redesign",
-    "pixelMatchPercent": null
+    "pixelMatchPercent": null,
+    "deployedSourceCommit": "62e757d",
+    "workerVersion": "3ff30be7-a618-442e-ae26-0e774ff25989",
+    "productionHtmlMatchesBuild": true,
+    "previewHtmlMatchesBuild": true
   },
   "notes": [
     "2026-10-29 correction: removed the full-page raster and transparent input overlays. Native HTML forms now use the existing .astro-form-status handler, normal-flow Turnstile widgets, real labels and buttons. All original artwork is cropped without regeneration. Prior 100% comparison scores are not evidence for this redesign and are cleared pending a fresh audit.",
