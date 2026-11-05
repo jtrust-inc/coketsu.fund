@@ -6,6 +6,11 @@ const home = await readFile(new URL('index.html', root), 'utf8');
 const news = await readFile(new URL('news/index.html', root), 'utf8');
 const article = await readFile(new URL('news/2026-11-05-service-notice/index.html', root), 'utf8');
 for (const html of [home, news]) assert.ok(html.includes(`href="${route}"`), 'notice must be discoverable');
+for (const html of [home, news, article]) {
+  const header = /<header\b[\s\S]*?<\/header>/.exec(html)?.[0];
+  assert.ok(header?.includes('href="/news/">お知らせ</a>'), 'header news menu missing');
+  assert.ok(header?.includes('https://invest.coketsu.fund/#/login'), 'investor login must remain');
+}
 assert.ok(article.includes('重要なお知らせ'));
 assert.ok(article.includes('再開時期は現時点で未定'));
 assert.ok(article.includes('報告を受けております'));
