@@ -67,10 +67,15 @@ try {
   }
   const multipart = new FormData();
   multipart.set('email', 'test@example.invalid'); multipart.set('cf-turnstile-response', 'test');
+  multipart.set('request_material', '資料請求');
+  multipart.set('request_consultation', '無料相談');
+  multipart.set('investment_experience', 'なし');
   const encoded = new Response(multipart);
   const body = await encoded.text();
   turnstile = { success: true, action: 'request', hostname: 'coketsu.fund' };
   assert.equal((await send({ body, headers: { 'content-type': encoded.headers.get('content-type') } })).status, 200);
+  const requestMail = JSON.parse(calls.at(-1).init.body).message.body.content;
+  for (const value of ['request_material', '資料請求', 'request_consultation', '無料相談', 'investment_experience', 'なし']) assert.ok(requestMail.includes(value), `Mail must preserve ${value}`);
   mailStatus = 503;
   const failed = await send();
   assert.equal(failed.status, 502);

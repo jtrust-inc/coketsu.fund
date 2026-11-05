@@ -35,7 +35,8 @@ try {
     assert.equal(await page.locator('form [name="address"],form [name="your-address"]').count(),0);
     assert.ok((await page.locator('main').innerText()).includes('63,600,000'));
     const companyText = await page.locator('#company').innerText();
-    for (const value of ['株式会社ジェイトラスト', '岩本 圭賢', '2017年6月', '1億円', '100名', '03-6690-6652']) assert.ok(companyText.includes(value), `Missing company fact: ${value}`);
+    for (const value of ['株式会社ジェイトラスト', '岩本 圭賢', '2017年6月', '100名', '03-6690-6652']) assert.ok(companyText.includes(value), `Missing company fact: ${value}`);
+    assert.ok(!companyText.includes('資本金'));
     assert.ok(!companyText.includes('松本'));
     const schema = await page.locator('script[type="application/ld+json"]').evaluate(el => JSON.parse(el.textContent));
     assert.equal(schema['@graph'].find(node => node['@type'] === 'Organization').name, '株式会社ジェイトラスト');
@@ -43,18 +44,34 @@ try {
     await page.locator('.hero').screenshot({path:`${output}/hero-${width}.png`});
     for(const id of ['hero-inquiry']) {
       const form=page.locator(`#${id}`);
-      const fill=async()=>{for(const [name,value] of Object.entries({name:'表示検証',name_kana:'ヒョウジケンショウ',email:'preview-test@example.invalid',phone:'00000000000'}))await form.locator(`[name="${name}"]`).fill(value);await form.locator('[name="privacy_agreed"]').check();};
+      assert.equal(await form.locator('[name="name_kana"]').count(),0);
+      assert.equal(await form.locator('[data-request-choices] input').count(),2);
+      assert.equal(await form.locator('[name="investment_experience"]').count(),2);
+      const fill=async()=>{for(const [name,value] of Object.entries({name:'表示検証',email:'preview-test@example.invalid',phone:'00000000000'}))await form.locator(`[name="${name}"]`).fill(value);await form.locator('[name="request_material"]').check();await form.locator('[name="request_consultation"]').check();await form.locator('[name="investment_experience"][value="なし"]').check();await form.locator('[name="privacy_agreed"]').check();};
       await fill();
-      await page.route('**/api/forms/request',async route=>{assert.ok(route.request().postData().includes('preview-test@example.invalid'));await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({message:'テスト送信成功'})});});
-      await form.getByRole('button',{name:'無料で資料を請求する'}).click();
+      await form.locator('[name="request_material"]').uncheck();
+      await form.locator('[name="request_consultation"]').uncheck();
+      assert.equal(await form.evaluate(f=>f.checkValidity()),false,'At least one request choice is required');
+      await form.locator('[name="request_material"]').check();
+      await form.locator('[name="request_consultation"]').check();
+      let sends=0;
+      await page.route('**/api/forms/request',async route=>{sends++;for(const value of ['preview-test@example.invalid','request_material','request_consultation','investment_experience'])assert.ok(route.request().postData().includes(value));await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({message:'テスト送信成功'})});});
+      await form.getByRole('button',{name:'入力内容を確認する'}).click();
+      assert.equal(sends,0,'Confirmation must not send');
+      assert.ok((await form.locator('.request-confirmation').innerText()).includes('資料請求・無料相談'));
+      await form.getByRole('button',{name:'入力内容を修正する'}).click();
+      assert.equal(await form.locator('[name="email"]').inputValue(),'preview-test@example.invalid');
+      await form.getByRole('button',{name:'入力内容を確認する'}).click();
+      await form.getByRole('button',{name:'この内容で送信する'}).click();
       await page.waitForFunction(id=>document.querySelector(`#${id} .astro-form-status`).textContent.includes('テスト送信成功'),id);
       assert.equal(await form.locator('[name="name"]').inputValue(),'');
       await page.unroute('**/api/forms/request');await fill();
       await page.route('**/api/forms/request',route=>route.fulfill({status:400,contentType:'application/json',body:JSON.stringify({message:'認証を確認できませんでした。'})}));
-      await form.getByRole('button',{name:'無料で資料を請求する'}).click();
+      await form.getByRole('button',{name:'入力内容を確認する'}).click();
+      await form.getByRole('button',{name:'この内容で送信する'}).click();
       await page.waitForFunction(id=>document.querySelector(`#${id} .astro-form-status`).textContent.includes('認証を確認'),id);
       assert.equal(await form.locator('[name="name"]').inputValue(),'表示検証');
-      assert.ok(await form.getByRole('button').isEnabled());await page.unroute('**/api/forms/request');
+      assert.ok(await form.getByRole('button',{name:'この内容で送信する'}).isEnabled());await page.unroute('**/api/forms/request');
     }
     if(width<=1000){await page.locator('.menu-toggle').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');await page.locator('.header-nav a[href="/#about"]').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');}
     await page.locator('#faq summary').first().click();assert.notEqual(await page.locator('#faq details').first().getAttribute('open'),null);

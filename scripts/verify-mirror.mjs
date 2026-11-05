@@ -24,7 +24,7 @@ for (const page of manifest.pages) {
     for (const form of forms) {
       if (/data-astro-form=["']request["']/i.test(form)) {
         if (/name=["'](?:address|your-address|your-postal-code)["']|ご住所|郵便番号|>住所</i.test(form)) failures.push(`${page.url}: request form still collects an address`);
-        const requiredNames = route === "/" ? ["name", "name_kana", "email", "phone"] : ["your-name", "your-email", "your-tel"];
+        const requiredNames = route === "/" ? ["name", "email", "phone", "request_material", "request_consultation", "investment_experience", "privacy_agreed"] : ["your-name", "your-email", "your-tel"];
         for (const name of requiredNames) {
           if (!form.includes(`name="${name}"`)) failures.push(`${page.url}: request form field missing: ${name}`);
         }

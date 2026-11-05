@@ -2,14 +2,24 @@
 interface Props { id?: string }
 const { id = 'hero-inquiry' } = Astro.props;
 ---
-<form id={id} class="nov-inquiry" action="/api/forms/request" method="post" data-astro-form="request" aria-describedby={`${id}-status`}>
+<form id={id} class="nov-inquiry" action="/api/forms/request" method="post" data-astro-form="request" data-confirm="true" aria-describedby={`${id}-status`}>
   <label>お名前 <span class="required">必須</span><input name="name" autocomplete="name" placeholder="山田 太郎" required /></label>
-  <label>フリガナ <span class="required">必須</span><input name="name_kana" autocomplete="off" placeholder="ヤマダ タロウ" required /></label>
   <label>メールアドレス <span class="required">必須</span><input name="email" type="email" autocomplete="email" placeholder="taro@example.com" required /></label>
   <label>電話番号 <span class="required">必須</span><input name="phone" type="tel" autocomplete="tel" placeholder="090-1234-5678" required /></label>
+  <fieldset data-request-choices>
+    <legend>ご希望の内容 <span class="required">必須</span></legend>
+    <label class="check"><input type="checkbox" name="request_material" value="資料請求" />資料が欲しい</label>
+    <label class="check"><input type="checkbox" name="request_consultation" value="無料相談" />説明を聞きたい・相談したい</label>
+  </fieldset>
+  <fieldset class="hero-experience">
+    <legend>不動産小口投資の経験 <span class="required">必須</span></legend>
+    <label class="check"><input type="radio" name="investment_experience" value="あり" required />あり</label>
+    <label class="check"><input type="radio" name="investment_experience" value="なし" required />なし</label>
+  </fieldset>
   <label class="check hero-consent"><input type="checkbox" name="privacy_agreed" value="同意" required /><span><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取扱い</a>に同意します <span class="required">必須</span></span></label>
   <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
   <div class="cf-turnstile" data-sitekey="0x4AAAAAAFYoRD5PnpO-VDnW" data-action="request" data-appearance="interaction-only" data-size="compact" data-theme="light"></div>
-  <button class="button" type="submit">無料で資料を請求する <span aria-hidden="true">→</span></button>
+  <button class="button" type="submit">入力内容を確認する <span aria-hidden="true">→</span></button>
+  <p class="note">入力内容をご確認のうえ、次の確認画面から送信してください。</p>
   <p id={`${id}-status`} class="astro-form-status" role="status" aria-live="polite"></p>
 </form>
