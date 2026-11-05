@@ -1,0 +1,22 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import NovemberHeader from '../components/NovemberHeader.astro';
+import NovemberFooter from '../components/NovemberFooter.astro';
+interface Props { title: string; route: string; description: string }
+const { title, route, description } = Astro.props;
+const page = { route, title: `${title} | Coketsu fund.`, description,
+  file: `${route.slice(1)}index.html`, bodyClass: 'november-lp november-document',
+  beforeHeader: '', header: '', content: '', footer: '', afterFooter: '',
+  headAssets: '<link rel="stylesheet" href="/assets/nov-2026/style.css"><link rel="stylesheet" href="/assets/nov-2026/theme-corporate.css"><link rel="stylesheet" href="/assets/nov-2026/production.css"><link rel="stylesheet" href="/assets/nov-2026/document.css">',
+};
+---
+<BaseLayout page={page}>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <NovemberHeader />
+  <main id="main" data-astro-migrated="true">
+    <div class="page-header"><div class="container"><h1 class="page-header-title">{title}</h1></div></div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><div class="container"><a href="/">ホーム</a> / <a href="/news/">お知らせ</a></div></nav>
+    <div class="site-body"><div class="container"><article class="entry-body"><slot /></article></div></div>
+  </main>
+  <NovemberFooter />
+</BaseLayout>

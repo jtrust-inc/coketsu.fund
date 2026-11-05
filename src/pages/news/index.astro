@@ -1,0 +1,9 @@
+---
+import NoticeLayout from '../../layouts/NoticeLayout.astro';
+import { importantNotice as notice } from '../../data/important-notice';
+---
+<NoticeLayout title="お知らせ" route="/news/" description="Coketsu fund.からの重要なお知らせをご案内します。">
+  <p><strong>重要なお知らせ</strong>　<time datetime={notice.date}>{notice.displayDate}</time></p>
+  <h2><a href={notice.route}>{notice.title}</a></h2>
+  <p>{notice.description}</p>
+</NoticeLayout>

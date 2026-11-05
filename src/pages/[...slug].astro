@@ -6,7 +6,7 @@ import { getCapturedPages, type CapturedPage } from "../lib/site";
 export async function getStaticPaths() {
   const pages = await getCapturedPages();
   return pages
-    .filter((page) => page.route !== "/")
+    .filter((page) => page.route !== "/" && page.route !== "/news/")
     .map((page) => ({ params: { slug: page.route.replace(/^\//, "").replace(/\/$/, "") }, props: { page } }));
 }
 interface Props { page: CapturedPage }

@@ -1,0 +1,14 @@
+---
+import { importantNotice as notice } from '../data/important-notice';
+---
+<aside class="important-notice" aria-label="重要なお知らせ">
+  <div><strong>重要なお知らせ</strong><time datetime={notice.date}>{notice.displayDate}</time>
+  <a href={notice.route}>{notice.title}<span aria-hidden="true"> →</span></a></div>
+</aside>
+<style>
+  .important-notice{background:#fff5ef;border-block:1px solid #e7c3ad;color:#54321e;padding:18px 24px}
+  .important-notice div{max-width:1120px;margin:auto;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;font-size:14px;line-height:1.8}
+  .important-notice strong{color:#9c3215;white-space:nowrap}.important-notice time{font-size:12px}
+  .important-notice a{color:#54321e;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+  @media(max-width:650px){.important-notice{padding:14px 18px}.important-notice a{flex-basis:100%}}
+</style>
