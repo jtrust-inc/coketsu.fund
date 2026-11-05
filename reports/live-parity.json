@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-29T07:35:14.865Z",
+  "auditedAt": "2026-11-05T05:36:41.729Z",
   "productionOrigin": "https://coketsu.fund",
   "previewOrigin": "https://coketsu-fund.system-f78.workers.dev",
   "pages": [
@@ -10,10 +10,10 @@
       "productionFinalUrl": "https://coketsu.fund/",
       "previewFinalUrl": "https://coketsu-fund.system-f78.workers.dev/",
       "textSimilarity": 100,
-      "sourceImages": 12,
-      "targetImages": 12,
-      "sourceLinks": 24,
-      "targetLinks": 24,
+      "sourceImages": 9,
+      "targetImages": 9,
+      "sourceLinks": 30,
+      "targetLinks": 30,
       "sourceForms": 2,
       "targetForms": 2,
       "titleMatch": true,
