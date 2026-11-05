@@ -19,7 +19,7 @@ for (const page of manifest.pages) {
   const route = new URL(page.url).pathname;
   const forms = html.match(/<form\b[\s\S]*?<\/form>/gi) ?? [];
   if (enabledFormRoutes.has(route)) {
-    const expectedForms = route === "/" ? 2 : 1;
+    const expectedForms = 1;
     if (forms.length !== expectedForms) failures.push(`${page.url}: expected ${expectedForms} migrated form(s)`);
     for (const form of forms) {
       if (/data-astro-form=["']request["']/i.test(form)) {

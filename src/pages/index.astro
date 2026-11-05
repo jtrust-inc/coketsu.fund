@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NovemberInquiry from '../components/NovemberInquiry.astro';
-import NovemberFAQ from '../components/NovemberFAQ.astro';
+import NovemberHeader from '../components/NovemberHeader.astro';
+import NovemberFooter from '../components/NovemberFooter.astro';
 const page = {
   route: '/', file: 'index.html',
   title: 'COKETSU FUND｜少額から始める不動産クラウドファンディング',
@@ -12,152 +13,11 @@ const page = {
 ---
 <BaseLayout page={page}>
 <a class="skip-link" href="#main">本文へ移動</a>
-
-<header>
-<div class="header-brand">
-<a class="brand" href="#">
-<img src="/assets/nov-2026/assets/tiger.png" alt="">
-<img src="/assets/nov-2026/assets/logo.png" alt="Coketsu Fund">
-</a>
-<p class="header-company">株式会社ジェイトラスト<br>不動産特定共同事業 東京都知事 第182号</p>
-</div>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="header-nav">メニュー <span aria-hidden="true">☰</span>
-</button>
-<nav class="header-nav" id="header-nav" aria-label="セクションナビゲーション">
-<a href="#about">サービス紹介</a>
-<a href="#features">特徴</a>
-<a href="#mechanism">仕組み</a>
-<a href="#projects">過去実績</a>
-<a href="#flow">ご検討の流れ</a>
-<a href="#faq">FAQ</a>
-<a href="#contact">資料請求・無料相談</a>
-<a href="#company">運営会社</a>
-<a class="header-login" href="https://invest.coketsu.fund/#/login">ログイン</a>
-</nav>
-<a class="header-cta" href="#contact">無料相談 <span>↗</span>
-</a>
-</header>
-<main id="main" data-astro-migrated="true">
-<section class="hero">
-<div class="hero-inner">
-<p class="hero-lead">専門家と始める不動産小口投資。</p>
-<h1>不動産投資に、<br>
-<em>話せる安心を。</em>
-</h1>
-<p class="hero-description">仕組みもリスクも、担当者に相談して始める<br>不動産小口投資。</p>
-<div class="hero-highlights">
-<div>
-<svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<ellipse cx="19" cy="13" rx="12" ry="5"/>
-<path d="M7 13v8c0 3 5.4 5 12 5 3 0 6-.5 8-1.5M7 21v8c0 3 5.4 5 12 5 2 0 4-.2 6-.8M7 29v7c0 3 5.4 5 12 5 2 0 4-.2 6-.8M31 13v9"/>
-<circle cx="34" cy="33" r="10"/>
-<path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/>
-</svg>
-<span>投資金額</span>
-<p>
-<small>1口</small>
-<strong>10</strong>
-<small>万円から</small>
-</p>
-</div>
-<div>
-<svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path d="M24 41H10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h17l8 8v8M27 6v8h8M13 15h7m-7 7h14m-14 7h8"/>
-<circle cx="34" cy="33" r="10"/>
-<path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/>
-</svg>
-<span>お申込手数料</span>
-<p>
-<strong>0</strong>
-<small>円</small>
-</p>
-</div>
-</div>
-</div>
-<aside class="hero-form-preview" id="contact" aria-labelledby="hero-form-title">
-<h2 id="hero-form-title">資料請求・無料相談</h2>
-<p class="hero-form-caption">まずはお気軽にご相談ください。</p>
-<NovemberInquiry />
-</aside>
-<a class="scroll" href="#about">SCROLL TO EXPLORE ↓</a>
-</section>
-<section class="intro wrap" id="about">
-<p class="eyebrow">ABOUT COKETSU FUND</p>
-<h2>不動産クラウドファンディングとは？</h2>
-<p class="copy about-description">
-<strong>少額から不動産投資ができるサービスです。</strong>
-<br>複数の投資家が共同で出資し、不動産の運用成果を契約内容に応じて分配する仕組みです。</p>
-<figure class="risk-return">
-<img src="/assets/lp/reference/mechanism.png" alt="投資家がCOKETSU FUNDに出資。不動産の取得・運用による賃料収入・売却益を分配します。元本や利益の保証はありません。" width="762" height="152" loading="lazy" />
-</figure>
-<p class="note">リスク・リターンは商品や条件により異なります。元本・分配金は保証されません。</p>
-<h2 id="features" class="features-heading">Coketsu Fundの特徴</h2>
-<div class="features-intro">
-<p class="features-lead">1口10万円から始める、不動産小口投資。</p>
-<p class="features-description">投資家の皆様と株式会社ジェイトラストが匿名組合契約に基づき共同出資し、物件の管理・運用は当社が担当します。賃料収入や売却益を、出資比率や契約内容に応じて分配します。</p>
-</div>
-<div class="numbers">
-<div>
-<svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<ellipse cx="19" cy="13" rx="12" ry="5"/>
-<path d="M7 13v8c0 3 5.4 5 12 5 3 0 6-.5 8-1.5M7 21v8c0 3 5.4 5 12 5 2 0 4-.2 6-.8M7 29v7c0 3 5.4 5 12 5 2 0 4-.2 6-.8M31 13v9"/>
-<circle cx="34" cy="33" r="10"/>
-<path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/>
-</svg>
-<p>投資金額</p>
-<strong>
-<small>1口</small>10<small>万円〜</small>
-</strong>
-</div>
-<div>
-<svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path d="M24 41H10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h17l8 8v8M27 6v8h8M13 15h7m-7 7h14m-14 7h8"/>
-<circle cx="34" cy="33" r="10"/>
-<path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/>
-</svg>
-<p>お申込手数料</p>
-<strong>0<small>円</small>
-</strong>
-</div>
-</div>
-<div class="record">
-<div class="record-grid">
-<div>配当遅延<strong>0<small>件</small>
-</strong>
-</div>
-<div>ファンド延長<strong>0<small>件</small>
-</strong>
-</div>
-<div>元本毀損<strong>0<small>件</small>
-</strong>
-</div>
-</div>
-<p class="note">2026年9月30日時点の過去の実績です。将来の元本・分配金や償還時期を保証するものではありません。</p>
-</div>
-</section>
-<section class="tint">
-<div class="wrap">
-<p class="eyebrow">RISK CONTROL</p>
-<h2>優先劣後出資システムの仕組み</h2>
-<p class="copy">5,000万円の物件が500万円下落した場合の例</p>
-<figure class="existing-art">
-<img class="existing-diagram" src="/assets/lp/reference/priority.png" width="649" height="152" loading="lazy" alt="優先出資4,000万円（80%）、劣後出資1,000万円（20%）。不動産価格が4,500万円に下落した場合、劣後出資が500万円を負担し、お客様に4,000万円を償還する例。" />
-<a href="/assets/lp/reference/priority.png" target="_blank" rel="noopener">優先劣後出資の図を拡大する</a>
-</figure>
-<p class="copy">この例では、劣後出資の範囲内で下落幅を吸収します。</p>
-<p class="note">※説明用です。分配金は将来の収益によって変動します。元本や分配金を保証するものではありません。</p>
-</div>
-</section>
-<section class="wrap" id="mechanism">
-<p class="eyebrow">HOW IT WORKS</p>
-<h2>運用の仕組み</h2>
-<p class="copy">投資家の優先出資と、事業者の劣後出資で不動産を運用します。</p>
-<figure class="existing-art">
-<img class="existing-diagram" src="/assets/lp/reference/operation.png" width="610" height="195" loading="lazy" alt="優先出資と劣後出資で対象不動産を運用。賃料収入や売却益を原資として投資家へ優先的に分配・償還します。" />
-<a href="/assets/lp/reference/operation.png" target="_blank" rel="noopener">運用の図を拡大する</a>
-</figure>
-<p class="note">賃料収入は投資家へ優先的に分配。償還時は投資家、事業者の順に出資金を返還します。分配・償還は契約内容に基づきます。</p>
-</section>
+<NovemberHeader />
+<main id="main" data-astro-migrated="true"><section class="hero"><div class="hero-inner"><p class="hero-lead">預金より増やし、株より安定</p><h1>不動産投資を、<br><em>もっと身近に。</em></h1><p class="hero-description">1口10万円からはじめる<br>不動産クラウドファンディング。</p><div class="hero-highlights"><div><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="19" cy="13" rx="12" ry="5"/><path d="M7 13v8c0 3 5.4 5 12 5 3 0 6-.5 8-1.5M7 21v8c0 3 5.4 5 12 5 2 0 4-.2 6-.8M7 29v7c0 3 5.4 5 12 5 2 0 4-.2 6-.8M31 13v9"/><circle cx="34" cy="33" r="10"/><path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/></svg><span>投資金額</span><p><small>1口</small><strong>10</strong><small>万円から</small></p></div><div><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41H10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h17l8 8v8M27 6v8h8M13 15h7m-7 7h14m-14 7h8"/><circle cx="34" cy="33" r="10"/><path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/></svg><span>お申込手数料</span><p><strong>0</strong><small>円</small></p></div></div></div><aside class="hero-form-preview" id="contact" aria-labelledby="hero-form-title"><h2 id="hero-form-title">資料請求・無料相談</h2><p class="hero-form-caption">まずはお気軽にご相談ください。</p><NovemberInquiry /></aside><a class="scroll" href="#about">SCROLL TO EXPLORE ↓</a></section>
+<section class="intro wrap" id="about"><p class="eyebrow">ABOUT COKETSU FUND</p><h2>不動産クラウドファンディングとは？</h2><p class="copy about-description"><strong>少額から不動産投資ができるサービスです。</strong><br>株式よりもリスクを抑えながら、預金よりも高いリターンが期待できます。</p><figure class="risk-return"><img src="/assets/nov-2026/assets/risk-return-corporate.svg" alt="リスクと期待リターンの概念図。預金・債券から、ミドルリスク・ミドルリターンの不動産クラウドファンディング、投資信託、株式、FX、暗号資産を比較。" width="960" height="540" loading="lazy"></figure><p class="note">リスク・リターンは商品や条件により異なります。元本・分配金は保証されません。</p><h2 id="features" class="features-heading">Coketsu Fundの特徴</h2><div class="features-intro"><p class="features-lead">1口10万円から始める、不動産小口投資。</p><p class="features-description">投資家の皆様と株式会社ジェイトラストが共同出資し、不動産を取得・運用。賃料収入や売却益を、契約内容に応じて分配します。</p></div><div class="numbers"><div><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="19" cy="13" rx="12" ry="5"/><path d="M7 13v8c0 3 5.4 5 12 5 3 0 6-.5 8-1.5M7 21v8c0 3 5.4 5 12 5 2 0 4-.2 6-.8M7 29v7c0 3 5.4 5 12 5 2 0 4-.2 6-.8M31 13v9"/><circle cx="34" cy="33" r="10"/><path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/></svg><p>投資金額</p><strong><small>1口</small>10<small>万円〜</small></strong></div><div><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 41H10a3 3 0 0 1-3-3V9a3 3 0 0 1 3-3h17l8 8v8M27 6v8h8M13 15h7m-7 7h14m-14 7h8"/><circle cx="34" cy="33" r="10"/><path d="m30 28 4 5 4-5m-4 5v6m-4-5h8m-8 3h8"/></svg><p>お申込手数料</p><strong>0<small>円</small></strong></div></div><div class="record"><div class="record-grid"><div>配当遅延<strong>0<small>件</small></strong></div><div>ファンド延長<strong>0<small>件</small></strong></div><div>元本毀損<strong>0<small>件</small></strong></div></div><p class="note">2026年9月30日時点の過去の実績です。将来の元本・分配金や償還時期を保証するものではありません。</p></div></section>
+<section class="tint"><div class="wrap"><p class="eyebrow">UNDERSTAND THE DIFFERENCE</p><h2>銀行普通預金との差</h2><p class="copy">不動産の運用成果に応じた分配を目指す投資です。預金とは異なり、元本や分配金は保証されません。</p><div class="compare"><article class="investment"><p class="tag">不動産クラウドファンディング</p><h3>運用成果に応じた<br>リターンを目指す</h3><div class="example">シミュレーション<br><strong>想定年率 6.0<small>%</small></strong><p>100万円 × 6.0% × 12か月</p><p>税引前分配金 <b>60,000円</b></p></div><p>分配額は運用実績と契約によります。<br>元本割れ・償還遅延の可能性があります。</p></article><article><p class="tag">銀行普通預金（円預金）</p><h3>適用金利に基づく<br>利息を受け取る</h3><p>金利は銀行や時点により異なります。</p><hr><p>通常は随時引き出しが可能です。</p></article></div><p class="note">不動産CFの数値は説明用の仮定で、実際の商品条件ではありません。税金・費用控除前。リスク・リターンは商品や条件により異なります。</p></div></section>
+<section class="wrap" id="mechanism"><p class="eyebrow">HOW IT WORKS</p><h2>運用の仕組み</h2><p class="copy">投資家の優先出資と、事業者の劣後出資で不動産を運用します。</p><ol class="timeline"><li><h3>出資</h3><p>投資家は優先出資、事業者は劣後出資を行います。</p></li><li><h3>物件を取得</h3><p>事業者が対象となる不動産を取得します。</p></li><li><h3>運用・分配</h3><p>入居者からの賃料などを原資に、契約に応じて利益を分配します。</p></li><li><h3>物件を売却</h3><p>不動産を売却し、買主から売却代金を受領します。</p></li><li><h3>精算・償還</h3><p>費用・借入金などを精算し、契約に応じて出資金を返還します。</p></li></ol></section>
 <section class="projects" id="projects">
 <div class="wrap">
 <p class="eyebrow">PAST PROJECTS</p>
@@ -211,44 +71,13 @@ const page = {
 <p class="note">過去の募集条件です。将来の運用成果を示唆・保証するものではありません。</p>
 </div>
 </section>
-<section class="wrap" id="flow">
-<p class="eyebrow">YOUR FIRST STEP</p>
-<h2>ご相談から運用開始までの4ステップ</h2>
-<div class="flow-grid">
-<article>
-<span>01</span>
-<h3>資料請求・予約</h3>
-<p>まずはフォームから資料をご請求ください。</p>
-</article>
-<article>
-<span>02</span>
-<h3>資料確認・ご相談</h3>
-<p>仕組みやリスクを担当者が丁寧にご説明します。</p>
-</article>
-<article>
-<span>03</span>
-<h3>契約手続き</h3>
-<p>内容をご確認のうえ、必要な手続きを進めます。</p>
-</article>
-<article>
-<span>04</span>
-<h3>払込み・運用開始</h3>
-<p>契約条件に基づき運用と分配を行います。</p>
-</article>
-</div>
-</section>
-<NovemberFAQ />
+<section class="wrap" id="flow"><p class="eyebrow">YOUR FIRST STEP</p><h2>まずは相談から。<br>納得して、次の一歩へ。</h2><div class="flow-grid"><article><span>01</span><h3>ご相談予約</h3><p>個別相談またはセミナー。対面・オンラインでご案内します。</p></article><article><span>02</span><h3>内容の説明</h3><p>物件・収益・リスクを確認。気になることをご質問ください。</p></article><article><span>03</span><h3>書面の確認・検討</h3><p>契約成立前交付書面等を確認。その場で即決する必要はありません。</p></article><article><span>04</span><h3>対面・郵送でご契約</h3><p>納得いただいた後に手続き。案内に沿って本人確認を行います。</p></article><article><span>05</span><h3>払込み・運用</h3><p>指定方法・期限でお払込み。開始条件や口座をご確認ください。</p></article><article><span>06</span><h3>報告・分配・償還</h3><p>契約に基づき運用をご報告。実績等に応じて分配・償還します。</p></article></div><p class="note">分配頻度・入金方法・運用報告の頻度はファンドごとに異なります。</p></section>
+<section class="tint"><div class="wrap narrow" id="faq"><p class="eyebrow">FAQ</p><h2>はじめての方へ。</h2><details><summary>いくらから始められますか？</summary><p>原資料では1口10万円から、申込手数料0円と案内されています。実際の募集条件は各ファンドの書面でご確認ください。</p></details><details><summary>元本や分配金は保証されますか？</summary><p>保証されません。不動産の運用・売却状況などにより、元本割れや分配・償還が遅延する可能性があります。</p></details><details><summary>説明を聞いてから検討できますか？</summary><p>はい。物件・収益・リスクの説明を受け、契約成立前交付書面等を確認してからご検討いただけます。</p></details><details><summary>申込みや運用に手数料はかかりますか？</summary><p>Coketsu Fundのお申込手数料は0円です。振込手数料や運用に伴う費用など、お申込手数料以外の負担については、各ファンドの契約成立前交付書面等でご確認ください。無料相談でも、費用の確認ポイントをご質問いただけます。</p></details>
+<details><summary>分配金や出資金は、いつ受け取れますか？</summary><p>Coketsu Fundでは、各ファンドの契約に基づき、運用実績等に応じた分配と出資金の償還を行います。分配の頻度や入金方法、償還予定日はファンドごとに異なります。お申込み前に、運用期間とあわせて契約書面をご確認ください。運用・売却状況等によって、分配や償還が遅れる可能性もあります。</p></details>
+<details><summary>「想定利回り」は、必ず受け取れる利回りですか？</summary><p>いいえ。Coketsu Fundがご案内する想定利回りは、将来の運用成果を保証するものではありません。実際の分配額は、不動産の運用・売却状況や契約条件によって変わります。このページの年率6.0％は説明用の仮定であり、過去のプロジェクトに掲載された利回りも、今後の募集条件を示すものではありません。</p></details>
+<details><summary>出資した後の運用状況は確認できますか？</summary><p>Coketsu Fundでは、契約に基づいて運用状況をご報告します。報告の頻度や確認方法はファンドごとに異なりますので、ご契約前にご確認ください。はじめての方も、無料相談で「いつ、どのような報告を受けられるか」を確認したうえでご検討いただけます。</p></details>
+<details><summary>運用期間中に解約・換金できますか？</summary><p>中途解約や持分の譲渡・換金の可否、手続き、費用は、各ファンドの契約条件をご確認ください。Coketsu Fundへの出資は、普通預金のようにいつでも引き出せることを前提とせず、運用期間中に使う予定のない資金でご検討ください。資金を使う時期が決まっている場合は、お申込み前にご相談ください。</p></details></div></section>
 
-<section class="production-contact">
-<div class="wrap">
-<p class="eyebrow">CONTACT</p>
-<h2>仕組みも、リスクも。<br />まずはご相談ください。</h2>
-<div class="hero-form-preview">
-<h2>無料資料請求・相談予約</h2>
-<NovemberInquiry id="inquiry" />
-</div>
-</div>
-</section>
 <section class="wrap company" id="company">
 <div>
 <p class="eyebrow">OPERATED BY J TRUST</p>
@@ -280,31 +109,5 @@ const page = {
 </div>
 </section>
 </main>
-<footer>
-<a class="brand" href="#">
-<img src="/assets/nov-2026/assets/tiger.png" alt="">
-<img src="/assets/nov-2026/assets/logo.png" alt="Coketsu Fund">
-</a>
-<nav>
-<a href="#about">サービスについて</a>
-<a href="#mechanism">仕組み</a>
-<a href="#flow">ご検討の流れ</a>
-<a href="#faq">よくある質問</a>
-<a href="#company">運営会社</a>
-<a href="/news/">NEWS</a>
-<a href="/contact/">お問い合わせ</a>
-<a href="/privacy-policy/">プライバシーポリシー</a>
-<a href="/cooling-off/">クーリング・オフ</a>
-<a href="https://invest.coketsu.fund/#/login">投資家ログイン</a>
-</nav>
-<p>投資には元本割れ等のリスクがあります。<br>お申込みの際は、契約成立前交付書面等を十分にご確認ください。</p>
-<small>© Coketsu Fund / 株式会社ジェイトラスト</small>
-</footer>
-<aside class="sticky">
-<a href="tel:0366906844">電話で相談</a>
-<a href="#contact">無料で資料請求・相談 <span>↗</span>
-</a>
-</aside>
-<script src="../scripts/november-navigation.ts">
-</script>
+<NovemberFooter />
 </BaseLayout>

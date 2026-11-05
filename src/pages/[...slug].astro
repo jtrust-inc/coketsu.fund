@@ -1,6 +1,6 @@
 ---
-import SiteFooter from "../components/SiteFooter.astro";
-import SiteHeader from "../components/SiteHeader.astro";
+import NovemberFooter from "../components/NovemberFooter.astro";
+import NovemberHeader from "../components/NovemberHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCapturedPages, type CapturedPage } from "../lib/site";
 export async function getStaticPaths() {
@@ -11,9 +11,12 @@ export async function getStaticPaths() {
 }
 interface Props { page: CapturedPage }
 const { page } = Astro.props;
+const themedPage = { ...page, bodyClass: 'november-lp november-document', headAssets: '<link rel="stylesheet" href="/assets/nov-2026/style.css"><link rel="stylesheet" href="/assets/nov-2026/theme-corporate.css"><link rel="stylesheet" href="/assets/nov-2026/production.css"><link rel="stylesheet" href="/assets/nov-2026/document.css">' };
+const content = page.content.replace(/id="main"/g, 'id="page-content"').replace(/href=""/g, 'href="/"').replace(/data-theme="light"/g, 'data-theme="light" data-size="compact"');
 ---
-<BaseLayout page={page}>
-  <Fragment set:html={page.beforeHeader} /><SiteHeader html={page.header} />
-  <main id="main" data-astro-migrated="true"><Fragment set:html={page.content} /></main>
-  <SiteFooter html={page.footer} /><Fragment set:html={page.afterFooter} />
+<BaseLayout page={themedPage}>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <NovemberHeader />
+  <main id="main" data-astro-migrated="true"><Fragment set:html={content} /></main>
+  <NovemberFooter />
 </BaseLayout>

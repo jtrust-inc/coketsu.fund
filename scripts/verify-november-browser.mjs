@@ -27,13 +27,13 @@ try {
       placeholderForm:document.body.innerText.includes('仮設置'),
     }));
     assert.ok(structure.scrollWidth<=width+1,`Overflow at ${width}: ${structure.scrollWidth}`);
-    assert.equal(structure.forms,2);assert.equal(structure.h1s,1);assert.deepEqual(structure.missingImages,[]);assert.deepEqual(structure.invalidAnchors,[]);assert.equal(structure.placeholderForm,false);
+    assert.equal(structure.forms,1);assert.equal(structure.h1s,1);assert.deepEqual(structure.missingImages,[]);assert.deepEqual(structure.invalidAnchors,[]);assert.equal(structure.placeholderForm,false);
     assert.equal(await page.locator('form [name="address"],form [name="your-address"]').count(),0);
     assert.ok((await page.locator('main').innerText()).includes('63,600,000'));
     assert.ok((await page.locator('#company').innerText()).includes('松本 圭貴'));
     await page.screenshot({path:`${output}/production-${width}.png`,fullPage:true});
     await page.locator('.hero').screenshot({path:`${output}/hero-${width}.png`});
-    for(const id of ['hero-inquiry','inquiry']) {
+    for(const id of ['hero-inquiry']) {
       const form=page.locator(`#${id}`);
       const fill=async()=>{for(const [name,value] of Object.entries({name:'表示検証',name_kana:'ヒョウジケンショウ',email:'preview-test@example.invalid',phone:'00000000000'}))await form.locator(`[name="${name}"]`).fill(value);await form.locator('[name="privacy_agreed"]').check();};
       await fill();
@@ -48,7 +48,7 @@ try {
       assert.equal(await form.locator('[name="name"]').inputValue(),'表示検証');
       assert.ok(await form.getByRole('button').isEnabled());await page.unroute('**/api/forms/request');
     }
-    if(width<=1000){await page.locator('.menu-toggle').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');await page.locator('.header-nav a[href="#about"]').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');}
+    if(width<=1000){await page.locator('.menu-toggle').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');await page.locator('.header-nav a[href="/#about"]').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');}
     await page.locator('#faq summary').first().click();assert.notEqual(await page.locator('#faq details').first().getAttribute('open'),null);
     assert.deepEqual(errors,[]);report.viewports.push({...structure,formTests:'both mocked success/error paths passed',pageErrors:errors});
     await page.close();
