@@ -25,7 +25,13 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-11-05T16:40:00+09:00",
+  "updatedAt": "2026-11-05T16:45:00+09:00",
+  "features": {
+    "url": "https://coketsu.fund/features/",
+    "status": "published-empty-list",
+    "menu": "header-mobile-footer",
+    "cmsPublishing": "not-yet-connected"
+  },
   "news": {
     "menu": "published-desktop-and-mobile",
     "url": "https://coketsu.fund/news/",
@@ -43,12 +49,13 @@
     "testedViewportWidths": [320, 390, 768, 1440],
     "formVerification": "One native address-free hero request form; standalone contact, request and institutional forms retained. Mocked success/error browser and Worker tests pass. Live cross-origin and tokenless requests rejected. No actual mailbox delivery retest; recipient secrets unchanged.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "e95712f",
-    "workerVersion": "6de07981-6739-4137-a9ee-576ede96c310",
-    "productionHtmlMatchesBuild": true,
-    "previewHtmlMatchesBuild": true
+    "deployedSourceCommit": "47763e3",
+    "workerVersion": "e464d396-c473-4c12-95d4-c364e8c2aea0",
+    "productionHtmlMatchesBuild": null,
+    "previewHtmlMatchesBuild": null
   },
   "notes": [
+    "2026-11-05: Features listing /features/ added with no fabricated articles; shared header, mobile menu and footer now include お知らせ and 特集 across all ten pages. Production and preview ten-page HTTP/menu checks passed. Six-width local news/features navigation and existing investor-login tests passed; withdrawn notice remains 404. Build, typecheck, mocked Worker security tests and deploy dry-run passed. Current deploy source 47763e3, Worker e464d396-c473-4c12-95d4-c364e8c2aea0. Full HTML byte parity was not rerun for this release. Backend, secrets, DNS and mail unchanged. CMS publishing is still pending, not completed by this navigation change.",
     "2026-11-05: Important notice was initially published with explicit user authorization, then withdrawn on subsequent explicit instruction. Production and workers.dev return 404 for the former article URL; homepage, news index and sitemap no longer contain the notice. Desktop/mobile news navigation and investor login remain. Existing Worker security, Graph/Turnstile secrets, DNS and mail settings unchanged. microCMS integration remains separate unfinished work; do not republish this notice during that integration.",
     "2026-11-05 final live browser check: GA4 config G-17L9BLTJQT is present in initialized dataLayer, real Turnstile API loads, corrected representative is rendered, and zero document CSP violations were observed. Cloudflare-injected Web Analytics was explicitly allowed after a live check detected its blocked beacon. Both environments again pass all nine HTML/build parity checks and form rejection tests. Source 2b1c697, Worker f2835a0f-bdee-4a3a-9e9c-aa00519148d0. GitHub verification for security commit 5c9eea1 succeeded. These tests do not prove analytics dashboard receipt or mailbox delivery.",
     "2026-11-05 company correction: representative 岩本 圭賢, established June 2017, capital 100 million yen, 100 employees including part-time/subsidiaries, FAX 03-6690-6652 verified at https://jtrust-inc.jp/company-profile/. All nine Organization JSON-LD blocks now identify 株式会社ジェイトラスト rather than the erroneous 株式会社COKETSU. Address retained as エムズクロス人形町10F from the current official profile. Reference design has プライム人形町10F. License renewal count differs between the official profile (1) and current/approved LP (2); existing LP license is unchanged pending authoritative reconciliation.",
