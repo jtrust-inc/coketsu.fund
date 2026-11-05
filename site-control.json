@@ -25,7 +25,7 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-11-05T16:45:00+09:00",
+  "updatedAt": "2026-11-05T17:10:00+09:00",
   "features": {
     "url": "https://coketsu.fund/features/",
     "status": "published-empty-list",
@@ -47,14 +47,17 @@
     "implementation": "Reference main-page structure, risk-return SVG, bank comparison example, five-stage operation timeline, six-step consultation flow and FAQ adopted after follow-up approval. One working hero request form replaces the reference demo form. Shared November header/footer/theme serve all nine pages. Company representative and missing profile fields corrected against official information on 2026-11-05. Project facts, second-project generic image, login, legal links, Turnstile and Microsoft Graph retained.",
     "fullPageImage": false,
     "testedViewportWidths": [320, 390, 768, 1440],
-    "formVerification": "One native address-free hero request form; standalone contact, request and institutional forms retained. Mocked success/error browser and Worker tests pass. Live cross-origin and tokenless requests rejected. No actual mailbox delivery retest; recipient secrets unchanged.",
+    "formVerification": "Hero request form now includes request choices and investment experience, confirmation/edit/send; no address or furigana. Production mocked success/error checks pass at 320/390/768/1440px. Existing standalone forms tested locally. Live cross-origin and tokenless requests rejected. No actual mailbox delivery retest; recipient secrets unchanged.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "47763e3",
-    "workerVersion": "e464d396-c473-4c12-95d4-c364e8c2aea0",
-    "productionHtmlMatchesBuild": null,
-    "previewHtmlMatchesBuild": null
+    "deployedSourceCommit": "d6239d6",
+    "workerVersion": "4cca1242-3aa7-4fbc-a887-48b116382242",
+    "productionHtmlMatchesBuild": true,
+    "previewHtmlMatchesBuild": true,
+    "referenceMatchStatus": "incomplete-awaiting-content-confirmation",
+    "referenceComparison": "40 section/viewport comparisons; unresolved record note and project text/images produce 12 failed assertions across four widths. Form field structure matches reference. Capital intentionally removed at user request; added menus and real form security retained."
   },
   "notes": [
+    "2026-11-05 partial correction released: d6239d6 / Worker 4cca1242-3aa7-4fbc-a887-48b116382242. Missing inquiry choices and investment experience added with confirmation/edit/send; unrequested capital row removed; mobile overrides corrected. All ten HTML pages on production and preview equal the build. Production mocked form checks pass at four widths, news/features navigation at six widths; withdrawn notice stays 404. Real Turnstile loads, GA4 initializes, CSP reports no violations. Worker backend/config/secrets/DNS/M365 unchanged. Project cards and record note frozen to pre-fix production pending content clarification; full reference comparison is NOT passing. No actual email delivery retest. GitHub push succeeded; GitHub Actions result not verified in this release.",
     "2026-11-05: Features listing /features/ added with no fabricated articles; shared header, mobile menu and footer now include お知らせ and 特集 across all ten pages. Production and preview ten-page HTTP/menu checks passed. Six-width local news/features navigation and existing investor-login tests passed; withdrawn notice remains 404. Build, typecheck, mocked Worker security tests and deploy dry-run passed. Current deploy source 47763e3, Worker e464d396-c473-4c12-95d4-c364e8c2aea0. Full HTML byte parity was not rerun for this release. Backend, secrets, DNS and mail unchanged. CMS publishing is still pending, not completed by this navigation change.",
     "2026-11-05: Important notice was initially published with explicit user authorization, then withdrawn on subsequent explicit instruction. Production and workers.dev return 404 for the former article URL; homepage, news index and sitemap no longer contain the notice. Desktop/mobile news navigation and investor login remain. Existing Worker security, Graph/Turnstile secrets, DNS and mail settings unchanged. microCMS integration remains separate unfinished work; do not republish this notice during that integration.",
     "2026-11-05 final live browser check: GA4 config G-17L9BLTJQT is present in initialized dataLayer, real Turnstile API loads, corrected representative is rendered, and zero document CSP violations were observed. Cloudflare-injected Web Analytics was explicitly allowed after a live check detected its blocked beacon. Both environments again pass all nine HTML/build parity checks and form rejection tests. Source 2b1c697, Worker f2835a0f-bdee-4a3a-9e9c-aa00519148d0. GitHub verification for security commit 5c9eea1 succeeded. These tests do not prove analytics dashboard receipt or mailbox delivery.",

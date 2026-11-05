@@ -4,6 +4,9 @@ import { createRequire } from 'node:module';
 const require = createRequire(process.env.LP_IMAGE_TOOLKIT || import.meta.url);
 const { chromium } = require('playwright');
 const manifest = JSON.parse(await readFile('migration-source/manifest.json', 'utf8'));
+if (!manifest.pages.some(page => new URL(page.url).pathname === '/features/')) {
+  manifest.pages.push({ url: 'https://coketsu.fund/features/', file: 'features/index.html' });
+}
 for (const origin of ['https://coketsu.fund', 'https://coketsu-fund.system-f78.workers.dev']) {
   for (const page of manifest.pages) {
     const route = new URL(page.url).pathname;
@@ -21,7 +24,7 @@ for (const origin of ['https://coketsu.fund', 'https://coketsu-fund.system-f78.w
   const tokenless = await fetch(origin + '/api/forms/request', { method: 'POST', headers: { origin, 'content-type': 'application/x-www-form-urlencoded' }, body: 'name=verification' });
   assert.equal(tokenless.status, 400);
   assert.equal(tokenless.headers.get('cache-control'), 'no-store');
-  console.log(JSON.stringify({ origin, pages: 9, htmlMatchesBuild: true, organization: '株式会社ジェイトラスト', cspEnforced: true, crossOrigin: 403, tokenless: 400, realEmailSent: false }));
+  console.log(JSON.stringify({ origin, pages: manifest.pages.length, htmlMatchesBuild: true, organization: '株式会社ジェイトラスト', cspEnforced: true, crossOrigin: 403, tokenless: 400, realEmailSent: false }));
 }
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
@@ -30,7 +33,7 @@ try {
     window.__violations = [];
     document.addEventListener('securitypolicyviolation', event => window.__violations.push(`${event.effectiveDirective}: ${event.blockedURI}`));
   });
-  await page.goto('https://coketsu.fund/?review=5c9eea1', { waitUntil: 'domcontentloaded' });
+  await page.goto('https://coketsu.fund/', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => typeof window.turnstile !== 'undefined');
   await page.evaluate(() => document.fonts.ready);
   const actual = await page.evaluate(() => ({ cspViolations: window.__violations, gaInitialized: Array.isArray(window.dataLayer) && window.dataLayer.some(entry => entry[0] === 'config' && entry[1] === 'G-17L9BLTJQT'), turnstileLoaded: typeof window.turnstile !== 'undefined', representative: document.querySelector('#company').innerText.includes('岩本 圭賢') }));
