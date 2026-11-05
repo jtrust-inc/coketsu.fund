@@ -1,0 +1,10 @@
+---
+import { readFileSync } from 'node:fs';
+const captured = readFileSync(new URL('../../migration-source/site/index.html', import.meta.url), 'utf8');
+const plain = (value: string) => value.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').trim();
+const faqs = [...captured.matchAll(/<dl class="vk_faq-body">([\s\S]*?)<\/dl>/g)].map(([, block]) => ({
+  question: plain(block.match(/<dt\b[^>]*>([\s\S]*?)<\/dt>/)?.[1] || ''),
+  answer: plain(block.match(/<dd\b[^>]*>([\s\S]*?)<\/dd>/)?.[1] || ''),
+})).filter(item => item.question && item.answer);
+---
+<section class="tint"><div class="wrap narrow" id="faq"><p class="eyebrow">FAQ</p><h2>よくあるご質問</h2>{faqs.map(item => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>

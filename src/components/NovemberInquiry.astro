@@ -1,0 +1,15 @@
+---
+interface Props { id?: string }
+const { id = 'hero-inquiry' } = Astro.props;
+---
+<form id={id} class="nov-inquiry" action="/api/forms/request" method="post" data-astro-form="request" aria-describedby={`${id}-status`}>
+  <label>お名前 <span class="required">必須</span><input name="name" autocomplete="name" placeholder="山田 太郎" required /></label>
+  <label>フリガナ <span class="required">必須</span><input name="name_kana" autocomplete="off" placeholder="ヤマダ タロウ" required /></label>
+  <label>メールアドレス <span class="required">必須</span><input name="email" type="email" autocomplete="email" placeholder="taro@example.com" required /></label>
+  <label>電話番号 <span class="required">必須</span><input name="phone" type="tel" autocomplete="tel" placeholder="090-1234-5678" required /></label>
+  <label class="check hero-consent"><input type="checkbox" name="privacy_agreed" value="同意" required /><span><a href="/privacy-policy/" target="_blank" rel="noopener">個人情報の取扱い</a>に同意します <span class="required">必須</span></span></label>
+  <div class="astro-honeypot" aria-hidden="true"><label>会社URL<input type="text" name="company-url" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAAFYoRD5PnpO-VDnW" data-action="request" data-appearance="interaction-only" data-size="compact" data-theme="light"></div>
+  <button class="button" type="submit">無料で資料を請求する <span aria-hidden="true">→</span></button>
+  <p id={`${id}-status`} class="astro-form-status" role="status" aria-live="polite"></p>
+</form>

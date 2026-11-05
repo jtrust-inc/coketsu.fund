@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+<title id="title">リスクと期待リターンの概念図</title><desc id="desc">預金、債券、不動産クラウドファンディング、投資信託、株式、FX、暗号資産の位置づけを示す概念図です。実際のリスクとリターンは商品や条件によって異なります。</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 8 4 0 8Z" fill="#0068b7"/></marker></defs>
+<g font-family="Noto Sans JP, Yu Gothic, Meiryo, sans-serif" fill="#0068b7">
+<rect width="960" height="540" rx="6" fill="#fff"/>
+<rect x="75" y="30" width="260" height="427" fill="#f0f7fb"/>
+<rect x="335" y="30" width="290" height="427" fill="#e8f7ff"/>
+<rect x="625" y="30" width="290" height="427" fill="#d5effc"/>
+<path d="M335 30V457M625 30V457" stroke="#b5b5b6" stroke-dasharray="5 7"/>
+<g stroke="#fff" stroke-width="2">
+<circle cx="162" cy="337" r="39" fill="#727171"/>
+<circle cx="253" cy="290" r="39" fill="#727171"/>
+<circle cx="558" cy="191" r="48" fill="#727171"/>
+<circle cx="689" cy="144" r="38" fill="#0068b7"/>
+<circle cx="778" cy="105" r="38" fill="#0068b7"/>
+<circle cx="865" cy="71" r="39" fill="#0068b7"/>
+</g>
+<circle cx="431" cy="252" r="84" fill="#0068b7" stroke="#00a0e9" stroke-width="4"/>
+<g text-anchor="middle" fill="#fff" font-size="18" font-weight="700">
+<text x="162" y="344">預金</text><text x="253" y="297">債券</text>
+<text x="558" y="198">投資信託</text><text x="689" y="151">株式</text><text x="778" y="112">FX</text><text x="865" y="78" font-size="16">暗号資産</text>
+<text x="431" y="242">不動産</text><text x="431" y="272" font-size="15">クラウドファンディング</text>
+</g>
+<g fill="#fff" opacity=".9"><rect x="99" y="391" width="212" height="50" rx="3"/><rect x="354" y="391" width="252" height="50" rx="3"/><rect x="644" y="391" width="252" height="50" rx="3"/></g>
+<g text-anchor="middle" font-size="15" font-weight="700"><text x="205" y="412">ローリスク・</text><text x="205" y="431">ローリターン</text><text x="480" y="412">ミドルリスク・</text><text x="480" y="431">ミドルリターン</text><text x="770" y="412">ハイリスク・</text><text x="770" y="431">ハイリターン</text></g>
+<path d="M75 459V20M75 459H922" fill="none" stroke="#0068b7" stroke-width="2" marker-end="url(#arrow)"/><path d="M75 45V20" stroke="#0068b7" stroke-width="2" marker-end="url(#arrow)"/>
+<g font-size="17" font-weight="700"><text x="53" y="41" text-anchor="end">高</text><text x="53" y="450" text-anchor="end" fill="#626a70">低</text><text x="75" y="487" fill="#626a70">低</text><text x="915" y="487" text-anchor="end">高</text><text x="499" y="490" text-anchor="middle">リスク</text><text transform="translate(29 242) rotate(-90)" text-anchor="middle">期待リターン</text></g>
+<text x="75" y="524" fill="#626a70" font-size="12">概念図：リスク・リターンは商品や条件により異なります。</text>
+</g></svg>
