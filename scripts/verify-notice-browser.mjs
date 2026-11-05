@@ -19,9 +19,9 @@ try {
     await page.waitForURL(`${base}/news/`);
     assert.ok((await page.locator('.entry-body').innerText()).includes('現在、公開中のお知らせはありません。'));
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-    const response = await page.goto(`${base}/news/2026-11-05-service-notice/`);
+    const response = await page.request.get(`${base}/news/2026-11-05-service-notice/`);
     assert.equal(response.status(), 404);
-    assert.ok(!(await page.locator('body').innerText()).includes('Securitize'));
+    assert.ok(!(await response.text()).includes('Securitize'));
     console.log(JSON.stringify({ width, newsMenu: 'passed', withdrawnNotice: 404 }));
     await page.close();
   }
