@@ -9,7 +9,7 @@ const faqs = [...captured.matchAll(/<dl class="vk_faq-body">([\s\S]*?)<\/dl>/g)]
 ---
 <footer class="landing-footer">
   <div class="footer-top"><a href="/" class="footer-brand">COKETSU FUND</a><nav aria-label="フッターナビゲーション"><a href="/news/">NEWS</a><button type="button" data-faq-open>よくある質問</button><a href="/contact/">お問い合わせ</a><a href="https://jtrust-inc.jp/">運営会社</a></nav></div>
-  <div class="footer-body"><address>運営会社：株式会社ジェイトラスト<br />宅地建物取引業免許：国土交通大臣（2）第10041号<br />賃貸住宅管理業者登録：国土交通大臣（01）第005921号<br />不動産特定共同事業：東京都知事 第182号<br />代表者：松本 圭貴<br />本社：〒103-0013 東京都中央区日本橋人形町1-19-5 エムズクロス人形町10F<br />電話番号（代表）：<a href="tel:0366906844">03-6690-6844</a></address><div class="footer-risk"><p>投資には元本割れ等のリスクがあります。<br />契約内容・リスクをご確認ください。</p><small>© COKETSU FUND</small></div></div>
+  <div class="footer-body"><address>運営会社：株式会社ジェイトラスト<br />宅地建物取引業免許：国土交通大臣（2）第10041号<br />賃貸住宅管理業者登録：国土交通大臣（01）第005921号<br />不動産特定共同事業：東京都知事 第182号<br />代表者：岩本 圭賢<br />本社：〒103-0013 東京都中央区日本橋人形町1-19-5 エムズクロス人形町10F<br />電話番号（代表）：<a href="tel:0366906844">03-6690-6844</a></address><div class="footer-risk"><p>投資には元本割れ等のリスクがあります。<br />契約内容・リスクをご確認ください。</p><small>© COKETSU FUND</small></div></div>
   <nav class="legal-links" aria-label="法定情報"><a href="/privacy-policy/">プライバシーポリシー</a><a href="/cooling-off/">クーリング・オフ</a></nav>
 </footer>
 <dialog id="faq-dialog" aria-labelledby="faq-title"><button class="close" type="button" data-faq-close aria-label="よくある質問を閉じる">閉じる ×</button><h2 id="faq-title">よくある質問</h2>{faqs.map(item => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</dialog>

@@ -11,7 +11,7 @@ const description = page.description || "Coketsu fund. 専門家とともに価�
 const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || "G-17L9BLTJQT";
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || "LB57brXbo1MTmIKTpQPRq6XWfE3MMLmpsc6upGlDOaM";
 const jsonLd = { "@context": "https://schema.org", "@graph": [
-  { "@type": "Organization", "@id": "https://coketsu.fund/#organization", name: "株式会社COKETSU", url: "https://coketsu.fund/", logo: "https://coketsu.fund/wp-content/uploads/2025/04/coketsu2.png", contactPoint: { "@type": "ContactPoint", url: "https://coketsu.fund/contact/", contactType: "customer support", availableLanguage: "Japanese" } },
+  { "@type": "Organization", "@id": "https://coketsu.fund/#organization", name: "株式会社ジェイトラスト", legalName: "株式会社ジェイトラスト", url: "https://jtrust-inc.jp/", sameAs: ["https://jtrust-inc.jp/company-profile/"], telephone: "+81-3-6690-6844", faxNumber: "+81-3-6690-6652", address: { "@type": "PostalAddress", postalCode: "103-0013", addressRegion: "東京都", addressLocality: "中央区", streetAddress: "日本橋人形町1-19-5 エムズクロス人形町10F", addressCountry: "JP" }, contactPoint: { "@type": "ContactPoint", url: "https://coketsu.fund/contact/", contactType: "customer support", availableLanguage: "Japanese" } },
   { "@type": "WebSite", "@id": "https://coketsu.fund/#website", name: "Coketsu fund.", url: "https://coketsu.fund/", publisher: { "@id": "https://coketsu.fund/#organization" } },
   { "@type": "WebPage", "@id": `${productionUrl}#webpage`, url: productionUrl, name: page.title, description, inLanguage: "ja", isPartOf: { "@id": "https://coketsu.fund/#website" } },
   { "@type": "BreadcrumbList", itemListElement: page.route === "/" ? [{ "@type": "ListItem", position: 1, name: "ホーム", item: "https://coketsu.fund/" }] : [{ "@type": "ListItem", position: 1, name: "ホーム", item: "https://coketsu.fund/" }, { "@type": "ListItem", position: 2, name: page.title, item: productionUrl }] },
@@ -30,7 +30,7 @@ const jsonLd = { "@context": "https://schema.org", "@graph": [
   <meta name="twitter:image" content="https://coketsu.fund/wp-content/uploads/2025/04/coketsu2.png" />
   {googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
   <link rel="icon" href="/wp-content/uploads/2025/04/cropped-favicon_coketsu-32x32.png" sizes="32x32" />
-  <Fragment set:html={page.headAssets} /><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <Fragment set:html={page.headAssets} /><script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />
   {ga4MeasurementId && <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>}
   {ga4MeasurementId && <script is:inline define:vars={{ ga4MeasurementId }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config",ga4MeasurementId,{anonymize_ip:true});</script>}
   {hasForm && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
