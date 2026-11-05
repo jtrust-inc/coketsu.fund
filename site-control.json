@@ -25,7 +25,7 @@
     "microCms": "not-used"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-11-05T14:38:00+09:00",
+  "updatedAt": "2026-11-05T14:52:02+09:00",
   "design": {
     "reference": "https://coketsu-fund-mobile-nov.jtrust-inc.chatgpt.site/",
     "implementation": "November reference presentation applied to the existing Astro site: blue corporate theme, Skytree background, branding, responsive navigation and sticky contact actions. Existing business content, four-step flow, FAQ, company and project data preserved per explicit user choice. Native production forms retain Turnstile and Microsoft Graph.",
@@ -33,12 +33,13 @@
     "testedViewportWidths": [320, 390, 768, 1440],
     "formVerification": "Two native address-free request forms: mocked success/error browser tests pass, with input reset/preservation and button re-enablement. Graph backend unchanged. Actual mailbox delivery not retested in this design update.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "9e9b2be",
-    "workerVersion": "a680d9a2-7e0b-4f7a-b97e-b9643f816352",
+    "deployedSourceCommit": "e2d9331",
+    "workerVersion": "ce7c5e77-65e2-4798-9b00-36856be54362",
     "productionHtmlMatchesBuild": true,
     "previewHtmlMatchesBuild": true
   },
   "notes": [
+    "2026-11-05: Restored investor login in the desktop header and mobile menu; retained footer login. Navigation to https://invest.coketsu.fund/#/login verified with an intercepted destination at 320/390/768/1024/1250/1440px locally and on production. Build, static tests and type check passed. Production and preview HTML match the build. No authentication, form, Worker security or DNS changes.",
     "2026-11-05: Applied only the presentation of the user-provided November Sites reference. User explicitly chose to preserve current published information, so reference project figures, representative, assumed yields and six-step process were not imported. Existing diagrams and FAQ content remain. The reference Site itself was not modified.",
     "2026-11-05 verification: type check and build passed; nine public routes HTTP 200 on production and workers.dev, with 100% inter-environment text parity (not a visual-match score). Eight non-home pages are byte-identical to the pre-deployment production pages. Browser checks cover 320/390/768/1440px. Production tokenless form request rejected with HTTP 400. Worker security code, mail API, DNS and secrets unchanged; Turnstile display uses compact sizing to fit narrow forms.",
     "2026-10-29: Corrected the supplied artwork typo 配送遅延 to 配当遅延 with a responsive native text label covering only the incorrect heading. Four viewport browser checks and nine-page checks passed; production and preview HTML match the build. Form security and Worker API unchanged.",
