@@ -9,8 +9,7 @@ try {
     await page.route('https://www.googletagmanager.com/**', r => r.abort());
     await page.route('https://challenges.cloudflare.com/**', r => r.fulfill({ status: 200, body: '' }));
     await page.goto(base, { waitUntil: 'networkidle' });
-    const banner = page.locator('.important-notice a');
-    assert.ok(await banner.isVisible());
+    assert.equal(await page.locator('.important-notice').count(), 0);
     if (await page.locator('.menu-toggle').isVisible()) await page.locator('.menu-toggle').click();
     const menu = page.locator('.header-nav a[href="/news/"]');
     assert.ok(await menu.isVisible());
@@ -18,12 +17,12 @@ try {
     assert.ok(box && box.x >= 0 && box.x + box.width <= width + 1);
     await menu.click();
     await page.waitForURL(`${base}/news/`);
-    await page.locator('.entry-body a[href="/news/2026-11-05-service-notice/"]').click();
-    await page.waitForURL(`${base}/news/2026-11-05-service-notice/`);
-    assert.ok(await page.locator('h1').innerText().then(s => s.includes('サービスの停止')));
+    assert.ok((await page.locator('.entry-body').innerText()).includes('現在、公開中のお知らせはありません。'));
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-    assert.equal(await page.locator('a[href="mailto:support@coketsu.fund"]').count(), 1);
-    console.log(JSON.stringify({ width, menuToListToNotice: 'passed', horizontalOverflow: false }));
+    const response = await page.goto(`${base}/news/2026-11-05-service-notice/`);
+    assert.equal(response.status(), 404);
+    assert.ok(!(await page.locator('body').innerText()).includes('Securitize'));
+    console.log(JSON.stringify({ width, newsMenu: 'passed', withdrawnNotice: 404 }));
     await page.close();
   }
 } finally { await browser.close(); }
