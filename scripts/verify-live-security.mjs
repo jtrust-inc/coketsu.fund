@@ -33,7 +33,7 @@ try {
   await page.goto('https://coketsu.fund/?review=5c9eea1', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => typeof window.turnstile !== 'undefined');
   await page.evaluate(() => document.fonts.ready);
-  const actual = await page.evaluate(() => ({ cspViolations: window.__violations, gaInitialized: typeof window.gtag === 'function', turnstileLoaded: typeof window.turnstile !== 'undefined', representative: document.querySelector('#company').innerText.includes('岩本 圭賢') }));
+  const actual = await page.evaluate(() => ({ cspViolations: window.__violations, gaInitialized: Array.isArray(window.dataLayer) && window.dataLayer.some(entry => entry[0] === 'config' && entry[1] === 'G-17L9BLTJQT'), turnstileLoaded: typeof window.turnstile !== 'undefined', representative: document.querySelector('#company').innerText.includes('岩本 圭賢') }));
   assert.deepEqual(actual.cspViolations, []);
   assert.ok(actual.gaInitialized && actual.turnstileLoaded && actual.representative);
   console.log(JSON.stringify({ productionBrowser: actual, realEmailSent: false }));
