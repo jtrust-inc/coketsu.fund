@@ -9,7 +9,7 @@ Astro migration and AI validation build for <https://coketsu.fund/>.
 
 The shared layout, header, footer, routing and SEO metadata are managed in Astro. The existing page body markup and assets are retained as migration input to preserve production parity.
 
-The three WordPress forms are preserved visually in the AI validation build, but their field names and submit behavior are removed. This keeps page parity without transmitting or collecting personal information. Production DNS and the live investment/login service are not changed by this repository.
+The approved production site and workers.dev verification URL share the Worker. Contact, material-request and institutional forms use server-verified Turnstile and Microsoft Graph delivery to the configured Microsoft 365 mailbox. The verification URL is public and can send real mail: automated tests must mock delivery, never submit customer information. Secrets stay in Cloudflare; investment/login remains on the existing external service. DNS is not changed by code deployments.
 
 Optional deployment-time public variables:
 

@@ -14,7 +14,7 @@
     "check": "astro check",
     "preview": "wrangler dev --config wrangler.jsonc",
     "deploy": "node scripts/prepare-mirror.mjs && astro build && wrangler deploy --config wrangler.jsonc",
-    "test": "node scripts/verify-mirror.mjs",
+    "test": "node scripts/verify-mirror.mjs && node scripts/verify-worker-security.mjs",
     "audit": "node scripts/audit-site.mjs"
   },
   "devDependencies": {

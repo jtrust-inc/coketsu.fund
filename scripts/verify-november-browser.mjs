@@ -12,6 +12,10 @@ const report = {base,reference,checkedAt:new Date().toISOString(),emailDelivery:
 try {
   for(const width of [320,390,768,1440]) {
     const page = await browser.newPage({viewport:{width,height:960},deviceScaleFactor:1});
+    await page.addInitScript(() => {
+      window.__cspViolations = [];
+      document.addEventListener('securitypolicyviolation', event => window.__cspViolations.push(`${event.effectiveDirective}: ${event.blockedURI}`));
+    });
     await page.route('https://www.googletagmanager.com/**', r => r.abort());
     await page.route('https://challenges.cloudflare.com/**', r => r.fulfill({status:200,contentType:'application/javascript',body:''}));
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -54,7 +58,9 @@ try {
     }
     if(width<=1000){await page.locator('.menu-toggle').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');await page.locator('.header-nav a[href="/#about"]').click();assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');}
     await page.locator('#faq summary').first().click();assert.notEqual(await page.locator('#faq details').first().getAttribute('open'),null);
-    assert.deepEqual(errors,[]);report.viewports.push({...structure,formTests:'both mocked success/error paths passed',pageErrors:errors});
+    const cspViolations = await page.evaluate(() => window.__cspViolations);
+    assert.deepEqual(cspViolations, []);
+    assert.deepEqual(errors,[]);report.viewports.push({...structure,formTests:'both mocked success/error paths passed',pageErrors:errors,cspViolations});
     await page.close();
     if(width===390||width===1440){const ref=await browser.newPage({viewport:{width,height:960}});await ref.goto(reference,{waitUntil:'networkidle'});await ref.evaluate(async()=>{await Promise.all([...document.images].map(async img=>{img.loading='eager';await img.decode().catch(()=>{});}));});await ref.screenshot({path:`${output}/reference-${width}.png`,fullPage:true});await ref.locator('.hero').screenshot({path:`${output}/reference-hero-${width}.png`});await ref.close();}
   }

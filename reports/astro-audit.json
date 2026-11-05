@@ -1,148 +1,148 @@
 {
-  "generatedAt": "2026-10-29T05:46:14.175Z",
-  "source": "latest production capture",
+  "generatedAt": "2026-11-05T06:38:30.805Z",
+  "source": "Archived migration-source capture (not current live production)",
   "preview": "Astro dist",
   "pages": [
     {
       "url": "https://coketsu.fund/",
-      "contentMatchPercent": 43,
+      "contentMatchPercent": 87,
       "titleMatch": false,
       "links": {
         "production": 43,
-        "astro": 13,
-        "preservedLinksPercent": 27
+        "astro": 28,
+        "preservedLinksPercent": 23
       },
       "images": {
         "production": 10,
-        "astro": 3
+        "astro": 7
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/news/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 52,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40,
-        "preservedLinksPercent": 100
+        "astro": 26,
+        "preservedLinksPercent": 29
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/contact/",
-      "contentMatchPercent": 99,
+      "contentMatchPercent": 66,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 42,
-        "preservedLinksPercent": 100
+        "astro": 28,
+        "preservedLinksPercent": 35
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/institutional-step1/",
-      "contentMatchPercent": 99,
+      "contentMatchPercent": 74,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 41,
-        "preservedLinksPercent": 100
+        "astro": 27,
+        "preservedLinksPercent": 32
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/request/",
-      "contentMatchPercent": 99,
+      "contentMatchPercent": 58,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 42,
-        "preservedLinksPercent": 100
+        "astro": 28,
+        "preservedLinksPercent": 35
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/cooling-off/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 78,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 41,
-        "preservedLinksPercent": 100
+        "astro": 27,
+        "preservedLinksPercent": 32
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/electronic-document/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 80,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40,
-        "preservedLinksPercent": 100
+        "astro": 26,
+        "preservedLinksPercent": 29
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/information-system-policy/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 74,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40,
-        "preservedLinksPercent": 100
+        "astro": 26,
+        "preservedLinksPercent": 29
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
     },
     {
       "url": "https://coketsu.fund/privacy-policy/",
-      "contentMatchPercent": 100,
+      "contentMatchPercent": 89,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 40,
-        "preservedLinksPercent": 100
+        "astro": 26,
+        "preservedLinksPercent": 29
       },
       "images": {
         "production": 2,
-        "astro": 2
+        "astro": 4
       },
       "canonical": true,
       "jsonLd": true
@@ -150,14 +150,15 @@
   ],
   "summary": {
     "pages": 9,
-    "rawContentMatchPercent": 93,
+    "rawContentMatchPercent": 73,
     "titleMatchPercent": 89,
-    "preservedLinksPercent": 92,
-    "imagesMatchPercent": 89,
+    "preservedLinksPercent": 30,
+    "imagesMatchPercent": 0,
+    "metricCaution": "Legacy capture comparison only. rawContentMatchPercent is a text-length heuristic, not semantic or visual accuracy; do not use it as the current design acceptance score.",
     "intentionalDifferences": [
-      "The production top page was intentionally redesigned from the captured WordPress page using the approved 1009_coketsufand_LP reference",
-      "The redesigned top page adds a Turnstile-protected request form while the other eight routes remain structurally unchanged",
-      "SEO metadata was updated for the new landing-page purpose"
+      "User-approved November redesign replaces legacy layout and top-page content",
+      "Forms use Turnstile and Microsoft Graph; request forms omit address",
+      "Operating company and SEO metadata corrected against official company information"
     ]
   }
 }
