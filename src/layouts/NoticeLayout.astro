@@ -15,7 +15,7 @@ const page = { route, title: `${title} | Coketsu fund.`, description,
   <NovemberHeader />
   <main id="main" data-astro-migrated="true">
     <div class="page-header"><div class="container"><h1 class="page-header-title">{title}</h1></div></div>
-    <nav class="breadcrumb" aria-label="パンくずリスト"><div class="container"><a href="/">ホーム</a> / <a href="/news/">お知らせ</a></div></nav>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><div class="container"><a href="/">ホーム</a> / <span aria-current="page">{title}</span></div></nav>
     <div class="site-body"><div class="container"><article class="entry-body"><slot /></article></div></div>
   </main>
   <NovemberFooter />

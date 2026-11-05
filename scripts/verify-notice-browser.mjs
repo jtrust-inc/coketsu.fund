@@ -18,11 +18,22 @@ try {
     await menu.click();
     await page.waitForURL(`${base}/news/`);
     assert.ok((await page.locator('.entry-body').innerText()).includes('現在、公開中のお知らせはありません。'));
+    if (await page.locator('.menu-toggle').isVisible()) await page.locator('.menu-toggle').click();
+    const featureMenu = page.locator('.header-nav a[href="/features/"]');
+    assert.ok(await featureMenu.isVisible());
+    const featureBox = await featureMenu.boundingBox();
+    assert.ok(featureBox && featureBox.x >= 0 && featureBox.x + featureBox.width <= width + 1);
+    await featureMenu.click();
+    await page.waitForURL(`${base}/features/`);
+    assert.equal(await page.locator('h1').innerText(), '特集');
+    assert.ok((await page.locator('.entry-body').innerText()).includes('現在、公開中の特集はありません。'));
+    assert.equal(await page.locator('.breadcrumb [aria-current="page"]').innerText(), '特集');
+    assert.equal(await page.locator('footer a[href="/features/"]').count(), 1);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
     const response = await page.request.get(`${base}/news/2026-11-05-service-notice/`);
     assert.equal(response.status(), 404);
     assert.ok(!(await response.text()).includes('Securitize'));
-    console.log(JSON.stringify({ width, newsMenu: 'passed', withdrawnNotice: 404 }));
+    console.log(JSON.stringify({ width, newsMenu: 'passed', featuresMenu: 'passed', withdrawnNotice: 404 }));
     await page.close();
   }
 } finally { await browser.close(); }
