@@ -1,0 +1,640 @@
+{
+  "checkedAt": "2026-11-12T06:58:04.240Z",
+  "sourceCommit": "2f0825e5082f9bbc715efb022ad98c3163efc8ed",
+  "workerVersion": "196a0079-21c1-4316-8a73-2fb3cf024317",
+  "production": "https://coketsu.fund",
+  "publicPageChecks": [
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/news/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/contact/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/institutional-step1/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/request/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/cooling-off/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/electronic-document/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/information-system-policy/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/features/",
+      "width": 390,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/news/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/contact/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/institutional-step1/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/request/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/cooling-off/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/electronic-document/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/information-system-policy/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    },
+    {
+      "route": "/features/",
+      "width": 1440,
+      "status": 200,
+      "encoding": "passed",
+      "metadata": "passed",
+      "menus": "passed",
+      "overflow": false
+    }
+  ],
+  "brokenLinks": [],
+  "missingImages": [],
+  "failedResponses": [],
+  "reference": "https://coketsu-fund-mobile-nov.jtrust-inc.chatgpt.site/",
+  "comparisonCheckedAt": "2026-11-12T06:58:14.060Z",
+  "intentionalDifferences": [
+    "Header/footer: user-requested news, features, investor login and existing legal/contact links retained.",
+    "Live form: real confirmation/send, privacy-policy link, honeypot and Turnstile replace non-sending demo note.",
+    "Company: capital hidden at explicit user request; existing verified エムズクロス人形町10F address retained.",
+    "Projects: captured WordPress confirms 12% and 償還済み for both cards; reference demo has 10% and 募集終了・償還済み. See docs/reports/2026-11-12-content-provenance.md.",
+    "Record: restore 2026-09-10 from supplied LP and historical accessible disclaimer; do not retain the invented 2026-09-30 date."
+  ],
+  "comparisonFailures": [],
+  "comparisons": [
+    {
+      "width": 320,
+      "name": "header",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 94,
+      "candidateHeight": 94,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 320,
+      "name": "hero",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1244.65625,
+      "candidateHeight": 1244.65625,
+      "pixelDifferencePercent": 0.48293172690763053
+    },
+    {
+      "width": 320,
+      "name": "about",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1350.5,
+      "candidateHeight": 1350.5,
+      "pixelDifferencePercent": 0.7258512213175425
+    },
+    {
+      "width": 320,
+      "name": "comparison",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1320.046875,
+      "candidateHeight": 1320.046875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 320,
+      "name": "mechanism",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 894.578125,
+      "candidateHeight": 894.578125,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 320,
+      "name": "projects",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1050.6875,
+      "candidateHeight": 1050.6875,
+      "pixelDifferencePercent": 1.4284015223596576
+    },
+    {
+      "width": 320,
+      "name": "flow",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1118.5,
+      "candidateHeight": 1118.5,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 320,
+      "name": "faq",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 870.1875,
+      "candidateHeight": 870.1875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 320,
+      "name": "company",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 840.1875,
+      "candidateHeight": 840.1875,
+      "pixelDifferencePercent": 0.6142241379310345
+    },
+    {
+      "width": 320,
+      "name": "footer",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": false,
+      "referenceHeight": 398.0625,
+      "candidateHeight": 467.65625,
+      "pixelDifferencePercent": null
+    },
+    {
+      "width": 390,
+      "name": "header",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 94,
+      "candidateHeight": 94,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 390,
+      "name": "hero",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1222.421875,
+      "candidateHeight": 1222.421875,
+      "pixelDifferencePercent": 0.4073631465291318
+    },
+    {
+      "width": 390,
+      "name": "about",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1381.78125,
+      "candidateHeight": 1381.78125,
+      "pixelDifferencePercent": 0.5833240565512635
+    },
+    {
+      "width": 390,
+      "name": "comparison",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1185.5625,
+      "candidateHeight": 1185.5625,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 390,
+      "name": "mechanism",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 881.5,
+      "candidateHeight": 881.5,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 390,
+      "name": "projects",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1006.5,
+      "candidateHeight": 1006.5,
+      "pixelDifferencePercent": 1.310824230387289
+    },
+    {
+      "width": 390,
+      "name": "flow",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1097.609375,
+      "candidateHeight": 1097.609375,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 390,
+      "name": "faq",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 789.1875,
+      "candidateHeight": 789.1875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 390,
+      "name": "company",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 790.8125,
+      "candidateHeight": 790.8125,
+      "pixelDifferencePercent": 0.5358358455703588
+    },
+    {
+      "width": 390,
+      "name": "footer",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": false,
+      "referenceHeight": 377.171875,
+      "candidateHeight": 411.96875,
+      "pixelDifferencePercent": null
+    },
+    {
+      "width": 768,
+      "name": "header",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 108,
+      "candidateHeight": 108,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 768,
+      "name": "hero",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 662.46875,
+      "candidateHeight": 662.46875,
+      "pixelDifferencePercent": 0.3815909376571141
+    },
+    {
+      "width": 768,
+      "name": "about",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1652.625,
+      "candidateHeight": 1652.625,
+      "pixelDifferencePercent": 0.28625352893728573
+    },
+    {
+      "width": 768,
+      "name": "comparison",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 911.21875,
+      "candidateHeight": 911.21875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 768,
+      "name": "mechanism",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 582.53125,
+      "candidateHeight": 582.53125,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 768,
+      "name": "projects",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 731.265625,
+      "candidateHeight": 731.265625,
+      "pixelDifferencePercent": 0.8668103938979964
+    },
+    {
+      "width": 768,
+      "name": "flow",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 811.96875,
+      "candidateHeight": 811.96875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 768,
+      "name": "faq",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 869.859375,
+      "candidateHeight": 869.859375,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 768,
+      "name": "company",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 925.796875,
+      "candidateHeight": 925.796875,
+      "pixelDifferencePercent": 0.26646305795536357
+    },
+    {
+      "width": 768,
+      "name": "footer",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": false,
+      "referenceHeight": 351.375,
+      "candidateHeight": 398.171875,
+      "pixelDifferencePercent": null
+    },
+    {
+      "width": 1440,
+      "name": "header",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 108,
+      "candidateHeight": 108,
+      "pixelDifferencePercent": 3.6535493827160495
+    },
+    {
+      "width": 1440,
+      "name": "hero",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 737.265625,
+      "candidateHeight": 737.265625,
+      "pixelDifferencePercent": 0.18283273110508882
+    },
+    {
+      "width": 1440,
+      "name": "about",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 1713.375,
+      "candidateHeight": 1713.375,
+      "pixelDifferencePercent": 0.14723518734603916
+    },
+    {
+      "width": 1440,
+      "name": "comparison",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 911.21875,
+      "candidateHeight": 911.21875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 1440,
+      "name": "mechanism",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 533.15625,
+      "candidateHeight": 533.15625,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 1440,
+      "name": "projects",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 731.265625,
+      "candidateHeight": 731.265625,
+      "pixelDifferencePercent": 0.44825819672131145
+    },
+    {
+      "width": 1440,
+      "name": "flow",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 811.96875,
+      "candidateHeight": 811.96875,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 1440,
+      "name": "faq",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 869.859375,
+      "candidateHeight": 869.859375,
+      "pixelDifferencePercent": 0
+    },
+    {
+      "width": 1440,
+      "name": "company",
+      "rawTextEqual": false,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 925.796875,
+      "candidateHeight": 925.796875,
+      "pixelDifferencePercent": 0.14211363090952725
+    },
+    {
+      "width": 1440,
+      "name": "footer",
+      "rawTextEqual": true,
+      "textEqual": true,
+      "geometryEqual": true,
+      "referenceHeight": 351.375,
+      "candidateHeight": 351.375,
+      "pixelDifferencePercent": 0.40818339646464646
+    }
+  ],
+  "assets": [
+    {
+      "file": "style.css",
+      "same": true
+    },
+    {
+      "file": "theme-corporate.css",
+      "same": true
+    },
+    {
+      "file": "assets/logo.png",
+      "same": true
+    },
+    {
+      "file": "assets/tiger.png",
+      "same": true
+    },
+    {
+      "file": "assets/project-fukasawa.png",
+      "same": true
+    },
+    {
+      "file": "assets/project-azxia.png",
+      "same": true
+    },
+    {
+      "file": "assets/hero-skytree.webp",
+      "same": true
+    },
+    {
+      "file": "assets/risk-return-corporate.svg",
+      "same": true
+    }
+  ],
+  "mailDelivery": "Mocked only; actual mailbox not retested",
+  "siteControlReaudit": "Blocked before execution; latest remote audit remains 2026-11-08",
+  "rawPixelIdentity": false
+}

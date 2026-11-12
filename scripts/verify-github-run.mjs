@@ -1,7 +1,9 @@
 import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
-const sha=process.argv[2] || execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
-assert.match(sha,/^[a-f0-9]{7,40}$/);
+const requested=process.argv[2] || 'HEAD';
+assert.ok(requested==='HEAD'||/^[a-f0-9]{7,40}$/.test(requested));
+const sha=execFileSync('git',['rev-parse',requested],{encoding:'utf8'}).trim();
+assert.match(sha,/^[a-f0-9]{40}$/);
 const credential=execFileSync('git',['credential','fill'],{input:'protocol=https\nhost=github.com\n\n',encoding:'utf8',env:{...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'never'},stdio:['pipe','pipe','pipe']});
 const token=credential.match(/^password=(.+)$/m)?.[1];
 if(!token)throw new Error('GitHub credential unavailable; no token values displayed');

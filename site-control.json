@@ -22,10 +22,10 @@
     "githubActions": "configured-ci",
     "ga4": "configured-G-17L9BLTJQT",
     "searchConsole": "verified-html-tag-sitemap-submitted",
-    "microCms": "not-used"
+    "microCms": "not-connected-to-production"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-11-05T17:10:00+09:00",
+  "updatedAt": "2026-11-12T16:00:00+09:00",
   "features": {
     "url": "https://coketsu.fund/features/",
     "status": "published-empty-list",
@@ -44,19 +44,36 @@
   },
   "design": {
     "reference": "https://coketsu-fund-mobile-nov.jtrust-inc.chatgpt.site/",
-    "implementation": "Reference main-page structure, risk-return SVG, bank comparison example, five-stage operation timeline, six-step consultation flow and FAQ adopted after follow-up approval. One working hero request form replaces the reference demo form. Shared November header/footer/theme serve all nine pages. Company representative and missing profile fields corrected against official information on 2026-11-05. Project facts, second-project generic image, login, legal links, Turnstile and Microsoft Graph retained.",
+    "implementation": "Reference structure and original design assets on all ten public pages. Both project cards restored to captured WordPress facts: 12%, 12 months, redeemed, Fukasawa 42,900,000 yen and Ryogoku II 83,600,000 yen. Reference second-project photo restored. Record date restored to supplied LP September 10, 2026, using historical accessible disclaimer wording. Capital hidden, verified company address retained. Operational menus, native forms and security preserved.",
     "fullPageImage": false,
     "testedViewportWidths": [320, 390, 768, 1440],
     "formVerification": "Hero request form now includes request choices and investment experience, confirmation/edit/send; no address or furigana. Production mocked success/error checks pass at 320/390/768/1440px. Existing standalone forms tested locally. Live cross-origin and tokenless requests rejected. No actual mailbox delivery retest; recipient secrets unchanged.",
     "pixelMatchPercent": null,
-    "deployedSourceCommit": "d6239d6",
-    "workerVersion": "4cca1242-3aa7-4fbc-a887-48b116382242",
+    "deployedSourceCommit": "2f0825e5082f9bbc715efb022ad98c3163efc8ed",
+    "workerVersion": "196a0079-21c1-4316-8a73-2fb3cf024317",
     "productionHtmlMatchesBuild": true,
     "previewHtmlMatchesBuild": true,
-    "referenceMatchStatus": "incomplete-awaiting-content-confirmation",
-    "referenceComparison": "40 section/viewport comparisons; unresolved record note and project text/images produce 12 failed assertions across four widths. Form field structure matches reference. Capital intentionally removed at user request; added menus and real form security retained."
+    "referenceMatchStatus": "verified-with-documented-source-backed-content-differences",
+    "referenceComparison": "Production: 40 section/viewport comparisons at 320/390/768/1440px, no unexplained text/image/dimension failures. Raw differences retained: original 12% and redeemed labels, September 10 record note, capital omission, verified address, extra operational menus and live-form instructions/security. Not a 100% pixel or verbatim match claim."
+  },
+  "releaseVerification": {
+    "checkedAt": "2026-11-12T07:00:00Z",
+    "publicPages": 10,
+    "pageViewportChecks": 20,
+    "sectionComparisons": 40,
+    "brokenLinks": 0,
+    "missingImages": 0,
+    "githubActions": "success",
+    "githubActionsUrl": "https://github.com/jtrust-inc/coketsu.fund/actions/runs/43171717118",
+    "emailDeliveryRetested": false,
+    "securityBackendChanged": false,
+    "dnsChanged": false,
+    "siteControlSync": "blocked-by-execution-policy",
+    "siteControlLastObservedAudit": "2026-11-08T21:00:49.523Z",
+    "rollbackWorkerVersion": "4cca1242-3aa7-4fbc-a887-48b116382242"
   },
   "notes": [
+    "2026-11-12: Source-backed content restoration and comprehensive verification published as 2f0825e / Worker 196a0079-21c1-4316-8a73-2fb3cf024317. Both production and preview ten-page HTML/build parity passed. Production full-reference comparison passes with documented content exceptions, not raw pixel identity. All public-page link/image/metadata/menu checks and mocked form flows passed. Actual mailbox delivery was not retested. .site-control.json companyName fixed in GitHub; remote Site Control metadata update/reaudit was blocked by execution policy before execution. Remote dashboard can still show the old company and deployment date. microCMS publishing remains unconnected and is not completed by this design correction. Historical notes below are superseded where they conflict with this release.",
     "2026-11-05 partial correction released: d6239d6 / Worker 4cca1242-3aa7-4fbc-a887-48b116382242. Missing inquiry choices and investment experience added with confirmation/edit/send; unrequested capital row removed; mobile overrides corrected. All ten HTML pages on production and preview equal the build. Production mocked form checks pass at four widths, news/features navigation at six widths; withdrawn notice stays 404. Real Turnstile loads, GA4 initializes, CSP reports no violations. Worker backend/config/secrets/DNS/M365 unchanged. Project cards and record note frozen to pre-fix production pending content clarification; full reference comparison is NOT passing. No actual email delivery retest. GitHub push succeeded; GitHub Actions result not verified in this release.",
     "2026-11-05: Features listing /features/ added with no fabricated articles; shared header, mobile menu and footer now include お知らせ and 特集 across all ten pages. Production and preview ten-page HTTP/menu checks passed. Six-width local news/features navigation and existing investor-login tests passed; withdrawn notice remains 404. Build, typecheck, mocked Worker security tests and deploy dry-run passed. Current deploy source 47763e3, Worker e464d396-c473-4c12-95d4-c364e8c2aea0. Full HTML byte parity was not rerun for this release. Backend, secrets, DNS and mail unchanged. CMS publishing is still pending, not completed by this navigation change.",
     "2026-11-05: Important notice was initially published with explicit user authorization, then withdrawn on subsequent explicit instruction. Production and workers.dev return 404 for the former article URL; homepage, news index and sitemap no longer contain the notice. Desktop/mobile news navigation and investor login remain. Existing Worker security, Graph/Turnstile secrets, DNS and mail settings unchanged. microCMS integration remains separate unfinished work; do not republish this notice during that integration.",
