@@ -1,10 +1,10 @@
 # Coketsu 残課題対応（接続準備）
 
 対象サイト：coketsu.fund のみ
-作業日時：2026-11-12 16:29 JST
+作業日時：2026-11-12 16:33 JST（公開後検証まで）
 GitHubリポジトリ：https://github.com/jtrust-inc/coketsu.fund.git
 ブランチ：codex/remaining-integrations-20261112
-コミットID：本報告を含むコミット（公開後の記録は site-control.json の operationalFollowup を参照）
+コミットID：3787c6ee616e899c547340db678a64df0d5d18c2（公開ソース。別途記録更新コミットあり）
 
 ## 実施内容
 
@@ -29,7 +29,11 @@ GitHubリポジトリ：https://github.com/jtrust-inc/coketsu.fund.git
 
 ## デプロイ結果
 
-- 公開バージョンと公開後結果は site-control.json の operationalFollowup へ追記。
+- GitHub Actions：[43175738119](https://github.com/jtrust-inc/coketsu.fund/actions/runs/43175738119)、completed / success。
+- Cloudflare Worker：coketsu-fund、c2b963a5-529d-4954-9149-a860e2f29c00、2026-11-12T07:30:33.371Z。
+- 本番・検証URL各10ページがビルドとバイト一致。本番10ページ×2画面幅、リンク切れ0・画像欠落0、取り下げ記事404。
+- CSP実施、プレビューnoindex、不正Origin403・トークンなし400を確認。ブラウザーで実Turnstile表示・GA4起動・CSP違反0を確認。実メールは未送信。
+- CSSは新記事用の1ファイルのみ追加。既存10ページのHTML、既存CSS、既存フォームJSは変更なし。
 - AI検証URL：https://coketsu-fund.system-f78.workers.dev/
 - 実接続の有効化は未実施。Cloudflareに登録済みのSecret名を確認し、MICROCMS_API_KEYがないことを確認。値の取得・表示・変更なし。
 
