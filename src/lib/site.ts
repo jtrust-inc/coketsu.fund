@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-
-const root = fileURLToPath(new URL("../..", import.meta.url));
+// Astro 7 bundles this module under dist during the build. Resolve captured
+// source data from the project working directory so the path stays stable.
+const root = process.cwd();
 const sourceRoot = `${root}/migration-source/site`;
 const manifestPath = `${root}/migration-source/manifest.json`;
 
