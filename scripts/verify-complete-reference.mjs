@@ -18,6 +18,8 @@ const report = { reference, candidate, checkedAt:new Date().toISOString(),
     'Header/footer: user-requested news, features, investor login and existing legal/contact links retained.',
     'Live form: real confirmation/send, privacy-policy link, honeypot and Turnstile replace non-sending demo note.',
     'Company: capital hidden at explicit user request; existing verified エムズクロス人形町10F address retained.',
+    'Projects: captured WordPress confirms 12% and 償還済み for both cards; reference demo has 10% and 募集終了・償還済み. See docs/reports/2026-11-12-content-provenance.md.',
+    'Record: restore 2026-09-10 from supplied LP and historical accessible disclaimer; do not retain the invented 2026-09-30 date.',
   ], results:[], failures:[] };
 const browser = await chromium.launch({channel:'msedge',headless:true});
 const compact = s=>s.replace(/\s+/g,'');
@@ -56,8 +58,18 @@ try {
         return copy.textContent;
       });
       let [ta,tb]=await Promise.all([text(a),text(b)]);
+      const rawTextEqual=compact(ta)===compact(tb);
+      const rawTextDifference=rawTextEqual?undefined:{reference:compact(ta),candidate:compact(tb)};
       if(name==='company') {
         ta=ta.replace('設立 / 資本金','設立').replace('2017年6月 / 1億円','2017年6月').replace('プライム人形町10F','エムズクロス人形町10F');
+      }
+      if(name==='projects') {
+        check((compact(ta).match(/想定利回り（年利）10%/g)||[]).length===2,`Reference yield changed at ${width}`);
+        check((compact(tb).match(/想定利回り（年利）12%/g)||[]).length===2,`Source-backed yield missing at ${width}`);
+        ta=ta.replaceAll('募集終了・償還済み','償還済み').replaceAll('10%','12%');
+      }
+      if(name==='about') {
+        ta=ta.replace('過去の実績であり、将来の元本・分配金や償還時期を保証するものではありません。','※2026年9月10日時点。当該実績は将来の運用成果を保証するものではありません。');
       }
       const textEqual=compact(ta)===compact(tb);
       check(textEqual,`${name}: unexpected text difference at ${width}`);
@@ -76,9 +88,8 @@ try {
       const pb=await sharp(pngB).ensureAlpha().raw().toBuffer({resolveWithObject:true});
       let pixelDifferencePercent=null;
       if(pa.info.width===pb.info.width&&pa.info.height===pb.info.height){let different=0;for(let i=0;i<pa.data.length;i+=4)if(Math.max(Math.abs(pa.data[i]-pb.data[i]),Math.abs(pa.data[i+1]-pb.data[i+1]),Math.abs(pa.data[i+2]-pb.data[i+2]))>16)different++;pixelDifferencePercent=100*different/(pa.info.width*pa.info.height);}
-      const entry={width,name,textEqual,geometryEqual,referenceHeight:ab.height,candidateHeight:bb.height,pixelDifferencePercent};
-      if(!textEqual)entry.textDifference={reference:compact(ta),candidate:compact(tb)};
-      report.results.push(entry);console.log(JSON.stringify({...entry,textDifference:undefined}));
+      const entry={width,name,rawTextEqual,rawTextDifference,textEqual,geometryEqual,referenceHeight:ab.height,candidateHeight:bb.height,pixelDifferencePercent,textDifference:!textEqual?{reference:compact(ta),candidate:compact(tb)}:undefined};
+      report.results.push(entry);console.log(JSON.stringify({...entry,textDifference:undefined,rawTextDifference:undefined}));
       for(const el of [a,b])await el.evaluate(el=>el.style.removeProperty('transform'));
     }
     for(const page of pages)await page.close();

@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const manifest = JSON.parse(await readFile(join(root, "migration-source", "manifest.json"), "utf8"));
+// Keep the historical capture unchanged, and include the new public feature index.
+manifest.pages.push({ url: 'https://coketsu.fund/features/', file: 'features/index.html' });
 const enabledFormRoutes = new Set(["/", "/contact/", "/institutional-step1/", "/request/"]);
 const failures = [];
 for (const page of manifest.pages) {
@@ -47,6 +49,6 @@ for (const required of ["robots.txt", "sitemap.xml"]) {
   try { await access(join(root, "dist", required)); } catch { failures.push(`${required}: missing`); }
 }
 try { await access(join(root, "dist", "_headers")); } catch { failures.push("_headers: missing"); }
-if (manifest.pages.length !== 9) failures.push(`Expected 9 public pages, found ${manifest.pages.length}`);
+if (manifest.pages.length !== 10) failures.push(`Expected 10 public pages, found ${manifest.pages.length}`);
 if (failures.length) throw new Error(`Verification failed:\n${[...new Set(failures)].join("\n")}`);
 console.log(`Verified Astro migration: ${manifest.pages.length} pages, ${manifest.assets.length} captured assets, no broken local references`);

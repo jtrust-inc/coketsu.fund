@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import assert from 'node:assert/strict';
+const sha=process.argv[2] || execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+assert.match(sha,/^[a-f0-9]{7,40}$/);
+const credential=execFileSync('git',['credential','fill'],{input:'protocol=https\nhost=github.com\n\n',encoding:'utf8',env:{...process.env,GIT_TERMINAL_PROMPT:'0',GCM_INTERACTIVE:'never'},stdio:['pipe','pipe','pipe']});
+const token=credential.match(/^password=(.+)$/m)?.[1];
+if(!token)throw new Error('GitHub credential unavailable; no token values displayed');
+const response=await fetch(`https://api.github.com/repos/jtrust-inc/coketsu.fund/actions/runs?head_sha=${sha}&per_page=5`,{headers:{Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}});
+assert.ok(response.ok,`GitHub HTTP ${response.status}`);
+const data=await response.json();
+console.log(JSON.stringify(data.workflow_runs.map(run=>({id:run.id,sha:run.head_sha,status:run.status,conclusion:run.conclusion,url:run.html_url})),null,2));

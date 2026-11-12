@@ -52,6 +52,8 @@ function migrateFooter(footer: string) {
 }
 
 function migrateContent(content: string, route: string) {
+  // Match the canonical Astro route without relying on a trailing-slash redirect.
+  content = content.replace(/href=(["'])\/privacy-policy\1/g, 'href=$1/privacy-policy/$1');
   const label = FORM_LABELS[route];
   if (!label) return content;
   const action = route === "/contact/" ? "contact" : route === "/request/" ? "request" : "institutional";

@@ -33,7 +33,9 @@ try {
     assert.ok(structure.scrollWidth<=width+1,`Overflow at ${width}: ${structure.scrollWidth}`);
     assert.equal(structure.forms,1);assert.equal(structure.h1s,1);assert.deepEqual(structure.missingImages,[]);assert.deepEqual(structure.invalidAnchors,[]);assert.equal(structure.placeholderForm,false);
     assert.equal(await page.locator('form [name="address"],form [name="your-address"]').count(),0);
-    assert.ok((await page.locator('main').innerText()).includes('63,600,000'));
+    assert.ok((await page.locator('main').innerText()).includes('83,600,000'));
+    assert.equal(await page.locator('#projects .project-art span').allTextContents().then(x=>x.every(v=>v==='償還済み')),true);
+    assert.equal(await page.locator('#projects dl dd').allTextContents().then(x=>x.filter(v=>v.trim()==='12%').length),2);
     const companyText = await page.locator('#company').innerText();
     for (const value of ['株式会社ジェイトラスト', '岩本 圭賢', '2017年6月', '100名', '03-6690-6652']) assert.ok(companyText.includes(value), `Missing company fact: ${value}`);
     assert.ok(!companyText.includes('資本金'));
