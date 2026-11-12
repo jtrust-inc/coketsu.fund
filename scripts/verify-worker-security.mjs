@@ -3,7 +3,8 @@ import { readFile } from 'node:fs/promises';
 import ts from 'typescript';
 
 // Pure handler tests: every provider call is intercepted; no credentials or mail.
-const source = await readFile(new URL('../worker/index.ts', import.meta.url), 'utf8');
+const source = (await readFile(new URL('../worker/index.ts', import.meta.url), 'utf8'))
+  .replace("'./articles.mjs'", JSON.stringify(new URL('../worker/articles.mjs', import.meta.url).href));
 const js = ts.transpileModule(source, { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText;
 const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(js).toString('base64')}`);
 const calls = [];

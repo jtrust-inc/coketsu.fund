@@ -1,6 +1,7 @@
-interface Env {
-  ASSETS: Fetcher;
-  FORM_RATE_LIMITER: RateLimit;
+import { handleArticles } from './articles.mjs';
+
+interface Env extends WorkerBindings {
+  MICROCMS_API_KEY?: string;
   TURNSTILE_SECRET: string;
   GRAPH_TENANT_ID?: string;
   GRAPH_CLIENT_ID?: string;
@@ -198,6 +199,7 @@ export default {
       }
       return handleForm(request, env, match[1]);
     }
-    return withSecurityHeaders(await env.ASSETS.fetch(request), url.hostname);
+    const articleResponse = await handleArticles(request, env);
+    return withSecurityHeaders(articleResponse || await env.ASSETS.fetch(request), url.hostname);
   },
 } satisfies ExportedHandler<Env>;

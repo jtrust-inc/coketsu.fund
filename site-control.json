@@ -22,10 +22,22 @@
     "githubActions": "configured-ci",
     "ga4": "configured-G-17L9BLTJQT",
     "searchConsole": "verified-html-tag-sitemap-submitted",
-    "microCms": "not-connected-to-production"
+    "microCms": "runtime-implemented-pending-key-and-live-verification"
   },
   "checks": { "build": "passed", "tests": "passed", "brokenLinks": "passed", "ssl": "passed", "dns": "passed" },
-  "updatedAt": "2026-11-12T16:00:00+09:00",
+  "updatedAt": "2026-11-12T16:29:00+09:00",
+  "operationalFollowup": {
+    "status": "partial",
+    "cmsRuntime": "implemented-and-tested-not-enabled",
+    "cmsSecretConfigured": false,
+    "cmsLiveSchemaVerified": false,
+    "mailboxReadAccess": "verified-support@coketsu.fund",
+    "lastConfirmedMailReceipt": "2026-10-17T09:06:46Z",
+    "mailDeliveryRetested": false,
+    "siteControlSync": "blocked-by-execution-policy-and-browser-control-error",
+    "report": "docs/reports/2026-11-12-remaining-integrations.md",
+    "rollbackWorkerVersion": "196a0079-21c1-4316-8a73-2fb3cf024317"
+  },
   "features": {
     "url": "https://coketsu.fund/features/",
     "status": "published-empty-list",

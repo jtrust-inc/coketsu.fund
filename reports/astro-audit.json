@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-11-05T06:38:30.805Z",
+  "generatedAt": "2026-11-12T07:27:10.691Z",
   "source": "Archived migration-source capture (not current live production)",
   "preview": "Astro dist",
   "pages": [
     {
       "url": "https://coketsu.fund/",
-      "contentMatchPercent": 87,
+      "contentMatchPercent": 90,
       "titleMatch": false,
       "links": {
         "production": 43,
-        "astro": 28,
+        "astro": 31,
         "preservedLinksPercent": 23
       },
       "images": {
@@ -21,11 +21,11 @@
     },
     {
       "url": "https://coketsu.fund/news/",
-      "contentMatchPercent": 52,
-      "titleMatch": true,
+      "contentMatchPercent": 53,
+      "titleMatch": false,
       "links": {
         "production": 40,
-        "astro": 26,
+        "astro": 29,
         "preservedLinksPercent": 29
       },
       "images": {
@@ -37,11 +37,11 @@
     },
     {
       "url": "https://coketsu.fund/contact/",
-      "contentMatchPercent": 66,
+      "contentMatchPercent": 67,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 28,
+        "astro": 31,
         "preservedLinksPercent": 35
       },
       "images": {
@@ -53,12 +53,12 @@
     },
     {
       "url": "https://coketsu.fund/institutional-step1/",
-      "contentMatchPercent": 74,
+      "contentMatchPercent": 75,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 27,
-        "preservedLinksPercent": 32
+        "astro": 30,
+        "preservedLinksPercent": 27
       },
       "images": {
         "production": 2,
@@ -69,12 +69,12 @@
     },
     {
       "url": "https://coketsu.fund/request/",
-      "contentMatchPercent": 58,
+      "contentMatchPercent": 60,
       "titleMatch": true,
       "links": {
         "production": 42,
-        "astro": 28,
-        "preservedLinksPercent": 35
+        "astro": 31,
+        "preservedLinksPercent": 30
       },
       "images": {
         "production": 2,
@@ -85,11 +85,11 @@
     },
     {
       "url": "https://coketsu.fund/cooling-off/",
-      "contentMatchPercent": 78,
+      "contentMatchPercent": 79,
       "titleMatch": true,
       "links": {
         "production": 41,
-        "astro": 27,
+        "astro": 30,
         "preservedLinksPercent": 32
       },
       "images": {
@@ -105,7 +105,7 @@
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 26,
+        "astro": 29,
         "preservedLinksPercent": 29
       },
       "images": {
@@ -117,11 +117,11 @@
     },
     {
       "url": "https://coketsu.fund/information-system-policy/",
-      "contentMatchPercent": 74,
+      "contentMatchPercent": 75,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 26,
+        "astro": 29,
         "preservedLinksPercent": 29
       },
       "images": {
@@ -133,11 +133,11 @@
     },
     {
       "url": "https://coketsu.fund/privacy-policy/",
-      "contentMatchPercent": 89,
+      "contentMatchPercent": 90,
       "titleMatch": true,
       "links": {
         "production": 40,
-        "astro": 26,
+        "astro": 29,
         "preservedLinksPercent": 29
       },
       "images": {
@@ -150,9 +150,9 @@
   ],
   "summary": {
     "pages": 9,
-    "rawContentMatchPercent": 73,
-    "titleMatchPercent": 89,
-    "preservedLinksPercent": 30,
+    "rawContentMatchPercent": 74,
+    "titleMatchPercent": 78,
+    "preservedLinksPercent": 29,
     "imagesMatchPercent": 0,
     "metricCaution": "Legacy capture comparison only. rawContentMatchPercent is a text-length heuristic, not semantic or visual accuracy; do not use it as the current design acceptance score.",
     "intentionalDifferences": [

@@ -11,11 +11,14 @@
     "prepare:assets": "node scripts/prepare-mirror.mjs",
     "dev": "node scripts/prepare-mirror.mjs && astro build && wrangler dev --config wrangler.jsonc",
     "build": "node scripts/prepare-mirror.mjs && astro build",
-    "check": "astro check",
+    "check": "astro check && tsc -p tsconfig.worker.json",
     "preview": "wrangler dev --config wrangler.jsonc",
     "deploy": "node scripts/prepare-mirror.mjs && astro build && wrangler deploy --config wrangler.jsonc",
-    "test": "node scripts/verify-mirror.mjs && node scripts/verify-preserved-projects.mjs && node scripts/verify-worker-security.mjs && node scripts/verify-important-notice.mjs",
+    "test": "node scripts/verify-mirror.mjs && node scripts/verify-preserved-projects.mjs && node scripts/verify-worker-security.mjs && node scripts/verify-important-notice.mjs && node scripts/verify-cms.mjs",
     "audit": "node scripts/audit-site.mjs"
+  },
+  "dependencies": {
+    "sanitize-html": "2.18.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
